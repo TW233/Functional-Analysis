@@ -1,0 +1,49 @@
+\ifx\allfiles\undefined
+\input{../config/config}
+\begin{document}
+	% \input{../config/cover} 
+	\else
+	\fi
+	%  ############################ 正文部分
+\appendix
+\chapter{$Supplementary \,\, Content$}\label{appendix A}
+
+\section{度量空间稠密子集的等价刻画}
+	\begin{lemma}\label{lemma A.1.1}
+		\textbf{度量空间稠密子集的等价刻画}. \\
+		Suppose $(X , \rho)$ be a metric space. Then for $A \subset X$, 
+		\begin{center}
+			$A$ is dense in $X$ $\,\, \Leftrightarrow \,\,$ $\forall x \in X$, $\exists \{ x_n \}_{n = 1}^{\infty} \subset A$, $\st \,\, x_n \overset{\rho}{\to} x$
+		\end{center}
+	
+		\vspace*{4em}
+		
+		\begin{proof}
+			\begin{enumerate}
+				\item[$\Rightarrow$]: Trivial. $\forall x \in X$, since $A$ is dense in $X$, then
+				\begin{align}
+					A \cap B(x , r) \cap X \neq \varnothing , \,\, \forall r > 0
+				\end{align}
+				不妨设$B(x , 1) \cap X \backslash \{ x \} \neq \varnothing$. Then we take
+				\begin{align}
+					x_n \in A \cap B(x , \frac{1}{n}) , \,\, \forall n \in \N
+				\end{align}
+				where we get $\{ x_n \}_{n = 1}^{\infty} \subset A$ with $x_n \overset{\rho}{\to} x$.
+				
+				\vspace*{3em}
+				
+				\item[$\Leftarrow$]: $\forall x \in X \backslash A$, WTS: $x \in \overline{A} \backslash A$. Trivial.
+			\end{enumerate}
+		\end{proof}
+	\end{lemma}
+
+
+
+
+
+
+
+	%  ############################
+	\ifx\allfiles\undefined
+\end{document}
+\fi

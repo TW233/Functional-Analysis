@@ -1,0 +1,1106 @@
+\ifx\allfiles\undefined
+\input{../config/config}
+\begin{document}
+	% \input{../config/cover} 
+	\else
+	\fi
+	%  ############################ 正文部分
+\chapter{度量空间}
+
+\section{$L^p$ 空间为赋范向量空间}
+\begin{center}
+	回顾实分析中对\textbf{范数}、\textbf{度量}及\textbf{$L^p$ 空间}的定义.
+\end{center}
+	
+\subsection{范数，度量}
+	下面给出\textbf{范数}和\textbf{度量}的严格定义.
+	\begin{defn}\label{def 1.1.1}
+		Let $X$ be a vector space over $\mathbb{F}$, a \underline{\textcolor{blue}{\textbf{norm}}} is a function:
+		\begin{align}
+			X &\longrightarrow \R_{\geq 0} \\
+			f &\longmapsto \Vert f \Vert
+		\end{align}
+		satisfying the following properties:
+		\begin{enumerate}
+			\item[(\rmnum{1})]$\Vert f \Vert \geq 0$, $\forall f \in X$. \hspace*{3em} ($\Vert f \Vert = 0 \,\, \Leftrightarrow \,\, f = 0 \,\, a.e.$)
+			
+			\item[(\rmnum{2})]$\Vert af \Vert = \left| a \right| \Vert f \Vert$, $\forall a \in \mathbb{F}, f \in X$.
+			
+			\item[(\rmnum{3})]$\Vert f + g \Vert \leq \Vert f \Vert + \Vert g \Vert$, $\forall f , g \in X$.
+		\end{enumerate}
+		
+		\vspace{2em}
+		\begin{rmk}
+			\begin{itemize}
+				\item (\rmnum{1})中的“$\Vert f \Vert = 0 \,\, \Leftrightarrow \,\, f = 0 \,\, a.e.$”的\textbf{“a.e.”}是对于$X$ 取函数空间时的条件，在实分析的取等条件中基本为默认叙述，在后续定义中往往省略. 在对$\mathcal{L}^p$ 空间的定义 (\textbf{定义 \ref{def 1.1.3}})中可以看到其合理性.
+				
+				\vspace{1em}
+				
+				\item \textbf{范数}实际上是对$\R^n$ 空间中\textbf{“与原点之间的距离”}这一概念的推广. 将函数视作向量，则其范数即为到原点的距离，即\textbf{模长}.
+				
+				\vspace{1em}
+				
+				\item 若一个\textbf{线性空间}$X$ 上配备了一个\textbf{范数}，则称其为\textcolor{blue}{\textbf{赋范向量空间 (赋范线性空间)}}.
+			\end{itemize}
+		\end{rmk}
+	\end{defn}
+	
+	\newpage
+	将函数视作向量，就有其\textbf{到原点的距离}为\textbf{范数}. 但若是想要衡量\textbf{任意两个函数之间的距离}，则需要引入下面\textbf{度量}的概念.
+	\begin{defn}\label{def 1.1.2}
+		A \underline{\textcolor{blue}{\textbf{metric}}} on $X$ is a map
+		\begin{align}
+			\rho : X \times X &\longrightarrow \R_{\geq 0} \\
+			(x , y) &\longmapsto \rho(x , y)
+		\end{align}
+		satisfying
+		\begin{enumerate}
+			\item[(\rmnum{1})]$\rho(x,  y) \geq 0$, $\forall x , y \in X$. \hspace*{3em} ($\rho(x , y) = 0 \,\, \Leftrightarrow \,\, x = y$)
+			
+			\item[(\rmnum{2})]$\rho(x , y) = \rho(y , x)$, $\forall x , y \in X$.
+			
+			\item[(\rmnum{3})]$\rho(x , y) + \rho(y , z) \geq \rho(x , z)$, $\forall x , y , z \in X$.
+		\end{enumerate}
+		
+		\vspace{2em}
+		\begin{rmk}
+			\begin{itemize}
+				\item 若$X$ 为函数空间，则 (\rmnum{1})中“$\rho(x , y) = 0$”等价条件默认为“$x = y \,\, a.e.$”.
+				
+				\vspace{1em}
+				
+				\item \textbf{度量}可看作将两个函数 (向量)的起点均平移至原点后，其两个终点之间的\textbf{距离}.
+			\end{itemize}
+		\end{rmk}
+	\end{defn}
+
+\vspace{4em}
+\subsection{$L^p$ Space}
+\paragraph{$L^p \,\, Space$}
+	下面给出\textbf{$L^p$ 空间}的定义.
+	\begin{defn}\label{def 1.1.3}
+		For any measure space $(X , \mathcal{M} , \mu)$, define the \underline{\textcolor{blue}{\textbf{$L^p \,\, Space \,\, L^{p}(X)$}}} on $X$ ($1 \leq p < \infty$)
+		\begin{align}
+			L^{p}(X) &= \left\{ f \in \mathcal{M} \mid \int_{X}{\left| f \right|^p d \mu} < \infty \right\} , \,\, \forall 1 \leq p < \infty\\
+			L^{\infty}(X) &= \left\{ f \in \mathcal{M} \, \Big| \, \inf{\left\{ C \geq 0 \mid \left| f \right| \leq C \,\, a.e. \right\}} < \infty \right\}
+		\end{align}
+		
+		\vspace{2em}
+		\begin{rmk}
+			与$L^1$ 空间 (即可积函数构成的空间)类似, 后面我们考虑的$L^{p}(X)$ 空间事实上为\textbf{几乎处处相等}意义下的完全剩余系, 即在$L^{p}(X)$ 空间上定义一个等价关系$\sim$：
+			\begin{center}
+				$f \sim g \,\, \Leftrightarrow \,\, f = g \,\, a.e.$
+			\end{center}
+			此时再令$L^{p}(X)$ 空间模去该等价关系$\sim$, 即
+			\begin{center}
+				$L^{p}(X) \coloneqq L^{p}(X) / \sim$
+			\end{center}
+		\end{rmk}
+	\end{defn}
+
+\newpage
+
+\paragraph{$L^p$ 范数}
+	在$L^{p}$ 空间上, 我们来定义\textbf{$L^p$ 范数}.
+	\begin{defn}\label{def 1.1.4}
+		Measure space $(X , \mathcal{M} , \mu)$. For any function $f \in L^{p}(X)$, define the \underline{\textcolor{blue}{\textbf{$L^p$ norm}}} of $f$
+		\begin{align}
+			\Vert f \Vert_{p} &= \left( \int_{X}{\left| f \right|^p d\mu} \right)^{\frac{1}{p}} , \,\, \forall 1 \leq p < \infty \\
+			\Vert f \Vert_\infty &= \inf{\left\{ C \geq 0 \mid \left| f \right| \leq C \,\, a.e. \right\}}
+		\end{align}
+		
+		\vspace{2em}
+		\begin{rmk}
+			\begin{itemize}
+				\item 不难得到$L^\infty$ 范数的\textbf{等价定义}为
+				\begin{align}
+					\Vert f \Vert_\infty = \sup{\left\{ C \geq 0 \mid \mu(\left| f \right| > C ) > 0 \right\}}
+				\end{align}
+			
+				\vspace{1em}
+				
+				\item 为了说明上述定义是well-defined, 我们需要验证其满足\textbf{范数的三条公理 (Def \ref{def 1.1.1})}. \\
+				其中前面两条 (正定性、绝对齐性)是显然的, 而对于三角不等式, 我们需要用到后续证明的\textbf{Minkowski Inequality (Thm \ref{thm 1.1.4})}.
+			\end{itemize}
+		\end{rmk}
+	\end{defn}
+	
+	\vspace{4em}
+	事实上, 在证明了\textbf{Minkowski Inequality (Thm \ref{thm 1.1.4})} 后, 我们还可得到$L^{p}(X)$ 为\textbf{线性空间}, 从而证明$(L^{p}(X) , \,\, \Vert \cdot \Vert_p)$ 为\textbf{赋范向量空间}. 下面我们的证明思路如下：
+	\begin{center}
+		\textbf{Young Inequality} $\,\, \Rightarrow \,\,$ \textbf{H\"{o}lder Inequality} $\,\, \Rightarrow \,\,$ \textbf{Minkowski Inequality}
+	\end{center}
+
+\newpage
+\subsection{Young Inequality}
+	为了证明\textbf{H\"{o}lder不等式}, 先来给出\textbf{Young不等式}, 可视作一条\textbf{均值不等式的加权推广}.
+	\begin{thm}\label{thm 1.1.1}
+		\textbf{Young Inequality}. \\
+		Suppose $p , q > 0$ and $\frac{1}{p} + \frac{1}{q} = 1$. Then for $\forall a , b \geq 0$, $\st$
+		\begin{align}
+			ab \leq \frac{1}{p} a^p + \frac{1}{q} b^q
+		\end{align}
+		
+		\vspace{2em}
+		\begin{rmk}
+			\textbf{Young不等式}可视作一条均值不等式 (几何平均数$\leq$ 平方平均数)的\textbf{加权推广}, 即
+			\begin{center}
+				$\sqrt{ab} \leq \sqrt{\frac{a^2 + b^2}{2}}$
+			\end{center}
+		\end{rmk}
+		
+		\vspace{2em}
+		\begin{proof}
+			(利用\textbf{指数函数的凸性}及\textbf{Jensen Inequality}). \\
+			It's trivial when $a = 0$ or $b = 0$. 不妨设$a , b \neq 0$, 即$a , b > 0$. \\
+			Since $f(x) = e^x$ is convex, $\frac{1}{p} + \frac{1}{q} = 1$, then by \textbf{Jensen Inequality},
+			\begin{align}
+				e^{\frac{x}{p} + \frac{y}{q}} \leq \frac{1}{p} e^x + \frac{1}{q} e^y , \,\, \forall x , y \in \R
+			\end{align}
+			Let $x = \log{a^p}$, $y = \log{b^q}$, $\forall a , b > 0$, then
+			\begin{align}
+				ab \leq \frac{a^p}{p} + \frac{b^q}{q} , \,\, \forall a , b > 0
+			\end{align}
+		\end{proof}
+	\end{thm}
+	
+	\vspace{4em}
+	下面给出一条推论, 将用于\textbf{H\"{o}lder Inequality} 的证明中.
+	\begin{corollary}\label{cor 1.1.2}
+		Suppose $p , q > 0$ and $\frac{1}{p} + \frac{1}{q} = 1$. Then for $\forall f \in L^p , g \in L^q$, $\st$
+		\begin{align}
+			\int{\left| f g \right|} \leq \frac{1}{p} \int{\left| f \right|^p} + \frac{1}{q} \int{\left| g \right|^q}
+		\end{align}
+		
+		\vspace{2em}
+		\begin{proof}
+			By \textbf{Young Inequality (Thm \ref{thm 1.1.1})}, 逐点均有
+			\begin{align}
+				\left| fg \right| (x) \leq \frac{1}{p} \left| f \right|^p (x) + \frac{1}{q} \left| g \right|^q (x) , \,\, \forall x \in X
+			\end{align}
+			积分, 得
+			\begin{align}
+				\int{\left| f g \right|} \leq \frac{1}{p} \int{\left| f \right|^p} + \frac{1}{q} \int{\left| g \right|^q}
+			\end{align}
+		\end{proof}
+	\end{corollary}
+
+\newpage
+\subsection{H\"{o}lder Inequality}
+ 	下面给出\textbf{二元情形下的H\"{o}lder不等式}.
+ 	\begin{thm}\label{thm 1.1.3}
+ 		\textbf{H\"{o}lder Inequality}. \\
+ 		Suppose $1 < p , q < \infty$ and $\frac{1}{p} + \frac{1}{q} = 1$. Then $\forall f \in L^{p} , g \in L^q$, $\st$ $fg \in L^1$ and
+ 		\begin{align}
+ 			\Vert fg \Vert_1 \leq \Vert f \Vert_p \cdot \Vert g \Vert_q
+ 		\end{align}
+ 		
+ 		\vspace{4em}
+ 		\begin{proof}
+ 			It's trivial when $\Vert f \Vert_p = 0$ or $\Vert g \Vert_q = 0$. 不妨设$\Vert f \Vert_p, \,\, \Vert g \Vert_q \neq 0$. \\
+ 			不妨设$\Vert f \Vert_p = \Vert g \Vert_q = 1$. (Otherwise we can let $\widetilde{f} = \frac{f}{\Vert f \Vert_p}$ and $\widetilde{g} = \frac{g}{\Vert g \Vert_q}$) \\
+ 			Then by \textbf{Young Inequality (Cor \ref{cor 1.1.2})},
+ 			\begin{align}
+ 				\Vert fg \Vert_1 
+ 				= \int{\left| fg \right|}
+ 				&\leq \frac{1}{p} \int{\left| f \right|^p} + \frac{1}{q} \int{\left| g \right|^q} \\
+ 				&= \frac{1}{p} \Vert f \Vert_{p}^{p} + \frac{1}{q} \Vert g \Vert_{q}^{q} \\
+ 				&= \frac{1}{p} + \frac{1}{q} \\
+ 				&= 1 
+ 				= \Vert f \Vert_p \cdot \Vert g \Vert_q
+ 			\end{align}
+ 		\end{proof}
+ 	\end{thm}
+ 
+ \newpage
+ 
+ \subsection{Minkowski Inequality}
+ 	下面给出\textbf{Minkowski不等式}的内容, 它说明了我们所定义的$L^p$ 范数$\Vert \cdot \Vert_p$ (Def \ref{def 1.1.4}) 的合理性, 并且可以推出$L^p$ 空间为\textbf{线性空间}, 从而得到$(L^p(X) , \,\, \Vert \cdot \Vert_p)$ 为\textbf{赋范向量空间}.
+ 	\begin{thm}\label{thm 1.1.4}
+ 		\textbf{Minkowski Inequality}. \\
+ 		Suppose $1 \leq p < \infty$. Then for $\forall f , g \in L^p$, $\st$
+ 		\begin{align}
+ 			\Vert f + g \Vert_p \leq \Vert f \Vert_p + \Vert g \Vert_p
+ 		\end{align}
+ 		
+ 		\vspace{4em}
+ 		\begin{proof}
+ 			$\forall f , g \in L^p$, we have
+ 			\begin{align}
+ 				\Vert f + g \Vert_{p}^p 
+ 				= \int{\left| f + g \right|^p} 
+ 				&= \int{\left| f + g \right| \cdot \left| f + g \right|^{p - 1}} \\
+ 				&\leq \int{\left| f \right| \cdot \left| f + g \right|^{p - 1}} + \int{\left| g \right| \cdot \left| f + g \right|^{p - 1}}
+ 			\end{align}
+ 			By \textbf{H\"{o}lder Inequality (Thm \ref{thm 1.1.3})},
+ 			\begin{align}
+ 				\int{\left| f \right| \cdot \left| f + g \right|^{p - 1}}
+ 				= \Vert \left| f \right| \cdot \left| f + g \right|^{p - 1} \Vert_{1} 
+ 				\leq \left( \int{\left| f \right|^p} \right)^{\frac{1}{p}} \cdot \left( \int{\left| f + g \right|^{(p - 1) \cdot q}} \right)^{\frac{1}{q}}
+ 			\end{align}
+ 			where $\frac{1}{p} + \frac{1}{q} = 1$. Thus $q = \frac{p}{p - 1}, (p - 1) q = p$, we have
+ 			\begin{align}
+ 				\int{\left| f \right| \cdot \left| f + g \right|^{p - 1}}
+ 				\leq \left( \int{\left| f \right|^p} \right)^{\frac{1}{p}} \cdot \left( \int{\left| f + g \right|^{p}} \right)^{\frac{p - 1}{p}}
+ 				= \Vert f \Vert_{p} \cdot \Vert f + g \Vert_{p}^{p - 1}
+ 			\end{align}
+ 			Similarly, we get
+ 			\begin{align}
+ 				\int{\left| g \right| \cdot \left| f + g \right|^{p - 1}}
+ 				\leq \left( \int{\left| g \right|^p} \right)^{\frac{1}{p}} \cdot \left( \int{\left| f + g \right|^{p}} \right)^{\frac{p - 1}{p}}
+ 				= \Vert g \Vert_{p} \cdot \Vert f + g \Vert_{p}^{p - 1}
+ 			\end{align}	
+ 			Therefore,
+ 			\begin{align}
+ 				\Vert f + g \Vert_{p}^{p} 
+ 				&\leq \int{\left| f \right| \cdot \left| f + g \right|^{p - 1}} + \int{\left| g \right| \cdot \left| f + g \right|^{p - 1}} \\
+ 				&\leq \left( \Vert f \Vert_{p} + \Vert g \Vert_{p} \right) \cdot \Vert f + g \Vert_{p}^{p - 1}
+ 			\end{align}
+ 			i.e.
+ 			\begin{align}
+ 				\Vert f + g \Vert_{p} \leq \Vert f \Vert_{p} + \Vert g \Vert_{p} , \,\, \forall f , g \in L^p
+ 			\end{align}
+ 		\end{proof}
+ 	\end{thm}
+ 
+ \newpage
+ 
+ \section{Completion of a metric space}
+ \begin{center}
+ 	下面我们来讨论\textbf{度量空间的完备化}的内容. 在此之前先给出一些基础概念.
+ \end{center}
+
+\subsection{Complete metric spaces}
+\paragraph{柯西列}
+	先来推广\textbf{一般度量空间$(X , \rho)$上的柯西列}的定义.
+	\begin{defn}\label{def 1.2.1}
+		In a metric space $(X , \rho)$, a sequence $\{x_n\}_{n = 1}^{\infty}$ of points $x_n \in X$ is a \underline{\textcolor{blue}{\textbf{Cauchy sequence}}} if $\forall \epsilon > 0$, $\exists N \in \N$, $\st$
+		\begin{align}
+			\rho(x_m , x_n) < \epsilon , \,\, \forall m , n > N
+		\end{align}
+		
+		\vspace{2em}
+		\begin{rmk}
+			\textbf{Cauchy sequence}也有一种\textbf{等价定义}, 涉及到\textbf{直径diam}在一般度量空间$(X , \rho)$ 上的推广, 即
+			\begin{defn}\label{def 1.2.2}
+				In a metric space $(X , \rho)$, a sequence $\{x_n\}_{n = 1}^{\infty}$ of points $x_n \in X$ is a \underline{\textcolor{blue}{\textbf{Cauchy sequence}}} if
+				\begin{align}
+					\lim_{n \to \infty}{diam(\bigcup_{m = n}^{\infty}{\left\{ x_m \right\}})} = 0
+				\end{align}
+				where 
+				\begin{align}
+					diam(\Omega) = \sup_{x , y \in \Omega}{\rho(x , y)} , \,\, \forall \Omega \subset X
+				\end{align}
+			\end{defn}
+		\end{rmk}
+	\end{defn}
+	
+\newpage
+
+\paragraph{完备性}
+	下面给出一般度量空间\textbf{完备性}的定义.
+	\begin{defn}\label{def 1.2.3}
+		A metric space $(X,  \rho)$ is \underline{\textcolor{blue}{\textbf{complete}}} if every Cauchy sequence of points of $X$ converges in $X$.
+		
+		\vspace{3em}
+		下面给出几个\textbf{完备}与\textbf{不完备}度量空间的例子.
+		\begin{example}\label{ex 1.2.1}
+			\begin{itemize}
+				\item $\Q$ 不完备, $\R$ 完备. 
+				
+				\item 在$L^\infty$ 意义下, $P[a , b]$ \textbf{不完备} ($[a , b]$ 上的多项式空间), $C[a , b]$ \textbf{完备}.
+			\end{itemize}
+		\end{example}
+	\end{defn}
+	
+	\vspace{6em}
+	
+	下面给出度量空间\textbf{完备的等价表述}.
+	\begin{proposition}\label{prop 1.2.1}
+		Suppose $(X , \rho)$ be a metric space, then
+		\begin{center}
+			$(X , \rho)$ is complete $\,\, \Leftrightarrow \,\, X$ 中\textbf{闭集套定理}成立
+		\end{center}
+		i.e. $\forall$ 非空闭集列$\{ F_n \}_{n = 1}^{\infty} \subset \mathcal{P}(X)$ 
+		\begin{center}
+			If $F_1 \supset F_2 \supset \cdots$ and $diam(F_n) \to 0$, then $\overset{\infty}{\underset{n = 1}{\bigcap}}{F_n}$ 为单点集
+		\end{center}
+		
+		\vspace{6em}
+		
+		\begin{proof}
+			\begin{enumerate}
+				\item[(a)] 必要性$\Rightarrow$: Suppose $(X , \rho)$ is complete. \\
+				$\forall \{ F_n \}_{n = 1}^{\infty}$, $F_n \underset{closed}{\subset} X$, $F_1 \supset F_2 \supset \cdots$ and $diam(F_n) \to 0$. Take $x_n \in F_n, \,\, \forall n \in \N$. \\
+				Then $\{ x_n \}_{n = 1}^{\infty}$ is a Cauchy seqeunce in $X$. \\
+				Since $(X , \rho)$ is complete, then $x_n \to x_0 \in X$. 不难证明, $x_0 \in \overset{\infty}{\underset{n = 1}{\bigcap}}{F_n}$. Thus $\overset{\infty}{\underset{n = 1}{\bigcap}}{F_n} \neq \varnothing$. \\
+				下用反证法证明$\overset{\infty}{\underset{n = 1}{\bigcap}}{F_n}$ 为单点集: \\
+				Assume $\exists x^{'} \in \overset{\infty}{\underset{n = 1}{\bigcap}}{F_n}$, $x^{'} \neq x_0$, then
+				\begin{center}
+					$x^{'} , x_0 \in F_n , \,\, \forall n \in N$
+				\end{center}
+				Then
+				\begin{center}
+					$diam(F_n) \geq \rho(x^{'} , x_0) > 0 , \,\, \forall n \in \N$ \\
+					$diam(F_n) \not\to 0$
+				\end{center}
+				which is a contradiction. Therefore, $\overset{\infty}{\underset{n = 1}{\bigcap}}{F_n} = \{ x_0 \}$ 为单点集.
+				
+				\vspace{4em}
+				
+				\item[(b)] 充分性$\Leftarrow$: $\forall$ Cauchy sequence $\{ x_n \}_{n = 1}^{\infty} \subset X$. Let
+				\begin{align}
+					F_j = \overline{\bigcup_{n = j}^{\infty}{\{ x_n \}}} , \,\, j = 1 , 2 , \cdots
+				\end{align}
+				Then $\{ F_n \}_{n = 1}^{\infty}$ 满足闭集套条件, $\overset{\infty}{\underset{n = 1}{\bigcap}}{F_n} = \{ x_0 \}$ 为单点集, $x_n \to x_0 \in X$. $(X , \rho)$ complete.
+			\end{enumerate}
+		\end{proof}
+	\end{proposition}
+
+\newpage
+
+\subsection{Nowhere dense $\&$ Category Set}
+\begin{center}
+	在这一节我们给出\textbf{无处稠密 (稀疏)}以及\textbf{纲集}的概念.
+\end{center}
+
+\vspace{2em}
+\paragraph{Nowhere dense}
+	下面给出\textbf{无处稠密 / 稀疏}的定义.
+	\begin{defn}\label{def 1.2.4}
+		Suppose $(X,  \rho)$ be a metric space. We call $A \subset X$ \underline{\textcolor{blue}{\textbf{nowhere dense}}} if 
+		\begin{align}
+			\left( \overline{A} \right)^{\circ} = \varnothing
+		\end{align}
+		
+		\vspace{2em}
+		\begin{rmk}
+			\begin{itemize}
+				\item $A \subset X$ \textbf{无处稠密 / 稀疏}即$A$ 的闭包$\overline{A}$无内点.
+				
+				\vspace{6em}
+				
+				\item \underline{\textbf{稠密 (dense)}}和\underline{\textbf{无处稠密 / 稀疏 (nowhere dense)}}\textcolor{red}{\textbf{并不是}}一对\textbf{对偶概念}, 有如下关系：
+				\begin{center}
+					$A$ dense $\,\, \Leftarrow \,\,$ $A^c$ nowhere dense \\
+					$A$ dense $\,\, \not\Rightarrow \,\,$ $A^c$ nowhere dense
+				\end{center}
+				
+				\begin{proof}
+					$A^c$ nowhere dense $\,\, \Rightarrow \,\, (\overline{A^c})^\circ = \varnothing \,\, \Rightarrow \,\, (A^c)^\circ = (\overline{A})^c = \varnothing \,\, \Rightarrow \,\, \overline{A} = X \,\, \Rightarrow \,\, A$ dense
+				\end{proof}
+				
+				\vspace{6em}
+				
+				\item \textbf{单点集}\textcolor{red}{\textbf{不一定}}为\textbf{无处稠密集 / 稀疏集}. 这取决于度量$\rho$ 的选取, 下面给出反例.
+				\begin{example}\label{ex 1.2.2}
+					Consider a metric space $(\Z , \rho)$ with
+					\begin{align}
+						\rho : \Z \times \Z &\longrightarrow \R_{\geq 0} \\
+						(x , y) &\longmapsto \rho(x , y) = \begin{cases}
+							0 , \,\, if \,\, x = y \\
+							1 , \,\, if \,\, x \neq y
+						\end{cases}
+					\end{align}
+					Then for $\forall \{ x \} \subset \Z$, $B(x , \frac{1}{2}) \cap \Z \subset \overline{\{ x \}}$, 于是$\left( \overline{\{ x \}} \right)^\circ = \{ x \}$ 非空, 单点集$\{ x \}$ \textbf{不稀疏}.
+				\end{example}
+			\end{itemize}
+		\end{rmk}
+	\end{defn}
+	
+	\newpage
+	
+	下面给出更常用的用于判断\textbf{无处稠密 / 稀疏}的\textbf{等价刻画}.
+	\begin{proposition}\label{prop 1.2.2}
+		Suppose $(X , \rho)$ be a metric space. Then
+		\begin{center}
+			$A \subset X$ nowhere dense $\,\, \Leftrightarrow \,\, \forall B(x , r) \subset X$, $\,\, \exists \overline{B(x^{'} , r^{'})} \subset B(x , r)$, $\st \,\, \overline{B(x^{'} , r^{'})} \cap \overline{A} = \varnothing$
+		\end{center}
+		
+		\vspace{4em}
+		
+		\begin{proof}
+			\begin{enumerate}
+				\item[(a)] 必要性$\Rightarrow$: 反证法. Assume $\exists B(x , r) \subset X$, $\st$ $\forall \overline{B(x^{'} , r^{'})} \subset B(x , r)$, $\overline{B(x^{'} , r^{'})} \cap \overline{A} \neq \varnothing$. \\
+				Then $\forall x^{'} \in B(x , r), \,\, x^{'} \in \overline{A}$. Thus $x \in \overline{A}$ and $B(x , r) \subset \overline{A} \,\, \Rightarrow \,\, x$ 为$\overline{A}$ 的内点, 矛盾.
+				
+				\vspace{1em}
+				
+				\item[(b)] 充分性$\Leftarrow$: 反证法. Suppose $\exists x_0 \in \left( \overline{A} \right)^\circ$, then $\exists B(x_0 , r_0) \subset \overline{A}$. \\
+				$\forall \overline{B(x^{'} , r^{'})} \subset B(x_0 , r_0)$, $\overline{B(x^{'} , r^{'})} \subset \overline{A}$, 矛盾.
+			\end{enumerate}
+		\end{proof}
+	\end{proposition}
+
+\newpage
+
+\paragraph{Category Set}
+	下面我们来给出\textbf{纲集}的定义, 这实际上给出了度量空间$(X , \rho)$ 的\textbf{子集的分类}.
+	\begin{defn}\label{def 1.2.5}
+		Suppose $(X , \rho)$ be a metric space. If $A \subset X$ is a countable union of nowhere dense subsets of $X$, i.e.
+		\begin{align}
+			A = \bigcup_{n = 1}^{\infty}{E_n} , \,\, where \,\, E_n's \,\, are \,\, nowhere \,\, dense
+		\end{align}
+		then we say $A$ is a \underline{\textcolor{blue}{\textbf{First Category Set}}}. Otherwise we call it a \underline{\textcolor{blue}{\textbf{Second Category Set}}}.
+		
+		\vspace{2em}
+		
+		\begin{example}\label{ex 1.2.3}
+			考虑欧式度量$(\R^1 , d)$, 则有理数集$\Q$ 为\textbf{第一纲集}. 一般地, $(\R^1 , d)$ 中的\textbf{可数点集}均为\textbf{第一纲集}.
+		\end{example}
+	\end{defn}
+	
+	\vspace{6em}
+	
+	下面给出\textbf{Baire定理}, 它给出了\textbf{完备度量空间的刻画}.
+	\begin{thm}\label{thm 1.2.1}
+		\textbf{Baire's Theorem}. 
+		\begin{center}
+			Complete metric spaces are Second Category Sets.
+		\end{center}
+	
+		\vspace{4em}
+		
+		\begin{proof}
+			反证法. Assume complete metric space $(X , \rho)$ is a first category set. Then $\exists \{ E_n \}_{n = 1}^{\infty}$, $E_n \subset X$ nowhere dense, $\st$
+			\begin{align}
+				X = \bigcup_{n = 1}^{\infty}{E_n}
+			\end{align}
+			Since $E_n$ is nowhere dense, then $\exists \overline{B(x_1 , r_1)} \subset X , \,\, \st \overline{B(x_1 , r_1)} \cap \overline{E_1} = \varnothing$. \\
+			Similarly, for $E_2$ nowhere dense, $\exists \overline{B(x_2 , r_2)} \subset B(x_1 , r_1)$, $\st \overline{B(x_2 , r_2)} \cap \overline{E_2} = \varnothing$
+			\begin{center}
+				$\cdots$
+			\end{center}
+			Denote $F_n = \overline{B(x_n , r_n)}$, we can always choose $F_k$ with $diam(F_{k + 1}) \leq \frac{diam(F_k)}{2}$. Then $F_n$'s satisfies:
+			\begin{center}
+				$F_n \underset{closed}{\subset} X$, $F_1 \supset F_2 \supset \cdots$, $diam(F_n) \to 0$
+			\end{center}
+			Since $X$ is complete, then by \textbf{Prop \ref{prop 1.2.1} (完备的等价表述)},
+			\begin{center}
+				$\overset{\infty}{\underset{n = 1}{\bigcap}}{F_n} = \{ x_0 \}$ 为单点集.
+			\end{center}
+			Since $(\overset{\infty}{\underset{n = 1}{\bigcap}}{F_n}) \cap (\overset{\infty}{\underset{n = 1}{\bigcup}}{\overline{E_n}}) = \varnothing$, 而$\overset{\infty}{\underset{n = 1}{\bigcup}}{\overline{E_n}} = X$, then $x_0 \notin X$, 矛盾. \\
+			Therefore, $(X , \rho)$ is a Second Category Set.
+		\end{proof}
+	\end{thm}
+
+\newpage
+
+\subsection{保距同构, 完备化空间}
+	\begin{center}
+		这一小节我们来介绍\textbf{等距同构 (Isometry)}和\textbf{完备化 (度量)空间}的概念.
+	\end{center}
+
+\vspace{2em}
+
+\paragraph{等距同构 (Isometry)}
+	下面给出度量空间之间的\textbf{等距(保距)同构}的定义.
+	\begin{defn}\label{def 1.2.6}
+		Suppose $(X_1 , \rho_1) , (X_2 , \rho_2)$ are both metric spaces. Suppose
+		\begin{center}
+			$T : (X_1 , \rho_1) \rightarrow (X_2 , \rho_2)$
+		\end{center}
+		If $\rho_2 \circ T = \rho_1$, then we call $T$ an \underline{\textcolor{blue}{\textbf{isometry (等距 / 保距映射)}}}. 若进一步$T$ 为满射, 则称$T$ 为\underline{\textcolor{blue}{\textbf{等距 / 保距同构}}}.
+		
+		\vspace{2em}
+		\begin{rmk}
+			事实上, 条件``\underline{$\rho_2 \circ T = \rho_1$}"已经蕴含了\textbf{$T$ 为单射}. 从而加上\textbf{满射}的条件即为\textbf{同构}.
+			
+			\vspace{1em}
+			
+			\begin{proof}
+				$\forall x , y \in X_1 , x \neq y$, we have
+				\begin{center}
+					$\rho_1(x , y) = \rho_2(T(x) , T(y)) \neq 0 \,\, \Rightarrow \,\, T(x) \neq T(y) \,\, \Rightarrow \,\, T$ injective
+				\end{center}
+			\end{proof}
+		\end{rmk}
+	\end{defn}
+
+\vspace{4em}
+
+\paragraph{完备化空间}
+	下面给出一般度量空间的\textbf{完备化空间}的定义.
+	\begin{defn}\label{def 1.2.7}
+		Suppose $(X , \rho)$ be a metric space. If there exists a complete metric space $(X_1 , \rho_1)$, $\st$
+		\begin{center}
+			$(X , \rho)$ 等距同构于$(X_1 , \rho_1)$ 的某个稠密子集
+		\end{center}
+		则称$X_1$ 为$X$ 的\underline{\textcolor{blue}{\textbf{完备化空间}}}.
+		
+		\vspace{2em}
+		
+		\begin{rmk}
+			事实上, 不难说明度量空间的\textbf{完备化空间}有如下的等价定义\footnote{详见\textbf{《泛函分析讲义》 -- 张恭庆、林源渠}, 定义1.2.2 $\&$ 命题1.2.5}.
+			\begin{defn}
+				包含$(X , \rho)$ 的最小的完备度量空间称为$(X , \rho)$ 的\underline{\textcolor{blue}{\textbf{完备化空间}}}.
+			\end{defn}
+		\end{rmk}
+	\end{defn}
+
+\newpage
+
+\subsection{Completion of a metric space}
+	下面给出一般度量空间\textbf{完备化的过程}.
+	\begin{thm}\label{thm 1.2.2}
+		\textbf{Completion of a metric space}. 
+		\begin{center}
+			任一度量空间$(X , \rho)$ 存在完备化空间, 且在保距同构意义下唯一.
+		\end{center}
+		
+		\vspace{4em}
+		\begin{proof}
+			\begin{enumerate}
+				\item Construction of the complete metric space $(X_2 , \rho_2)$: \\
+				Let
+				\begin{align}
+					X_1 = \left\{ \{ x_n \}_{n = 1}^{\infty} \mid \{ x_n \}_{n = 1}^{\infty} \subset X \,\, is \,\, a \,\, Cauchy \,\, squence \right\}
+				\end{align}
+				$\forall \xi = \{ x_n \}_{n = 1}^{\infty} , \eta = \{ y_n \}_{n = 1}^{\infty} \in X_1$, we define a equivalence relation $\sim$\footnote{不难证明well-defined: 自反性、对称性、传递性}:
+				\begin{align}
+					\xi \sim \eta \,\, \Leftrightarrow \,\, \lim_{n \to \infty}{\rho(x_n , y_n)} = 0
+				\end{align}
+				Then let
+				\begin{align}
+					X_2 &= X_1 / \sim 
+				\end{align}
+				Define the metric $\rho_2$ on $X_2$
+				\begin{align}
+					\rho_2 : X_2 \times X_2 &\longrightarrow \R_{\geq 0} \\
+					([\xi] , [\eta]) &\longmapsto \rho_2([\xi] , [\eta]) = \lim_{n \to \infty}{\rho(x_n , y_n)}
+				\end{align}
+				where $\xi = \{ x_n \}_{n = 1}^{\infty} , \eta = \{ y_n \}_{n = 1}^{\infty} \in X_1$. 
+				
+				\vspace{1em}
+				下面说明$\rho_2$ is well-defined (与代表元无关$\&$ 极限存在): 
+				
+				\vspace{1em}
+				\begin{enumerate}
+					\item 与代表元无关: $\forall \widetilde{\xi} = \{ \widetilde{x_n} \}_{n = 1}^{\infty}, \widetilde{\eta} = \{ \widetilde{y_n} \}_{n = 1}^{\infty}$ with $[\widetilde{\xi}] = [\xi] , [\widetilde{\eta}] = [\eta]$. Then
+					\begin{align}
+						\rho(\widetilde{x_n} , \widetilde{y_n}) 
+						&\leq \rho(\widetilde{x_n} , x_n) + \rho(x_n , y_n) + \rho(y_n , \widetilde{y_n}) , \,\, \forall n \in \N \\
+						\rho(x_n , y_n) 
+						&\leq \rho(x_n , \widetilde{x_n}) + \rho(\widetilde{x_n} , \widetilde{y_n}) + \rho(\widetilde{y_n} , y_n) , \,\, \forall n \in \N
+					\end{align}
+					Since $[\widetilde{\xi}] = [\xi] , [\widetilde{\eta}] = [\eta]$, then
+					\begin{align}
+						\rho(x_n , \widetilde{x_n}) \to 0 , \,\, \rho(y_n , \widetilde{y_n}) \to 0
+					\end{align}
+					Letting $n \to \infty$, we get
+					\begin{align}
+						\rho_2(\widetilde{x_n} , \widetilde{y_n}) = \rho_2(x_n , y_n)
+					\end{align}
+					
+					\vspace{2em}
+					
+					\item 极限存在: 即证$\left\{ \rho(x_n , y_n) \right\}_{n = 1}^{\infty}$ 为$\R$ 中Cauchy sequence. \\
+					$\forall [\xi] , [\eta] \in X_2$, where $\xi = \{ x_n \}_{n = 1}^{\infty} , \eta = \{ y_n \}_{n = 1}^{\infty} \subset X$ are Cauchy sequences. Then
+					\begin{align}
+						\left| \rho(x_n , y_n) - \rho(x_m , y_m) \right| 
+						&= \left| \left( \rho(x_n , y_n) - \rho(x_m , y_n) \right) + \left( \rho(x_m , y_n) - \rho(x_m , y_m) \right) \right| \\
+						&\leq \left| \rho(x_n , y_n) - \rho(x_m , y_n) \right| + \left| \rho(x_m , y_n) - \rho(x_m , y_m) \right| \\
+						&\leq \rho(x_n , x_m) + \rho(y_n , y_m) , \,\, \forall n , m \in \N
+					\end{align}
+					Since $\xi = \{ x_n \}_{n = 1}^{\infty} , \eta = \{ y_n \}_{n = 1}^{\infty} \subset X$ are Cauchy sequences, then $\left\{ \rho(x_n , y_n) \right\}_{n = 1}^{\infty}$ is a Cauchy sequence in $\R$.
+				\end{enumerate}
+				
+				\vspace{8em}
+				
+				\item Construct isometry $T$: \\
+				Consider 嵌入映射
+				\begin{align}
+					T : X &\rightarrow X_2 \\
+					x &\longmapsto [\left\{ x \right\}_{n = 1}^{\infty}]
+				\end{align}
+				下面证明$T$ 为保距映射: \\
+				$\forall x , y \in X$, then
+				\begin{align}
+					\rho(T(x) , T(y)) = \lim_{n \to \infty}{\rho(x , y)} = \rho(x , y) , \,\, \forall x,  y \in X
+				\end{align}
+				Thus $T$ is an isometry (保距映射).
+				
+				\newpage
+				
+				\item $T(X)$ is dense in $X_2$: \\
+				$\forall [\xi] = [\{ x_n \}_{n = 1}^{\infty}] \in X_2$, where $\xi = \{ x_n \}_{n = 1}^{\infty}$ is a Cauchy sequence in $X$. Then \\
+				Consider the sequence $\{ T(x_n) \}_{n = 1}^{\infty}$ in $X_2$. We have
+				\begin{align}
+					\rho_2(T(x_n) , [\xi]) = \lim_{m \to \infty}{\rho(x_n , x_m)} , \,\, \forall n \in \N
+				\end{align}
+				Since $\{ x_n \}_{n = 1}^{\infty} \subset X$ is a Cauchy sequence in $X$, then
+				\begin{align}
+					\lim_{n \to \infty}{\rho_2(T(x_n) , [\xi])} 
+					= \lim_{n \to \infty} \lim_{m \to \infty}{\rho(x_n , x_m)} 
+					= 0
+				\end{align}
+				i.e.
+				\begin{align}
+					T(x_n) \overset{\rho_2}{\to} [\xi] , \,\, \forall [\xi] = [\{ x_n \}_{n = 1}^{\infty}] \in X_2
+				\end{align}
+				Therefore, $T(X)$ is dense\footnote{此处实际用到了\textbf{度量空间稠密子集的等价刻画}, 具体可见\textbf{附录 \ref{appendix A} - Lemma \ref{lemma A.1.1}}} in $X_2$, and so $(X , \rho)$ 保距同构于$(X_2 , \rho_2)$ 的稠密子集$TX$.
+				
+				\vspace{6em}
+				
+				\item $(X_2 , \rho_2)$ is complete: \\
+				$\forall$ Cauchy sequence $\{ [\xi_n] \}_{n = 1}^{\infty} \subset X_2$, where $\xi_n = \{ x_{j}^n \}_{j = 1}^{\infty} \subset X$ is a Cauchy sequence. \\
+				By \textbf{Step 3}, $T(X)$ is dense in $X_2$ and $\forall n \in \N$,
+				\begin{align}
+					\rho_2(T(x_{j}^{n}) , [\xi_n]) \to 0 , \,\, as \,\, j \to \infty
+				\end{align}
+				Thus $\exists j_n \in \N$, $\st$
+				\begin{align}
+					\rho_2(T(x_{j_n}^n) , [\xi_n]) < \frac{1}{n} , \,\, \forall n \in \N
+				\end{align}
+				%Denote $y_n = x_{j_n}^n$, then
+				%\begin{align}
+					%\rho_2(T(y_n) , [\xi_n]) < \frac{1}{n} , \,\, \forall n \in \N
+				%\end{align}
+				Let $\xi = \{ x_{j_n}^n \}_{n = 1}^{\infty}$. It suffices to show $[\xi_n] \to [\xi]$, i.e.
+				\begin{align}
+					\rho_2([\xi_n] , [\xi]) \to 0 , \,\, as \,\, n \to \infty
+				\end{align}
+				
+				\vspace{2em}
+				而这需要证明两点结论, 即$[\xi] \in X_2 \,\, \& \,\, [\xi_n] \to [\xi]$:
+				
+				\newpage
+				\begin{enumerate}
+					\item $[\xi] \in X_2$, i.e. $\xi = \{ x_{j_n}^n \}_{n = 1}^{\infty} \subset X$ is a Cauchy sequence in $X$: \\
+					Fix $\epsilon > 0$. Since $\{ [\xi_n] \}_{n = 1}^{\infty}$ is a Cauchy sequence in $X_2$, and $\rho_2(T(x_{j_n}^n) , [\xi_n]) \to 0$, then since $T$ is isometry (by \textbf{Step 2})\\
+					$\exists N \in \N$, $\st$
+					\begin{align}
+						\rho(x_{j_k}^k , x_{j_l}^l)
+						&= \rho_2(T(x_{j_k}^k) , T(x_{j_l}^l)) \\
+						&\leq \rho_2(T(x_{j_k}^k) , [\xi_k]) + \rho_2([\xi_k] , [\xi_l]) + \rho_2([\xi_l] , T(x_{j_l}^l)) \\
+						&< \epsilon , \,\, \forall k , l > N
+					\end{align}
+					Therefore, $\xi = \{ x_{j_n}^n \}_{n = 1}^{\infty} \subset X$ is a Cauchy sequence, thus $[\xi] \in X_2$.
+					
+					\vspace{4em}
+					
+					\item $[\xi_n] \to [\xi]$: \\
+					WTS: $\rho_2([\xi_n] , [\xi]) \to 0$, i.e.
+					\begin{align}
+						\lim_{n \to \infty}{\rho_2([\xi_n] , [\xi])} 
+						= \lim_{n \to \infty} \lim_{k \to \infty}{\rho(x_{k}^n , x_{j_k}^k)}
+						= 0
+					\end{align}
+					Fix $n \in \N$. Since
+					\begin{align}
+						\lim_{k \to \infty}{\rho(x_{j_n}^n , x_{k}^{n})} = \rho_{2}(T(x_{j_n}^n) , [\xi_n]) < \frac{1}{n}
+					\end{align}
+					Then $\forall \epsilon > 0$, $\exists k_0 \in \N$, $\st$
+					\begin{align}
+						\rho(x_{j_n}^n , x_{k}^n) < \frac{1}{n} + \epsilon , \,\, \forall k > k_0
+					\end{align}
+					Since $\xi = \{ x_{j_n}^n \}_{n = 1}^{\infty} \subset X$ is a Cauchy sequence in $X$, then 
+					\begin{align}
+						\rho(x_{j_n}^n , x_{j_k}^k) \to 0 \,\, as \,\, n , k \to \infty
+					\end{align}
+					Then
+					\begin{align}
+						\rho(x_{k}^n , x_{j_k}^k) 
+						&\leq \rho(x_{k}^n , x_{j_n}^n) + \rho(x_{j_n}^n , x_{j_k}^k) \\
+						&\leq \frac{1}{n} + \epsilon + \rho(x_{j_n}^n , x_{j_k}^k)
+					\end{align}
+					Letting $\epsilon \to 0^{+}$ and $n , k \to \infty$, we have
+					\begin{align}
+						\lim_{n \to \infty}{\rho_2([\xi_n] , [\xi])} 
+						= \lim_{n \to \infty} \lim_{k \to \infty}{\rho(x_{k}^n , x_{j_k}^k)}
+						= 0
+					\end{align}
+				\end{enumerate}
+				
+				\newpage
+				
+				\item $X_2$ 在保距同构下的唯一性: \\
+				Suppose $(X_2 , \rho_2), (X_2^{'} , \rho_{2}^{'})$ 均为$(X , \rho)$ 的完备化空间. $i_1 : X \rightarrow X_2 , \,\, i_2 : X \rightarrow X_{2}^{'}$ 为保距同构. \\
+				$\forall [\xi] \in X_2$. By \textbf{Step 3}, $\exists \{ x_n \}_{n = 1}^{\infty} \subset X$, $\st$
+				\begin{align}
+					i_{1}(x_n) \to [\xi] \,\, in \,\, X_2 , \,\, as \,\, n \to \infty
+				\end{align}
+				$\Rightarrow \,\, \{i_1(x_n)\}_{n = 1}^{\infty} \subset X_2$ is a Cauchy sequence in $X_2$. \\
+				$\Rightarrow \,\, \forall \epsilon > 0$, $\exists N \in \N$, $\st$
+				\begin{align}
+					\rho_2(i_1(x_n) , i_1(x_m)) = \rho(x_n , x_m) < \epsilon , \,\, \forall n , m > N
+				\end{align}
+				$\Rightarrow \,\, \{ x_n \}_{n = 1}^{\infty} \subset X$ is a Cauchy sequence in $X$. \\
+				$\Rightarrow \,\, \{ i_2(x_n) \}_{n = 1}^{\infty} \subset X_2^{'}$ is a Cauchy sequence in $X_2^{'}$. \\
+				$\Rightarrow \,\,$ Suppose $i_2(x_n) \to [\xi^{'}] \in X_2^{'}$ as $n \to \infty$. Let
+				\begin{align}
+					T : X_2 &\longrightarrow X_2^{'} \\
+					[\xi] &\longmapsto T([\xi]) = [\xi^{'}]
+				\end{align}
+				不难证明$T : X_2 \rightarrow X_2^{'}$ 为保距映射. Similarly, we can prove $T$ is surjective. \\
+				$\Rightarrow \,\, T$ is an isometry. i.e. $X_2 , X_2^{'}$ 保距同构.
+				
+				\begin{figure}[thbp!]
+					\centering
+					\includegraphics[width=0.4\linewidth]{figure/1.2.4-1}
+					\caption{$X_2$ 在保距同构下的唯一性}
+					\label{pic : 1.2.4-1} % 添加图像引用标签
+				\end{figure}
+			\end{enumerate}
+		\end{proof}
+		
+		\vspace{1em}
+		
+		\begin{example}\label{ex 1.2.4}
+			下面给出两个完备化空间的例子.
+			\begin{enumerate}
+				\item  $(P[a , b] , \rho_\infty) \rightarrow (C[a , b] , \rho_\infty)$, 即区间$[a , b]$ 上的多项式全体在度量$\rho_\infty$ 下的完备化空间为$[a , b]$ 上的连续函数全体. 其中
+				\begin{align}
+					\rho_\infty(x , y) = \max_{a \leq t \leq b}{\left| x(t) - y(t) \right|}
+				\end{align}
+				
+				\item $(C[a , b] , \rho_1) \rightarrow (L^1[a , b] , \rho_1)$, 即区间$[a , b]$ 上的连续函数全体在度量$\rho_1$ 下的完备化空间为$[a , b]$ 上Lebesgue可积函数全体.
+			\end{enumerate}
+		\end{example}
+	\end{thm}
+
+\newpage
+
+\section{Sequentially Compact}
+\paragraph{引入}
+	回顾在拓扑和数学分析中接触过的概念, \textbf{列紧性 (sequentially compact)}. 现将其限制于\textbf{度量空间}上给出定义.
+	\begin{defn}\label{def 1.3.1}
+		Suppose $(X , \rho)$ be a metric space, $A \subset X$. If $\forall \{ x_n \}_{n = 1}^{\infty} \subset A$, $\exists$ subsequence $\{ x_{n_k} \}_{k = 1}^{\infty} \subset \{ x_n \}_{n = 1}^{\infty}$ convergent in $X$, then we call $A$ \underline{\textcolor{blue}{\textbf{sequentially compact (列紧的)}}}.
+		
+		\vspace{2em}
+		
+		\begin{rmk}
+			\begin{itemize}
+				\item 将条件``\textbf{metric space $(X , \rho)$}"改为``\textbf{拓扑空间$X$}"即可得到拓扑中的一般性定义. 回顾一般拓扑空间中``\textbf{紧致}"、``\textbf{列紧}"、``\textbf{极限点紧}"的定义与性质, 有如下关系：
+				
+				\begin{figure}[thbp!]
+					\centering
+					\includegraphics[width=0.5\linewidth]{figure/1.3-1}
+					\caption{Relations among \textbf{compact}, \textbf{sequentially compact} and \textbf{limit point compact}}
+					\label{pic : 1.3-1} % 添加图像引用标签
+				\end{figure}
+				
+				\vspace{1em}
+				
+				\item If $\forall \{ x_n \}_{n = 1}^{\infty} \subset A$, $\exists$ subsequence $\{ x_{n_k} \}_{k = 1}^{\infty} \subset \{ x_n \}_{n = 1}^{\infty}$ convergent in $A$, then 称$A$ \underline{\textcolor{blue}{\textbf{自列紧}}}.
+			\end{itemize}
+		\end{rmk}
+	\end{defn}
+
+\vspace{5em}
+\paragraph{例子}
+	下面给出一个经典的\textbf{非列紧空间}的例子.
+	\begin{example}\label{ex 1.3.1}
+		Consider the set 
+		\begin{align}
+			l^1 = \left\{ \{ x_n \}_{n = 1}^{\infty} \mid \sum_{n = 1}^{\infty}{\left| x_n \right|} < \infty , \,\, x_n \in \R \right\}
+		\end{align}
+		$\forall \xi = \{ x_n \}_{n = 1}^{\infty} , \eta = \{ y_n \}_{n = 1}^{\infty} \in l^1$, define the metric $\rho_1$ on $l^1$:
+		\begin{align}
+			\rho_1 : l^1 \times l^1 &\longrightarrow \R_{\geq 0} \\
+			(\xi , \eta) &\longmapsto \rho_1(\xi , \eta) = \sum_{n = 1}^{\infty}{\left| x_n - y_n \right|}
+		\end{align}
+		Let
+		\begin{align}
+			A &= \left\{ \{ \delta_{kj} \}_{j = 1}^{\infty} \right\}_{k = 1}^{\infty} \\
+			&= \left\{ (1 , 0 , \cdots , 0 , \cdots) , (0 , 1 , \cdots , 0 , \cdots) , \cdots , (0 , 0 , \cdots , 1 , \cdots) , \cdots \right\}
+			\subset l^1
+		\end{align}
+		则$A \subset l^1$ 中每两个元素之间的距离均为$2$, 无收敛子列, 故$(l^1 , \rho_1)$ 非列紧.
+	\end{example}
+
+\newpage
+
+\paragraph{性质}
+	对于\textbf{度量空间中的列紧集}, 容易得到其必为\textbf{完备度量空间}.
+	\begin{proposition}\label{prop 1.3.1}
+		\begin{center}
+			列紧度量空间必完备.
+		\end{center}
+		
+		\vspace*{4em}
+		
+		\begin{proof}
+			Suppose $(X , \rho)$ be sequentially compact. Then for $\forall$ Cauchy sequence $\{ x_n \}_{n = 1}^{\infty} \subset X$, \\
+			$\exists$ subsequence $\{ x_{n_k} \}_{k = 1}^{\infty}$ convergent $\,\, \Rightarrow \,\,$ Cauchy sequence $\{ x_n \}_{n = 1}^{\infty}$ convergent $\,\, \Rightarrow \,\,$ $(X , \rho)$ complete
+		\end{proof}
+	\end{proposition}
+
+\vspace*{6em}
+
+	为了更好地理解一般度量空间中的\textbf{列紧性}, 我们可以与欧氏空间$\R^n$ 中\textbf{有界}的概念联系.
+	\vspace*{1em}
+	\begin{center}
+		\begin{tabular}{c|c}
+			$\R^n$ &\text{度量空间} \\
+			\hline
+			\textbf{有界 ($bounded$)} &\textbf{列紧} \\
+			\hline
+			\textbf{有界闭} &\textbf{自列紧}
+		\end{tabular}
+	\end{center}
+
+\newpage
+
+\section{完全有界集}
+\paragraph{$\epsilon$-网}
+	在一般的度量空间中, 我们来引入一个比\textbf{有界集}更强的概念. 首先来给出\textbf{$\epsilon$-网}的定义.
+	\begin{defn}\label{def 1.4.1}
+		Suppose $(X , \rho)$ be a metric space, $N \subset M \subset X$ and $\epsilon > 0$. If for $\forall x \in M$, $\exists y \in N$, $\st$
+		\begin{center}
+			$\rho(x , y) < \epsilon$
+		\end{center}
+		则称$N$ 为$M$ 的一个\underline{\textcolor{blue}{\textbf{$\epsilon$-网}}}, 即$M \subset \underset{x \in N}{\bigcup}{B(x , \epsilon)}$. 进一步若$N$ 为有穷集 ($finite$), 则称$N$ 为$M$ 的一个\underline{\textcolor{blue}{\textbf{有穷$\epsilon$-网}}}.
+	\end{defn}
+	
+	\vspace*{6em}
+\paragraph{完全有界集}
+	下面给出\textbf{完全有界集}的概念.
+	\begin{defn}\label{def 1.4.2}
+		Suppose $(X , \rho)$ be a metric space, $A \subset X$. If $\forall \epsilon > 0$, $A$ 存在有穷$\epsilon$-网, 则称$A$ 为\underline{\textcolor{blue}{\textbf{完全有界集}}}.
+		
+		\vspace*{2em}
+		\begin{rmk}
+			\textbf{完全有界集}的概念比\textbf{有界集}要更强, 即
+			\begin{center}
+				\textbf{完全有界集} $\,\, \Rightarrow \,\,$ \textbf{有界集} \hspace*{1em} , \hspace*{1em} \textbf{完全有界集} $\,\, \not\Leftarrow \,\,$ \textbf{有界集}
+			\end{center}
+			\vspace*{1em}
+			\textbf{例\ref{ex 1.3.1}} 中集合$A = \left\{ \left\{ \delta_{kj} \right\}_{j = 1}^{\infty}  \right\}_{k = 1}^{\infty}$ 即为有界集但非\textbf{完全有界}.
+		\end{rmk}
+	\end{defn}
+
+\vspace*{6em}
+\paragraph{等价表述}
+	下面我们将给出一般度量空间中\textbf{完全有界集的等价表述}, 便于我们判断和理解\textbf{完全有界集}的概念.
+	
+	\newpage
+	\begin{thm}\label{thm 1.4.1}
+		\textbf{完全有界集的等价表述}. \\
+		Suppose $(X , \rho)$ be a metric space and $A \subset X$. Then
+		\begin{center}
+			$A$ 完全有界 $\,\, \Leftrightarrow \,\,$ $A$ 中任意点列存在$Cauchy$ 子列
+		\end{center}
+		
+		\vspace*{2em}
+		
+		\begin{rmk}
+			根据该定理我们容易得到, 在\textbf{完备度量空间}中, \textbf{完全有界} $\,\, \Leftrightarrow \,\,$ \textbf{列紧}. 特别地, 在欧氏空间$\R^n$ 中, \textbf{列紧}、\textbf{完全有界}、\textbf{有界}三者等价.
+		\end{rmk}
+		
+		\vspace*{2em}
+		
+		\begin{proof}
+			\begin{enumerate}
+				\item[$\Rightarrow$]: 若$A$ 完全有界. $\forall \{ x_n \}_{n = 1}^{\infty} \subset A$, 下面证明$\{ x_n \}_{n = 1}^{\infty}$ 存在$Cauchy$ 子列: 
+				
+				\vspace*{1em}
+				
+				\begin{itemize}
+					\item For $\epsilon = 1$, $\exists y_1 \in A$, $\st B(y_1 , 1)$ 中包含$\{ x_n \}_{n = 1}^{\infty}$ 无穷多项, 记为$\{ x_{n}^{(1)} \}_{n = 1}^{\infty} \subset \{ x_n \}_{n = 1}^{\infty}$.
+					\begin{center}
+						(否则若$\forall y \in A$, $B(y , 1)$ 均至多包含$\{ x_n \}_{n = 1}^{\infty}$ 中有穷个点, 则$A$ 无有穷$1$-网)
+					\end{center}
+				
+					\vspace*{1em}
+					
+					\item For $\epsilon = \dfrac{1}{2}$, $\exists y_2 \in A$, $\st B(y_2 , \dfrac{1}{2})$ 中包含$\{ x_{n}^{(1)} \}_{n = 1}^{\infty}$ 无穷多项, 记为$\{ x_{n}^{(2)} \}_{n = 1}^{\infty} \subset \{ x_{n}^{(1)} \}_{n = 1}^{\infty}$.
+					\begin{center}
+						$\cdots$
+					\end{center}
+					
+					\item For $\epsilon = \dfrac{1}{k}$, $\exists y_k \in A$, $\st B(y_k , \dfrac{1}{k})$ 中包含$\{ x_{n}^{(k - 1)} \}_{n = 1}^{\infty}$ 中无穷多项, 记为$\{ x_{n}^{(k)} \}_{n = 1}^{\infty} \subset \{ x_{n}^{(k - 1)} \}_{n = 1}^{\infty}$.
+				\end{itemize}
+				
+				\vspace*{1em}
+				
+				从而我们得到了$\{ x_n \}_{n = 1}^{\infty}$ 的一列子列: $\{ x_{n}^{(1)} \}_{n = 1}^{\infty} , \{ x_{n}^{(2)} \}_{n = 1}^{\infty} , \cdots , \{ x_{n}^{(k)} \}_{n = 1}^{\infty} , \cdots$ \\
+				取出第$k$ 个子列$\{ x_{n}^{(k)} \}_{n = 1}^{\infty}$ 的第$k$ 项$x_{k}^{(k)}$, 得到子列$\{ x_{n}^{(n)} \}_{n = 1}^{\infty}$\footnote{这种从一列序列中各取出一个元素构成新序列, 再(一致)收敛的方法称为\textbf{对角线法则}, 在\textbf{实分析 ($Real \,\, Analysis$)}中证明\textbf{任一可测函数可由简单函数列逼近}时曾使用, 详情可见$Real \,\, Analysis$ 笔记\textbf{定理 2.2.1}.}. \\
+				下面证明：$\{ x_{n}^{(n)} \}_{n = 1}^{\infty} \subset \{ x_n \}_{n = 1}^{\infty}$ 为$Cauchy$ 列.\\
+				Since
+				\begin{align}
+					\rho(x_{n + p}^{(n + p)} , x_{n}^{(n)}) 
+					\leq \rho(x_{n + p}^{(n + p)} , y_n) + \rho(y_n , x_{n}^{(n)}) 
+					\leq \frac{2}{n} , \,\, \forall n , p \in \N
+				\end{align}
+				Therefore, $\{ x_{n}^{(n)} \}_{n = 1}^{\infty} \subset \{ x_n \}_{n = 1}^{\infty}$ is a Cauchy sequence in $A$.
+				
+				\newpage
+				
+				\item[$\Leftarrow$]: 反证法. Assume $A$ 非完全有界, 即$\exists \epsilon_0 > 0$, $\st A$ 无有穷$\epsilon_0$-网.  
+				
+				\vspace*{1em}
+				
+				\begin{itemize}
+					\item $\forall x_1 \in A$, $\exists x_2 \in A \backslash B(x_1 , \epsilon_0)$ (Otherwise $A \subset B(x_1 , \epsilon_0)$, $A$ 存在有穷$\epsilon_0$-网)
+					
+					\item Similarly, $\exists x_3 \in A \backslash \left( B(x_1 , \epsilon_0) \cup B(x_2 , \epsilon_0) \right)$
+					
+					\begin{center}
+						$\cdots$
+					\end{center}
+				
+					\item $\exists x_k \in A \backslash \left( \bigcup_{i = 1}^{k - 1}{B(x_i , \epsilon_0)} \right)$
+				\end{itemize}
+			
+				\vspace*{1em}
+				
+				从而得到$A$ 中的一列点$\{ x_n \}_{n = 1}^{\infty} \subset A$, 其中
+				\[ \rho(x_i , x_j) > \epsilon_0 > 0 , \,\, \forall i \neq j \]
+				于是$\{ x_n \}_{n = 1}^{\infty} \subset A$ 无Cauchy子列, 矛盾.
+			\end{enumerate}
+		\end{proof}
+	\end{thm}
+
+\newpage
+
+\section{可分度量空间}
+	作为一类特殊的\textbf{拓扑空间}, 下面我们来讨论一些常见的\textbf{度量空间}的\textbf{可分性}. 首先回顾一下\textbf{可分}的定义.
+	\begin{defn}\label{def 1.5.1}
+		Suppose $(X , \tau)$ be a Topological space. If $(X , \tau)$ 存在\textbf{可数稠密子集}, then $(X , \tau)$ is called \underline{\textcolor{blue}{\textbf{separable (可分的)}}}.
+	\end{defn}
+	
+	\vspace*{6em}
+	
+	根据\textbf{可分空间}的定义, 不难得到上节所介绍的\textbf{完全有界空间可分}.
+	
+	\begin{proposition}\label{prop 1.5.1}
+		完全有界空间为可分度量空间.
+		
+		\vspace*{4em}
+		
+		\begin{proof}
+			Suppose $(X , \rho)$ is totally bounded. Then for $\forall k \in \N$, $\exists n_k \in \N ,  y_{1} , \cdots , y_{n_k} \in X$, $\st$
+			\begin{align}
+				X \subset \bigcup_{i = 1}^{n_k}{B(y_{i}^k , \frac{1}{k})}
+			\end{align}
+			Let
+			\begin{align}
+				A = \bigcup_{k = 1}^{\infty} \bigcup_{i = 1}^{n_k}{\{ y_{i}^k \}} \subset X \,\, countable
+			\end{align}
+			Then for $\forall x \in X$, $\exists 1 \leq l_k \leq n_k , y_{l_k}^{k} \in A$, $\st$
+			\[ \rho(x , y_{l_k}^k) < \dfrac{1}{k} , \,\, \forall k \in \N \]
+			Thus $\{ y_{l_k}^k \}_{k = 1}^{\infty} \subset A$ convergent to $x \in X$, i.e. $y_{l_k}^k \overset{\rho}{\to} x$ as $k \to \infty$. \\
+			Therefore, by \textbf{Lemma \ref{lemma A.1.1}}, $A \subset X$ is dense in $X$. $X$ is separable.
+		\end{proof}
+	\end{proposition}
+	
+	\vspace*{6em}
+	
+	下面来讨论一些常见的\textbf{度量空间}的\textbf{可分性}.
+	
+	\newpage
+	
+	\begin{example}\label{ex 1.5.1}
+		\textbf{[可分空间]}. 
+		\begin{itemize}
+			\item $(C[a , b] , \rho_{\infty})$ 可分. 
+			
+			\begin{itemize}
+				\item 
+				\begin{proof}
+					有理系数多项式 $\,\, \overset{\text{一致逼近}}{\Longrightarrow} \,\,$ 多项式 $\,\, \overset{\text{一致逼近}}{\Longrightarrow} \,\,$ 连续函数
+				\end{proof}
+			\end{itemize}
+			
+			\vspace*{0.75em}
+			
+			\item $(l^p , \rho_p)$ 可分.
+			
+			\begin{itemize}
+				\item 
+				\begin{proof}
+					此处$(l^p , \rho_p)$ 定义与\textbf{例 \ref{ex 1.3.1}} 中一致, 即
+					\begin{align}
+						l^p &= \left\{ \{ x_n \}_{n = 1}^{\infty} \mid \sum_{n = 1}^{\infty}{\left| x_n \right|^p} < \infty , \,\, x_n \in \R \right\} \\
+						\rho_p : l^p \times l^p &\longrightarrow \R_{\geq 0} \\
+						(\{ x_n \}_{n = 1}^{\infty} , \{ y_n \}_{n = 1}^{\infty}) &\longmapsto \rho_p(\{ x_n \}_{n = 1}^{\infty} , \{ y_n \}_{n = 1}^{\infty}) = \sum_{n = 1}^{\infty}{\left| x_n - y_n \right|^p}
+					\end{align}
+					下面来构造$(l^p , \rho_p)$ 的可数稠密子集：
+					
+					\begin{itemize}
+						\item Let
+						\begin{align}
+							A_1 &= \left\{ \{ x_n \}_{n = 1}^{\infty} \mid x_1 \in \Q , \,\, x_n = 0 , \,\, \forall n > 1 \right\} \subset l^p \\
+							A_2 &= \left\{ \{ x_n \}_{n = 1}^{\infty} \mid x_1 , x_2 \in \Q , \,\, x_n = 0 , \,\, \forall n > 2 \right\} \subset l^p \\
+							\cdots & \\
+							A_k &= \left\{ \{ x_n \}_{n = 1}^{\infty} \mid x_1 , \cdots , x_k \in \Q , \,\, x_n = 0 , \,\, \forall n > k \right\} \subset l^p \\
+							A &= \bigcup_{k = 1}^{\infty}{A_k} \subset l^p
+						\end{align}
+						
+						\item $A \subset l^p$ 即为$(l^p , \rho_p)$ 的可数稠密子集： \\
+						$\forall \{ x_n \}_{n = 1}^{\infty} \in l^p$. Since 
+						\[ \sum_{n = 1}^{\infty}{\left| x_n \right|^p} < \infty \]
+						Then for $\forall \epsilon > 0$, $\exists N \in \N$, $\st$
+						\[ \sum_{n = N + 1}^{\infty}{\left| x_n \right|^p} < \dfrac{\epsilon}{2} \]
+						Thus $\exists \{ y_n \}_{n = 1}^{\infty} \in A_N \subset A$, $y_n = 0$, $\forall n > N$ and
+						\[ \left| y_n - x_n \right|^p < \dfrac{\epsilon}{2N} , \,\, \forall 1 \leq n \leq N \]
+						Therefore
+						\[ \rho_p(\{ x_n \}_{n = 1}^{\infty} , \{ y_n \}_{n = 1}^{\infty}) 
+						= \sum_{n = 1}^{\infty}{\left| x_n - y_n \right|^p} 
+						< \epsilon \]
+						$A \subset l^p$ is dense in $l^p$ while it's also countable.
+					\end{itemize}
+				\end{proof}
+			\end{itemize}
+			
+			\newpage
+			
+			\item $L^{p}[a , b]$ 可分. 
+			\begin{proof}
+				Review the conclusions in $Real \,\, Analysis$. $\forall f \in L^{p}[a , b]$, then $f$ is measurable.\\
+				Since \textbf{任一可测函数可由简单函数列逼近 ($Real \,\, Analysis$ 笔记Thm 2.2.1)} \\
+				又根据\textbf{Lusin定理 ($Real \,\, Analysis$ 笔记Thm 3.8.2)}, 可得：
+				\begin{center}
+					连续函数 $\,\, \Rightarrow \,\,$ 简单函数 $\,\, \Rightarrow \,\,$ $f \in L^p$
+				\end{center}
+			\end{proof}
+			
+			\vspace*{2em}
+			
+			\item $L^{\infty}[a , b]$ 不可分.
+			\begin{proof}
+				Let
+				\begin{align}
+					E = \left\{ f \in L^{\infty}[a , b] \,\, \Big| \,\, f(x) = 
+					\begin{cases}
+						0 , x \in [a , r] \\
+						1 , x \in (r , b]
+					\end{cases} , \,\, \forall r \in (a , b) \right\}
+				\end{align}
+				Then $E \subset L^{\infty}[a , b]$ is uncountable, and
+				\[ \rho_{\infty}(f , g) = 1 > 0 , \,\, \forall f , g \in E \]
+				下面用反证法证明$L^{\infty}[a , b]$ 不可分. Assume $L^{\infty}[a , b]$ is separable. \\
+				Then $\exists$ countable $\{ f_n \}_{n = 1}^{\infty} \subset L^{\infty}[a , b]$, $\st$
+				\[ \overline{\{ f_n \}_{n = 1}^{\infty}} = L^{\infty}[a , b] \]
+				即$L^{\infty}[a , b]$ 中点均可由$\{ f_n \}_{n = 1}^{\infty}$ 中的某些点逼近, 从而
+				\[ \bigcup_{n = 1}^{\infty}{B(f_n , \dfrac{1}{3})} = L^{\infty}[a , b] \supset E \]
+				于是$\exists N \in \N$, $\st$
+				\begin{center}
+					$B(f_N , \dfrac{1}{3})$ 中包含$E$ 中至少2个点 (事实上可严格地说包含$E$ 中不可数个点)
+				\end{center}
+				而$\rho_{\infty}(f , g) = 1 > 0 , \,\, \forall f , g \in E$, 这与$f , g \in B(f_N , \dfrac{1}{3})$ 矛盾. \\
+				综上, $L^{\infty}[a , b]$ 不可分.
+			\end{proof}
+		
+			\newpage
+			
+			\item $l^{\infty}$ 不可分.
+			\begin{proof}
+				Similarly. Let
+				\begin{align}
+					E = \left\{ \{ x_n \}_{n = 1}^{\infty} \in l^{\infty} \mid x_n = 0 \,\, or \,\, 1 , \,\, \forall n \in \N \right\} \subset l^{\infty}
+				\end{align}
+				Then $E \subset l^{\infty}$ is uncountable ($E$ 与二进制数一一对应, 而二进制数与实数$\R$ 一一对应), and
+				\[ \rho_{\infty}(\{ x_n \}_{n = 1}^{\infty} , \{ y_n \}_{n = 1}^{\infty}) = 1 > 0 , \,\, \forall \{ x_n \}_{n = 1}^{\infty} , \{ y_n \}_{n = 1}^{\infty} \in E \]
+				后续步骤与上述$L^{\infty}[a , b]$ 不可分证明过程一致.
+			\end{proof}
+		\end{itemize}
+	\end{example}
+
+
+
+	%  ############################
+	\ifx\allfiles\undefined
+\end{document}
+\fi

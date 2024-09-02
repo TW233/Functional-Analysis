@@ -1,0 +1,96 @@
+\documentclass[12pt, a4paper,oneside, UTF8]{ctexbook}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amsmath}   % 数学公式
+\usepackage{amsthm}    % 定理环境
+\usepackage{amssymb}   % 更多公式符号
+\usepackage{graphicx}  % 插图
+%\usepackage{mathrsfs}  % 数学字体
+%\usepackage{newtxtext,newtxmath}
+%\usepackage{arev}
+\usepackage{kmath,kerkis}
+\usepackage{newtxtext}
+\usepackage{bbm}
+\usepackage{enumitem}  % 列表
+\usepackage{geometry}  % 页面调整
+%\usepackage{unicode-math}
+\usepackage[colorlinks,linkcolor=black]{hyperref}
+
+\usepackage{wrapfig}
+
+
+\usepackage{ulem}	   % 用于更多的下划线格式，
+					   % \uline{}下划线，\uuline{}双下划线，\uwave{}下划波浪线，\sout{}中间删除线，\xout{}斜删除线
+					   % \dashuline{}下划虚线，\dotuline{}文字底部加点
+
+
+\graphicspath{ {flg/},{../flg/}, {config/}, {../config/} }  % 配置图形文件检索目录
+\linespread{1.5} % 行高
+
+% 页码设置
+\geometry{top=25.4mm,bottom=25.4mm,left=20mm,right=20mm,headheight=2.17cm,headsep=4mm,footskip=12mm}
+
+% 设置列表环境的上下间距
+\setenumerate[1]{itemsep=5pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+\setitemize[1]{itemsep=5pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+\setdescription{itemsep=5pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+
+% 定理环境
+% ########## 定理环境 start ####################################
+\theoremstyle{definition}
+\newtheorem{defn}{\indent 定义}[section]
+
+\newtheorem{lemma}{\indent 引理}[section]    % 引理 定理 推论 准则 共用一个编号计数
+\newtheorem{thm}[lemma]{\indent 定理}
+\newtheorem{corollary}[lemma]{\indent 推论}
+\newtheorem{criterion}[lemma]{\indent 准则}
+
+\newtheorem{proposition}{\indent 命题}[section]
+\newtheorem{example}{\indent \color{SeaGreen}{例}}[section] % 绿色文字的 例 ，不需要就去除\color{SeaGreen}{}
+\newtheorem*{rmk}{\indent \color{red}{注}}
+
+% 两种方式定义中文的 证明 和 解 的环境：
+% 缺点：\qedhere 命令将会失效【技术有限，暂时无法解决】
+\renewenvironment{proof}{\par\textbf{证明.}\;}{\qed\par}
+\newenvironment{solution}{\par{\textbf{解.}}\;}{\qed\par}
+
+% 缺点：\bf 是过时命令，可以用 textb f等替代，但编译会有关于字体的警告，不过不影响使用【技术有限，暂时无法解决】
+%\renewcommand{\proofname}{\indent\bf 证明}
+%\newenvironment{solution}{\begin{proof}[\indent\bf 解]}{\end{proof}}
+% ######### 定理环境 end  #####################################
+
+% ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 以下是自定义的命令  ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+
+% 用于调整表格的高度  使用 \hline\xrowht{25pt}
+\newcommand{\xrowht}[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+% 表格环境内长内容换行
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+
+% 使用\linespread{1.5} 之后 cases 环境的行高也会改变，重新定义一个 ca 环境可以自动控制 cases 环境行高
+\newenvironment{ca}[1][1]{\linespread{#1} \selectfont \begin{cases}}{\end{cases}}
+% 和上面一样
+\newenvironment{vx}[1][1]{\linespread{#1} \selectfont \begin{vmatrix}}{\end{vmatrix}}
+
+\def\d{\textup{d}} % 直立体 d 用于微分符号 dx
+\def\R{\mathbb{R}} % 实数域
+\def\N{\mathbb{N}} % 自然数域
+\def\C{\mathbb{C}} % 复数域
+\def\Z{\mathbb{Z}} % 整数环
+\def\Q{\mathbb{Q}} % 有理数域
+\newcommand{\bs}[1]{\boldsymbol{#1}}    % 加粗，常用于向量
+\newcommand{\ora}[1]{\overrightarrow{#1}} % 向量
+
+% 数学 平行 符号
+\newcommand{\pll}{\kern 0.56em/\kern -0.8em /\kern 0.56em}
+
+% 用于空行\myspace{1} 表示空一行 填 2 表示空两行  
+\newcommand{\myspace}[1]{\par\vspace{#1\baselineskip}}
+
+%s.t. 用\st就能打出s.t.
+\DeclareMathOperator{\st}{s.t.}
+
+%罗马数字 \rmnum{}是小写罗马数字, \Rmnum{}是大写罗马数字
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter@slowromancap\romannumeral #1@}
+\makeatother
