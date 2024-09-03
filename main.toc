@@ -27,5 +27,8 @@
 \contentsline {paragraph}{完全有界集}{21}{paragraph*.14}%
 \contentsline {paragraph}{等价表述}{21}{paragraph*.15}%
 \contentsline {section}{\numberline {1.5}可分度量空间}{24}{section.1.5}%
-\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}$Supplementary \,\, Content$}{28}{appendix.A}%
-\contentsline {section}{\numberline {A.1}度量空间稠密子集的等价刻画}{28}{section.A.1}%
+\contentsline {section}{\numberline {1.6}Compact}{28}{section.1.6}%
+\contentsline {subsection}{\numberline {1.6.1}度量空间紧集的性质}{28}{subsection.1.6.1}%
+\contentsline {subsection}{\numberline {1.6.2}度量空间紧致的等价刻画}{31}{subsection.1.6.2}%
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}$Supplementary \,\, Content$}{33}{appendix.A}%
+\contentsline {section}{\numberline {A.1}度量空间稠密子集的等价刻画}{33}{section.A.1}%

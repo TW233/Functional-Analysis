@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.11.9)  30 AUG 2024 20:38
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.11.9)  3 SEP 2024 21:08
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1535,7 +1535,7 @@ Requested font "[TeXGyreTermesX-Regular.otf]/OT:script=latn;language=dflt;-ss05
 -Regular.otf
 Requested font "SimSun/OT:script=hani;language=dflt;" at 6.0pt
  -> C:/Windows/fonts/simsun.ttc
- [25] [26]) [27]
+ [25] [26] [27] [28] [29] [30] [31]) [32]
 \openout2 = `appendix/chap.aux'.
 
  (./appendix/chap.tex
@@ -1566,22 +1566,22 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 9.
 
-) [28
+) [33
 
 
 
 
 ] (./main.aux (./config/cover.aux) (./chap1/chap.aux) (./appendix/chap.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 795F2836F0E101A7C845E828CF2C3A94;2522.
+(rerunfilecheck)             Checksum: 876F8A300A6D757BD9D38AEEDD05C588;2896.
  ) 
 Here is how much of TeX's memory you used:
- 19695 strings out of 476179
- 413788 string characters out of 5810426
- 731397 words of memory out of 5000000
- 40028 multiletter control sequences out of 15000+600000
+ 19703 strings out of 476179
+ 413882 string characters out of 5810426
+ 733036 words of memory out of 5000000
+ 40036 multiletter control sequences out of 15000+600000
  508523 words of font info for 204 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  94i,15n,103p,409b,739s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (31 pages).
+Output written on main.pdf (36 pages).

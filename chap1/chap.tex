@@ -885,7 +885,7 @@
 		\vspace*{2em}
 		
 		\begin{rmk}
-			根据该定理我们容易得到, 在\textbf{完备度量空间}中, \textbf{完全有界} $\,\, \Leftrightarrow \,\,$ \textbf{列紧}. 特别地, 在欧氏空间$\R^n$ 中, \textbf{列紧}、\textbf{完全有界}、\textbf{有界}三者等价.
+			根据该定理我们容易得到, 在\textbf{一般的度量空间}中, \textbf{列紧} $\,\, \Rightarrow \,\,$ \textbf{完全有界}. 而在\textbf{完备度量空间}中, \textbf{完全有界} $\,\, \Leftrightarrow \,\,$ \textbf{列紧}. 特别地, 在欧氏空间$\R^n$ 中, \textbf{列紧}、\textbf{完全有界}、\textbf{有界}三者等价.
 		\end{rmk}
 		
 		\vspace*{2em}
@@ -1097,6 +1097,191 @@
 			\end{proof}
 		\end{itemize}
 	\end{example}
+
+\newpage
+
+\section{Compact}
+	首先来回顾一下\textbf{拓扑学}中关于\textbf{紧致}的定义, 在度量空间中也是一脉相承的.
+	\begin{defn}\label{def 1.6.1}
+		Suppose $(X , \tau)$ be a topological space. If $X$ 的任意开覆盖都有有限子覆盖, 则称$X$ 为\underline{\textcolor{blue}{\textbf{紧致的 (compact)}}}.
+		
+		\vspace{2em}
+		
+		\begin{rmk}
+			事实上我们运用的更多的为\textbf{一般拓扑 / 度量空间}的\textbf{紧致子集}的概念, 其定义如下：
+			\begin{center}
+				Suppose $A \subset (X , \tau)$. If $A$ 的任意开覆盖都有有限子覆盖 (在子空间拓扑意义下为紧集), 则\\
+				称$A$ 为\underline{\textcolor{blue}{\textbf{紧(子)集}}}.
+			\end{center}
+		\end{rmk}
+	\end{defn}
+
+\vspace{2em}
+\subsection{度量空间紧集的性质}	
+	下面我们给出度量空间中紧集的4条性质(事实上大部分对一般的Hausdorff空间成立).
+	
+	\begin{proposition}\label{prop 1.6.1}
+		\textbf{[紧$\Rightarrow$ 闭, Hausdorff]}. 
+		\begin{center}
+			若$A \subset (X , \rho)$ 紧致, 则$A$ 为闭集.
+		\end{center}
+		
+		\vspace{2em}
+		
+		\begin{rmk}
+			该结论对于一般拓扑空间不成立, 但对于\textbf{Hausdorff空间}成立, 故自然\textbf{度量空间}成立.
+		\end{rmk}
+	
+		\vspace{2em}
+		
+		\begin{proof}
+			下面对一般情形进行证明, 即$(X , \tau)$ 为Hausdorff空间, 证明：$A^c$ open. \\
+			Fix $x \in A^c$. Since $X$ is Hausdorff, then for $\forall y \in A$, $\exists x \in V_{y}^x , y \in U_{y}^x$, $\st$
+			\[ U_{y}^x \cap V_{y}^x = \varnothing , \,\, U_{y}^{x} , V_{y}^x \underset{open}{\subset} X \]
+			Then we have
+			\[ A \subset \bigcup_{y \in A} U_{y}^x \]
+			Since $A$ is compact, there exists $U_{y_1}^x , \cdots , U_{y_n}^x \in \{ U_{y}^x \}_{y \in A}$, $\st$
+			\[ A \subset \bigcup_{i = 1}^{n} U_{y_i}^x \]
+			Let
+			\[ V^x = \bigcap_{i = 1}^{n} V_{y_i}^x \underset{open}{\subset} X \]
+			Then $x \in V^x$ and $V^x \cap \bigcup_{i = 1}^{n} U_{y_i}^x = \varnothing$, so $V^x \cap A = \varnothing , V^x \subset A^c$. Therefore, $A^c$ is open.
+		\end{proof}
+	\end{proposition}
+
+	\newpage
+	
+	\begin{proposition}\label{prop 1.6.2}
+		\textbf{[紧集的闭子集必为紧集, 一般拓扑空间]}. 
+		\begin{center}
+			若$A \subset (X , \rho)$ 紧致, $K \subset A$ 为闭集, 则$K$ 紧致.
+		\end{center}
+		
+		\begin{rmk}
+			该结论对于\textbf{一般的拓扑空间}均成立. 
+		\end{rmk}
+	
+		\vspace{1em}
+		
+		\begin{proof}
+			下面对一般情形进行证明, 且下述证明过程均以子空间$(A , \tau_A)$ 作为全空间. \\
+			$\forall \{ U_i \}_{i \in I}$, $U_i \underset{open}{\subset} X$, $\forall i \in I$, $\st$
+			\[ K \subset \bigcup_{i \in I}{U_i} \]
+			Since $K \subset A$ closed, then $K^c \subset A$ open. Thus
+			\[ A = K^c \cup K = K^c \cup \bigcup_{i \in I} U_i \]
+			Since $A$ is compact, then $\exists i_1 , \cdot , i_n \in I$, $\st$
+			\[ A = K^c \cup \bigcup_{k = 1}^{n} U_{i_k} \]
+			Therefore $K \subset \bigcup_{k = 1}^{n} U_{i_k}$. $K \subset A$ is compact.
+		\end{proof}
+	\end{proposition}
+	
+	\vspace{8em}
+	
+	根据\textbf{命题 \ref{prop 1.6.2}}, 我们可得到另一条直接推论.
+	\begin{corollary}\label{cor 1.6.1}
+		\textbf{[Hausdorff]}. 
+		\begin{center}
+			\textbf{紧集和闭集的交为紧集}.
+		\end{center}
+		
+		\vspace{1em}
+		
+		\begin{proof}
+			紧集与闭集相交 $\,\, \Rightarrow \,\,$ 交集为原紧集的闭子集 $\,\, \Rightarrow \,\,$ 根据\textbf{命题 \ref{prop 1.6.2}}, 该交集为紧集
+		\end{proof}
+	\end{corollary}
+
+	\newpage
+	
+	\begin{proposition}\label{prop 1.6.3}
+		\textbf{[Hausdorff]}. \\
+		$\{ K_\alpha \subset X \}_{\alpha \in \Lambda}$ 为一个紧子集族, 满足任意有限交非空, 则
+		\begin{align}
+			\bigcap_{\alpha \in \Lambda} K_\alpha \neq \varnothing
+		\end{align}
+		
+		\vspace{1em}
+		
+		\begin{proof}
+			反证法. Assume $\underset{\alpha \in \Lambda}{\bigcap} K_\alpha = \varnothing$. Then for $\forall \alpha_0 \in \Lambda$,
+			\[ K_{\alpha_0} \cap \bigcap_{\substack{\alpha \in \Lambda \\ \alpha \neq \alpha_0}} K_{\alpha} = \varnothing 
+			\hspace*{2em} , \hspace*{2em} 
+			K_{\alpha_0} \subset \bigcup_{\substack{\alpha \in \Lambda \\ \alpha \neq \alpha_0}} K_{\alpha}^c \]
+			Since $X$ is Hausdorff, $K_\alpha \subset X$ is compact, then $K_\alpha$ is closed, $\forall \alpha \in \Lambda$. Thus \\
+			$\{ K_{\alpha}^c \mid \alpha \neq \alpha_0 \}_{\alpha \in \Lambda}$ is an open covering of $K_{\alpha_0}$. Since $K_{\alpha_0} \subset X$ is compact, then $\exists \alpha_1 , \cdots , \alpha_n \in \Lambda$, $\st$
+			\[ K_{\alpha_0} \subset \bigcup_{i = 1}^{n} K_{\alpha_i}^c \]
+			Therefore, 
+			\[ \bigcap_{i = 0}^{n} K_{\alpha_i} = \varnothing \]
+			which is a contradiction to “任意有限交非空”.
+		\end{proof}
+	\end{proposition}
+	
+	\vspace{4em}
+	
+	\begin{proposition}\label{prop 1.6.4}
+		\textbf{[Hausdorff]}. \\
+		$A \subset (X , \rho)$ 为闭集. 若对于$A$ 中任意闭子集族$\{ F_\alpha \}_{\alpha \in \Lambda}$, 如果满足任意有限交非空, 便有$\underset{\alpha \in \Lambda}{\bigcap} F_\alpha \neq \varnothing$, 则$A$ 为紧集.
+		
+		\vspace{2em}
+		
+		\begin{proof}
+			$\forall \{ U_i \}_{i \in I}$, $U_i \underset{open}{\subset} X$, $\forall i \in I$, $\st$
+			\[ A \subset \bigcup_{i \in I} U_i \]
+			Then $\{ U_{i}^c \cap A \}_{i \in I}$ 为$A$ 的闭子集族. Since 
+			\[ \bigcap_{i \in I} U_{i}^c \cap A = \varnothing \]
+			Then 根据条件, $\{ U_{i}^c \cap A \}_{i \in I}$ 存在有限交为空集, 即$\exists i_1 , \cdots , i_n \in I$, $\st$
+			\[ \bigcap_{k = 1}^{n} U_{i}^c \cap A = A \cap \left( \bigcup_{k = 1}^{n} U_{i_k} \right)^c = \varnothing \]
+			Thus
+			\[ A \subset \bigcup_{k = 1}^{n} U_{i_k} \]
+			Therefore, $A \subset X$ is compact.
+		\end{proof}
+	\end{proposition}
+
+\newpage
+
+\subsection{度量空间紧致的等价刻画}
+	下面我们将说明, 在\textbf{度量空间}中, \textbf{紧致性}与\textbf{自列紧性}等价.
+	
+	\begin{thm}\label{thm 1.6.2}
+		\textbf{[紧致$\Leftrightarrow$ 自列紧, 度量空间]}. \\
+		在度量空间$(X , \rho)$ 中, 
+		\begin{center}
+			\textbf{$A \subset X$ 紧致} $\,\, \Leftrightarrow \,\,$ \textbf{自列紧}
+		\end{center}
+	
+		\vspace{4em}
+		
+		\begin{proof}
+			\begin{enumerate}
+				\item[$\Rightarrow$]: 只需考虑$A$ 中无穷点集的情形. $\forall$ 无穷点集$\{ x_n \}_{n = 1}^{\infty} \subset A$, 不妨设$x_n$ 互异. \\
+				反证法. Assume $\{ x_n \}_{n = 1}^{\infty} \subset A$ 在$A$ 中无聚点, 则$\forall x \in A$, $\exists U_x \underset{open}{\subset} X$, $\st$
+				\[ U_x \cap \{ x_n \}_{n = 1}^{\infty} \subset \{ x \} \hspace{2em} \left( = \varnothing \,\, \text{or} \,\, \{ x \} \right) \]
+				Since $A \subset \bigcup_{x \in A} U_x$, $A$ is compact, then $\exists y_1 , \cdots , y_n \in A$, $\st$
+				\[ \{ x_n \}_{n = 1}^{\infty} \subset A \subset \bigcup_{i = 1}^{n} U_{y_i} \]
+				从而$\{ U_{y_i} \}_{i = 1}^{n}$ 中至少有一项中包含$\{ x_n \}_{n = 1}^{\infty}$ 中无穷多项, 这与$U_x \cap \{ x_n \}_{n = 1}^{\infty} \subset \{ x \}$ 矛盾. \\
+				综上, $A \subset X$ 紧致 $\,\, \Rightarrow \,\,$ 自列紧.
+				
+				\vspace{6em}
+				
+				\item[$\Leftarrow$]: 反证法. 假设$\exists A$ 的一个开覆盖$\{ U_\alpha \}_{\alpha \in \Lambda}$ 不存在有限子覆盖. \\
+				Since $A$ 自列紧 $\,\, \Rightarrow \,\,$ 列紧 $\,\, \Rightarrow \,\,$ 完全有界 (\textbf{Thm \ref{thm 1.4.1}}), then for $\forall$ fixed $n \in \N$, \\
+				$A$ 存在有穷$\dfrac{1}{n}$-网, i.e. $\exists M_n$ finite, $\st$
+				\[ A \subset \bigcup_{x \in M_n} B(x , \frac{1}{n}) \]
+				Then for the fixed $n$, $\exists x_n \in M_n$, $\st B(x_n , \dfrac{1}{n})$ 不能被$\{ U_\alpha \}_{\alpha \in \Lambda}$ 有限覆盖.
+				\begin{center}
+					(否则若$\forall x \in M_n$, $B(x , \dfrac{1}{n})$ 均可被$\{ U_\alpha \}_{\alpha \in \Lambda}$ 有限覆盖, 则$A \subset \bigcup_{x \in M_n} B(x , \dfrac{1}{n})$ 可被$\{ U_\alpha \}_{\alpha \in \Lambda}$ 有限覆盖. 矛盾)
+				\end{center}
+				Then we get a sequence $\{ x_n \}_{n = 1}^{\infty} \subset A$ in $A$. \\
+				Since $A$ 自列紧, then $\exists$ subsequence $\{ x_{n_k} \}_{k = 1}^{\infty} \subset \{ x_n \}_{n = 1}^{\infty}$, $\st$
+				\[ x_{n_k} \to x_0 \in A \,\, as \,\, k \to \infty \]
+				Since $\{ U_\alpha \}_{\alpha \in \Lambda}$ covers $A$, then $\exists \alpha_0 \in \Lambda$, $\st x_0 \in U_{\alpha_0}$. \\
+				Since $U_{\alpha_0}$ is open, then $\exists \epsilon > 0$, $\st B(x_0 , \epsilon) \subset U_{\alpha_0}$. \\
+				However, since $x_{n_k} \to x_0$, for $\epsilon > 0$, $\exists k_0 \in \N$, $\st$
+				\[ \rho(x_{n_{k_0}} , x_0) < \frac{\epsilon}{3} \,\, \text{and} \,\, \frac{1}{n_{k_0}} < \frac{\epsilon}{3} \]
+				Then $B(x_{n_{k_0}} , \dfrac{1}{n_{k_0}}) \subset U_{\alpha_0}$, 于是$B(x_{n_{k_0}} , \dfrac{1}{n_{k_0}})$ 被$\{ U_\alpha \}_{\alpha \in \Lambda}$ 有限覆盖, 矛盾. \\
+				综上, $A$ 自列紧 $\,\, \Rightarrow \,\,$ compact.
+			\end{enumerate}
+		\end{proof}
+	\end{thm}
 
 
 
