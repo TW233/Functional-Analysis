@@ -1283,6 +1283,216 @@
 		\end{proof}
 	\end{thm}
 
+\newpage
+
+\section{一致有界, 等度连续}
+	为了给出上\textbf{$C[a , b]$ (列)紧集的刻画}, 即下节介绍的\textbf{Arzel\`{a}-Ascoli定理}, 本节来给出一些前置概念.
+\subsection{紧致度量空间上的连续函数全体}
+	首先来给出\textbf{紧致度量空间$X$} 上的连续函数全体$C(X)$, 并赋予相应的\textbf{度量(无穷范数)}, 使其称为\textbf{完备度量空间}. 
+	\begin{defn}\label{def 1.7.1}
+		设$(X , \rho)$ 为紧致度量空间, 其上的\underline{\textcolor{blue}{\textbf{连续函数全体$C(X)$}}} 被定义为：
+		\begin{align}
+			C(X) \coloneqq \{ f : X \longrightarrow \mathbb{K} \mid f \,\, \text{continuous} \} , \,\, \mathbb{K} \in \{ \C , \R \}
+		\end{align}
+		赋予$C(X)$ 上度量$d$, 定义为：
+		\begin{align}
+			d : C(X) \times C(X) &\longrightarrow \R_{\geq 0} \\
+			(f , g) &\longmapsto \max_{x \in X} \left| f(x) - g(x) \right|
+		\end{align}
+		
+		\vspace{2em}
+		
+		\begin{rmk}
+			\begin{itemize}
+				\item 不难证明上述定义的度量$d$ 满足\textbf{度量的三大公理 (Def \ref{def 1.1.2})}. 关于其定义是否\textbf{良好(Well-defined)}的问题, 只需说明对于$\forall f , g \in C(X)$, $d(f , g)$ 的存在性：
+				
+				\vspace{3em}
+				
+				\begin{itemize}
+					\item 
+					\begin{proof}
+						不难证明$C(X)$ 为线性空间, 于是对于$\forall f , g \in C(X)$, $f - g \in C(X)$. \\
+						根据\textbf{绝对值不等式}, 容易得到绝对值保持$C(X)$ 中函数的连续性. 
+						\begin{center}
+							($\left| \left| \varphi(x) \right| - \left| \varphi(y) \right| \right| \leq \left| \varphi(x) - \varphi(y) \right| , \,\, \forall \varphi \in C(X) , x , y \in X$)
+						\end{center}
+						因此$\left| f - g \right| \in C(X)$, 即连续. \\
+						Since $X$ is compact, then $\left| f - g \right| (X) \subset \R_{\geq 0}$ compact, 可取到最大值. 故$d(f , g)$ 存在.
+					\end{proof}
+				\end{itemize}
+				
+				\vspace{4em}
+				
+				\item 事实上, 上述定义的度量空间$(C(X) , d)$ 是\textbf{完备的}, 这在下面的\textbf{命题 \ref{prop 1.7.1}} 中得以证明.
+			\end{itemize}
+		\end{rmk}
+	\end{defn}
+
+	\newpage
+	
+	下面的命题证明了, \textbf{定义 \ref{def 1.7.1}} 中定义的度量空间$(C(X) , d)$ 是完备的.
+	
+	\begin{proposition}\label{prop 1.7.1}
+		\textbf{$(C(X) , d)$ 为完备度量空间}.
+		
+		\vspace{2em}
+		
+		\begin{proof}
+			$\forall$ Cauchy sequence $\{ f_n \}_{n = 1}^{\infty} \subset C(X)$, i.e. $\forall \epsilon > 0$, $\exists N_\epsilon \in \N$, $\st$
+			\[ d(f_m , f_n) = \max_{x \in X} \left| f_{m}(x) - f_{n}(x) \right| < \epsilon , \,\, \forall m , n \geq N_\epsilon \]
+			下面分两步进行证明：
+			\begin{enumerate}
+				\item $\exists f : X \longrightarrow \mathbb{K}$, $\st f(x) = \underset{n \to \infty}{\lim} f_{n}(x) , \,\, \forall x \in X$：\\
+				Since $\underset{x \in X}{\max} \left| f_{m}(x) - f_{n}(x) \right| < \epsilon , \,\, \forall m , n \geq N_\epsilon$, then 
+				\[ \left| f_{m}(x) - f_{n}(x) \right| < \epsilon , \,\, \forall x \in X , \,\, \forall m , n \geq N_\epsilon \]
+				Thus $\forall x \in X$, fix $x$. $\{ f_{n}(x) \}_{n = 1}^{\infty} \subset \mathbb{K}$ is a Cauchy sequence in $\mathbb{K}$. \\
+				Since both $\C$ and $\R$ are complete, then $\{ f_{n}(x) \}_{n = 1}^{\infty}$ converges, $\forall x \in X$. Let
+				\begin{align}
+					f : X &\longrightarrow \mathbb{K} \\
+					x &\longmapsto \lim_{n \to \infty} f_{n}(x)
+				\end{align}
+				Then $f$ is a mapping from $X$ to $\mathbb{K}$ with $f(x) = \underset{n \to \infty}{\lim} f_{n}(x) , \,\, \forall x \in X$.
+				
+				\vspace{4em}
+				
+				\item $f \in C(X)$, i.e. $f : X \longrightarrow \mathbb{K}$ continuous：\\
+				Since 
+				\[ \left| f_{m}(x) - f_{n}(x) \right| < \epsilon , \,\, \forall x \in X , \,\, \forall m , n \geq N_\epsilon \]
+				Then letting $m \to \infty$, we get $f_n \Rightarrow f$, i.e.
+				\[ \left| f(x) - f_{n}(x) \right| < \epsilon , \,\, \forall x \in X , \,\, \forall n \geq N_\epsilon \]
+				For $f_{N_\epsilon} \in C(X)$, fix $\epsilon > 0$. Since $f_{N_\epsilon}$ continuous, $\exists \delta > 0$, $\st$
+				\[ \left| f_{N_\epsilon}(x) - f_{N_\epsilon}(y) \right| < \epsilon , \,\, \forall \rho(x , y) < \delta \]
+				Then for $\epsilon > 0$, $\exists \delta > 0 , N_\epsilon \in \N$, $\st$
+				\begin{align}
+					\left| f(x) - f(y) \right| 
+					&\leq \left| f(x) - f_{N_{\epsilon}}(x) \right| + \left| f_{N_\epsilon}(x) - f_{N_\epsilon}(y) \right| + \left| f_{N_\epsilon}(y) - f(y) \right| \\
+					&< 3\epsilon , \,\, \forall \rho(x , y) < \delta
+				\end{align}
+				Therefore, $f : X \longrightarrow \mathbb{K}$ is continuous, $f \in C(X)$. In short, $(C(X) , d)$ is complete.
+			\end{enumerate}
+		\end{proof}
+	\end{proposition}
+
+\newpage
+
+\subsection{一致有界, 等度连续}
+	下面我们来给出\textbf{一致有界}与\textbf{等度连续}的概念, 实际上为数学分析中\textbf{一致有界}与\textbf{一致连续}在更高维度上的一致性的推广, 即同时对函数和自变量都一致.
+	
+	\vspace{2em}
+	
+	\begin{defn}\label{def 1.7.2}
+		\textbf{[一致有界]}. \\
+		设$(X , \rho)$ 为紧致度量空间, $A \subset (C(X) , d)$. 若
+		\[ \sup_{\substack{x \in X \\ \varphi \in A}} \left| \varphi(x) \right| < \infty \]
+		则称\underline{\textcolor{blue}{\textbf{$A$ 一致有界}}}.
+	\end{defn}
+
+	\vspace{10em}
+	
+	\begin{defn}\label{def 1.7.3}
+		\textbf{[等度连续]}. \\
+		设$(X , \rho)$ 为紧致度量空间, $A \subset (C(X) , d)$. 若$\forall \epsilon > 0$, $\exists \delta > 0$, $\st$
+		\[ \left| \varphi(x) - \varphi(y) \right| < \epsilon , \,\, \forall \rho(x , y) < \delta , \,\, \forall \varphi \in A \]
+		则称\underline{\textcolor{blue}{\textbf{$A$ 等度连续}}}.
+		
+		\vspace{2em}
+		
+		\begin{rmk}
+			相当于在数学分析\textbf{函数一致连续}的概念上增加了对$A$ 中所有函数的一致性.
+		\end{rmk}
+	\end{defn}
+
+\newpage
+
+\section{Arzel\`{a}-Ascoli定理}
+	接下来我们将介绍\textbf{Arezel\`{a}-Ascoli定理}, 它给出了\textbf{紧致度量空间$X$ 上连续函数全体$(C(X) , d)$ 的(列)紧子集的等价刻画}.
+	
+	\begin{thm}\label{thm 1.8.1}
+		\textbf{[Arezel\`{a}-Ascoli]}. \\
+		设$(X , \rho)$ 为紧致度量空间, $A \subset C(X)$, 则：
+		\begin{center}
+			$A$ 列紧 $\,\, \Leftrightarrow \,\, A$ 一致有界且等度连续
+		\end{center}
+		
+		\vspace{4em}
+		
+		\begin{proof}
+			\begin{enumerate}
+				\item[$\Rightarrow$]: 下面分两点分别证明一致有界和等度连续.
+				\begin{itemize}
+					\item $A$ 一致有界：Since $A$ 列紧 $\,\, \Rightarrow \,\,$ 完全有界, then for $\epsilon = 1$, $\exists \varphi_1 , \cdots , \varphi_n \in A$, $\st$
+					\[ A \subset \bigcup_{i = 1}^{n} B(\varphi_i , 1) \]
+					$\forall \varphi \in A$, WTS: $\exists M > 0$, $\st \left| \varphi(x) \right| \leq M , \,\, \forall x \in X$. \\
+					$\exists 1 \leq i_0 \leq n$, $\st$
+					\[ \varphi \in B(\varphi_{i_0} , 1) \]
+					Then
+					\[ d(\varphi , \varphi_{i_0}) = \max_{x \in X} \left| \varphi(x) - \varphi_{i_0}(x) \right| < 1 \]
+					Thus
+					\[ \left| \varphi(x) - \varphi_{i_0}(x) \right| < 1 , \,\, \forall x \in X \]
+					Fix $1 \leq i \leq n$. For $\varphi_i \in A \subset C(X)$. \\
+					Since $X$ is compact, $\varphi_i$ continuous, then $\varphi_{i}(X) \subset \mathbb{K}$ bounded, i.e. $\exists 0 < k_i < \infty$, $\st$
+					\[ \left| \varphi_{i}(x) \right| \leq k_i , \,\, \forall x \in X \]
+					Let $k = \underset{1 \leq i \leq n}{\max}{\{ k_i \}}$, then
+					\begin{align}
+						\left| \varphi(x) \right| 
+						&\leq \left| \varphi(x) - \varphi_{i_0}(x) \right| + \left| \varphi_{i_0}(x) \right| \\
+						&\leq 1 + k , \,\, \forall x \in X , \,\, \forall \varphi \in A
+					\end{align}
+					Therefore, $A \subset C(X)$ 一致有界.
+					
+					\newpage
+					
+					\item $A$ 等度连续：Since $A$ 列紧 $\,\, \Rightarrow \,\,$ 完全有界, then for $\forall \epsilon > 0$, $A$ 存在有穷$\epsilon$-网, i.e. \\
+					$\exists \varphi_{1}^\epsilon , \cdots , \varphi_{i_\epsilon}^\epsilon \in A$, $\st$
+					\[ A \subset \bigcup_{i = 1}^{i_\epsilon} B(\varphi_{i}^\epsilon , \epsilon) \]
+					Since $\varphi_i \in C(X)$ continuous, $\forall 1 \leq i \leq i_\epsilon$, then for $\epsilon > 0$, $\exists \delta_1 , \cdots , \delta_{i_\epsilon} > 0$, $\st$
+					\[ \left| \varphi_{k}^\epsilon(x) - \varphi_{k}^\epsilon(y) \right| < \epsilon , \,\, \forall \rho(x , y) < \delta_k , \,\, \forall 1 \leq k \leq i_\epsilon \]
+					Let $\delta_\epsilon = \min \{ \delta_1 , \cdots , \delta_{i_\epsilon} \} > 0$, then for $\forall 1 \leq k \leq i_\epsilon$, 
+					\[ \left| \varphi_{k}^\epsilon(x) - \varphi_{k}^\epsilon(y) \right| < \epsilon , \,\, \forall \rho(x , y) < \delta_\epsilon \]
+					$\forall \psi \in A$, $\exists 1 \leq i_0 \leq i_\epsilon$, $\st$
+					\[ \psi \in B(\varphi_{i_0}^\epsilon , \epsilon) \,\, \Rightarrow \,\, d(\psi , \varphi_{i_0}^\epsilon) < \epsilon \]
+					Thus
+					\[ \left| \psi(x) - \varphi_{i_0}^\epsilon (x) \right| < \epsilon , \,\, \forall x \in X \]
+					Then
+					\begin{align}
+						\left| \psi(x) - \psi(y) \right| 
+						&\leq \left| \psi(x) - \varphi_{i_0}^\epsilon(x) \right| + \left| \varphi_{i_0}^\epsilon(x) - \varphi_{i_0}^\epsilon(y) \right| + \left| \varphi_{i_0}^\epsilon(y) - \psi(y) \right| \\
+						&\leq 3\epsilon , \,\, \forall \rho(x , y) < \delta_\epsilon
+					\end{align}
+					Therefore, $A \subset C(X)$ 等度连续.
+				\end{itemize}
+				
+				\vspace{8em}
+				
+				\item[$\Leftarrow$]: Since $A$ 等度连续, then for $\forall \epsilon > 0$, $\exists \delta > 0$, $\st$
+				\[ \left| \varphi(x) - \varphi(y) \right| < \frac{\epsilon}{3} , \,\, \forall \rho(x , y) < \delta , \,\, \forall \varphi \in A \]
+				Since $X$ is compact, then $X$ 存在有穷$\delta$-网, i.e. $\exists \{ x_{1}^\delta , \cdots , x_{n}^\delta \} \subset X$, $\st$
+				\[ X \subset \bigcup_{i = 1}^{n} B(x_{i}^n , \delta) \]
+				Let
+				\[ \widetilde{A} = \left\{ \left( \varphi(x_{1}^\delta) , \cdots , \varphi(x_{n}^\delta) \right) \in \mathbb{K}^n \mid \varphi \in A \right\} \]
+				Since $A$ 一致有界, i.e. 
+				\[ \left| \varphi(x) \right| \leq M , \,\, \forall x \in X , \,\, \forall \varphi \in A \,\, \text{for some} \,\, M > 0 \]
+				\begin{center}
+					$\Rightarrow \,\, \widetilde{A} \subset \mathbb{K}^n$ is bounded in $\mathbb{K}^n$
+				\end{center}
+				Since both in $\R^n$ and $\C^n$, 有界$\,\, \Leftrightarrow \,\,$ 列紧 $\,\, \Leftrightarrow \,\,$ 完全有界, then $\widetilde{A}$ 完全有界. \\
+				Thus $\widetilde{A}$ 存在有穷$\delta$-网, i.e. $\exists \{ ( \varphi_{i}(x_{1}^\delta) , \cdots , \varphi_{i}(x_{n}^\delta) ) \in \mathbb{K}^n \}_{i = 1}^{m} \subset \mathbb{K}^n$, $\st$
+				\[ \widetilde{A} \subset \bigcup_{i = 1}^{m} B( ( \varphi_{i}(x_{1}^\delta) , \cdots , \varphi_{i}(x_{n}^\delta) ) , \frac{\epsilon}{3}) \]
+				下面证明：$\{ \varphi_1 , \cdots , \varphi_m \}$ 即为$A$ 的有穷$\epsilon$-网：\\
+				$\forall \varphi \in A$, $\exists 1 \leq i_0 \leq m$, $\st$
+				\[ ( \varphi(x_{1}^\delta) , \cdots , \varphi(x_{n}^\delta) ) \subset B( ( \varphi_{i_0}(x_{1}^\delta) , \cdots , \varphi_{i_0}(x_{n}^\delta) ) , \frac{\epsilon}{3}) \]
+				$\forall x \in X$, fix $x$. Since $\{ x_{1}^\delta , \cdots , x_{n}^\delta \}$ 为$X$ 的$\delta$-网, then $\exists 1 \leq j_0 \leq n$, $\st$
+				\[ \rho(x , x_{j_0}^\delta) < \delta \]
+				Then by $A$ 等度连续, 
+				\begin{align}
+					\left| \varphi(x) - \varphi_{i_0}(x) \right| 
+					&\leq \left| \varphi(x) - \varphi(x_{j_0}^\delta) \right| + \left| \varphi(x_{j_0}^\delta) - \varphi_{i_0}(x_{j_0}^\delta) \right| + \left| \varphi_{i_0}(x_{j_0}^\delta) - \varphi_{i_0}(x) \right| \\
+					&< \frac{2}{3} \epsilon + \left| ( \varphi(x_{1}^\delta) , \cdots , \varphi(x_{n}^\delta) ) - ( \varphi_{i_0}(x_{1}^\delta) , \cdots , \varphi_{i_0}(x_{n}^\delta) \right| \\
+					&< \epsilon
+				\end{align}
+			\end{enumerate}
+		\end{proof}
+	\end{thm}
 
 
 	%  ############################
