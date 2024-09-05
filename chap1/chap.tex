@@ -1445,9 +1445,9 @@
 					\item $A$ 等度连续：Since $A$ 列紧 $\,\, \Rightarrow \,\,$ 完全有界, then for $\forall \epsilon > 0$, $A$ 存在有穷$\epsilon$-网, i.e. \\
 					$\exists \varphi_{1}^\epsilon , \cdots , \varphi_{i_\epsilon}^\epsilon \in A$, $\st$
 					\[ A \subset \bigcup_{i = 1}^{i_\epsilon} B(\varphi_{i}^\epsilon , \epsilon) \]
-					Since $\varphi_i \in C(X)$ continuous, $\forall 1 \leq i \leq i_\epsilon$, then for $\epsilon > 0$, $\exists \delta_1 , \cdots , \delta_{i_\epsilon} > 0$, $\st$
-					\[ \left| \varphi_{k}^\epsilon(x) - \varphi_{k}^\epsilon(y) \right| < \epsilon , \,\, \forall \rho(x , y) < \delta_k , \,\, \forall 1 \leq k \leq i_\epsilon \]
-					Let $\delta_\epsilon = \min \{ \delta_1 , \cdots , \delta_{i_\epsilon} \} > 0$, then for $\forall 1 \leq k \leq i_\epsilon$, 
+					Since $\varphi_i \in C(X)$ continuous, $\forall 1 \leq i \leq i_\epsilon$, then for $\epsilon > 0$, $\exists \delta_{1}^\epsilon , \cdots , \delta_{i_\epsilon}^\epsilon > 0$, $\st$
+					\[ \left| \varphi_{k}^\epsilon(x) - \varphi_{k}^\epsilon(y) \right| < \epsilon , \,\, \forall \rho(x , y) < \delta_{k}^\epsilon , \,\, \forall 1 \leq k \leq i_\epsilon \]
+					Let $\delta_\epsilon = \min \{ \delta_{1}^\epsilon , \cdots , \delta_{i_\epsilon}^\epsilon \} > 0$, then for $\forall 1 \leq k \leq i_\epsilon$, 
 					\[ \left| \varphi_{k}^\epsilon(x) - \varphi_{k}^\epsilon(y) \right| < \epsilon , \,\, \forall \rho(x , y) < \delta_\epsilon \]
 					$\forall \psi \in A$, $\exists 1 \leq i_0 \leq i_\epsilon$, $\st$
 					\[ \psi \in B(\varphi_{i_0}^\epsilon , \epsilon) \,\, \Rightarrow \,\, d(\psi , \varphi_{i_0}^\epsilon) < \epsilon \]
@@ -1470,29 +1470,164 @@
 				\[ X \subset \bigcup_{i = 1}^{n} B(x_{i}^n , \delta) \]
 				Let
 				\[ \widetilde{A} = \left\{ \left( \varphi(x_{1}^\delta) , \cdots , \varphi(x_{n}^\delta) \right) \in \mathbb{K}^n \mid \varphi \in A \right\} \]
+				and denote
+				\begin{align}
+					\widetilde{\varphi} : X^n &\longrightarrow \mathbb{K}^n \\
+					x^\delta &\longmapsto \left( \varphi(x_{1}^\delta) , \cdots , \varphi(x_{n}^\delta) \right) \in \mathbb{K}^n
+				\end{align}
+				Then $\widetilde{A} = \{ \widetilde{\varphi}(x^\delta) \in \mathbb{K}^n \mid \varphi \in A \}$. \\
 				Since $A$ 一致有界, i.e. 
 				\[ \left| \varphi(x) \right| \leq M , \,\, \forall x \in X , \,\, \forall \varphi \in A \,\, \text{for some} \,\, M > 0 \]
 				\begin{center}
 					$\Rightarrow \,\, \widetilde{A} \subset \mathbb{K}^n$ is bounded in $\mathbb{K}^n$
 				\end{center}
 				Since both in $\R^n$ and $\C^n$, 有界$\,\, \Leftrightarrow \,\,$ 列紧 $\,\, \Leftrightarrow \,\,$ 完全有界, then $\widetilde{A}$ 完全有界. \\
-				Thus $\widetilde{A}$ 存在有穷$\delta$-网, i.e. $\exists \{ ( \varphi_{i}(x_{1}^\delta) , \cdots , \varphi_{i}(x_{n}^\delta) ) \in \mathbb{K}^n \}_{i = 1}^{m} \subset \mathbb{K}^n$, $\st$
-				\[ \widetilde{A} \subset \bigcup_{i = 1}^{m} B( ( \varphi_{i}(x_{1}^\delta) , \cdots , \varphi_{i}(x_{n}^\delta) ) , \frac{\epsilon}{3}) \]
+				Thus $\widetilde{A}$ 存在有穷$\delta$-网, i.e. $\exists \{ \widetilde{\varphi_1}(x^\delta) , \cdots , \widetilde{\varphi_m}(x^\delta) \} \subset \widetilde{A}$, $\st$
+				\[ \widetilde{A} \subset \bigcup_{i = 1}^{m} B( \widetilde{\varphi_i}(x^\delta) , \frac{\epsilon}{3}) \]
 				下面证明：$\{ \varphi_1 , \cdots , \varphi_m \}$ 即为$A$ 的有穷$\epsilon$-网：\\
 				$\forall \varphi \in A$, $\exists 1 \leq i_0 \leq m$, $\st$
-				\[ ( \varphi(x_{1}^\delta) , \cdots , \varphi(x_{n}^\delta) ) \subset B( ( \varphi_{i_0}(x_{1}^\delta) , \cdots , \varphi_{i_0}(x_{n}^\delta) ) , \frac{\epsilon}{3}) \]
+				\[ \widetilde{\varphi}(x^\delta) \subset B( \widetilde{\varphi_{i_0}}(x^\delta) , \frac{\epsilon}{3}) \]
 				$\forall x \in X$, fix $x$. Since $\{ x_{1}^\delta , \cdots , x_{n}^\delta \}$ 为$X$ 的$\delta$-网, then $\exists 1 \leq j_0 \leq n$, $\st$
 				\[ \rho(x , x_{j_0}^\delta) < \delta \]
 				Then by $A$ 等度连续, 
 				\begin{align}
 					\left| \varphi(x) - \varphi_{i_0}(x) \right| 
 					&\leq \left| \varphi(x) - \varphi(x_{j_0}^\delta) \right| + \left| \varphi(x_{j_0}^\delta) - \varphi_{i_0}(x_{j_0}^\delta) \right| + \left| \varphi_{i_0}(x_{j_0}^\delta) - \varphi_{i_0}(x) \right| \\
-					&< \frac{2}{3} \epsilon + \left| ( \varphi(x_{1}^\delta) , \cdots , \varphi(x_{n}^\delta) ) - ( \varphi_{i_0}(x_{1}^\delta) , \cdots , \varphi_{i_0}(x_{n}^\delta) \right| \\
-					&< \epsilon
+					&< \frac{\epsilon}{3} + \left| \varphi(x_{j_0}^\delta) - \varphi_{i_0}(x_{j_0}^\delta) \right| + \frac{\epsilon}{3} \\
+					&< \frac{2}{3} \epsilon + \left| \widetilde{\varphi}(x^\delta) - \widetilde{\varphi_{i_0}}(x^\delta) \right| \\
+					&< \epsilon , \,\, \forall x \in X
 				\end{align}
+				Thus, 
+				\[ d(\varphi , \varphi_{i_0}) = \max_{x \in X} \left| \varphi(x) - \varphi_{i_0}(x) \right| < \epsilon \]
+				i.e.
+				\[ \varphi \in B(\varphi_{i_0} , \epsilon) \]
+				Therefore, $A$ 完全有界 $\,\, \Leftrightarrow \,\,$ 列紧.
 			\end{enumerate}
 		\end{proof}
 	\end{thm}
+
+\newpage
+
+\section{Banach不动点定理}
+\subsection{Banach不动点定理 / 压缩映射原理}
+	在数学分析中我们事实上已经接触过\textbf{Banach不动点定理 (压缩映射原理)}, 此处给出其在\textbf{完备度量空间}上的推广. 首先来回顾一下\textbf{压缩映射}的概念.
+	
+	\begin{defn}\label{def 1.9.1}
+		Suppose $(X , \rho)$ be a metric space, $T : X \longrightarrow X$. If $\exists 0 < L <1$, $\st$
+		\[ \rho(Tx , Ty) \leq L \, \rho(x , y) , \,\, \forall x , y \in X \]
+		Then 称$T$ 为度量空间$(X , \rho)$ 上的一个\underline{\textcolor{blue}{\textbf{压缩映射}}}.
+	\end{defn}
+	
+	\vspace{6em}
+	
+	下面我们来给出\textbf{Banach不动点定理}.
+	\begin{thm}\label{thm 1.9.1}
+		\textbf{[Banach不动点定理 / 压缩映射原理]}. 
+		\begin{center}
+			若度量空间$(X , \rho)$ 完备, 则$X$ 到自身的压缩映射$T$ 必存在\textbf{唯一不动点}.
+		\end{center}
+		
+		\vspace{4em}
+		
+		\begin{proof}
+			证明是Trivial的. 下面分两步, 先证明存在性, 再证明唯一性.
+			\begin{itemize}
+				\item 压缩映射$T : X \longrightarrow X$ 存在不动点：$\forall x \in X$, consider the sequence $\{ T^{n}(x) \}_{n = 1}^{\infty}$. \\
+				Since $T$ 为压缩映射, then $\exists 0 < L < 1$, $\st$
+				\[ \rho(Tx , Ty) \leq T \, \rho(x , y) , \,\, \forall x , y \in X \]
+				Thus for $\forall \epsilon > 0$, $\exists N_\epsilon \in \N$, $\st L^n < \epsilon , \,\, \forall n > N_\epsilon$. Then
+				\begin{align}
+					\rho(T^{n + p}(x) , T^{n}(x)) 
+					&\leq L^n \rho(T^{p}(x) , x) \\
+					&\leq L^n \left[ \rho(T^{p}(x) , T^{p - 1}(x)) + \cdots + \rho(T(x) , x) \right] \\
+					&\leq L^n (L^{p - 1} + \cdots + L + 1) \rho(T(x) , x) \\
+					&\leq \frac{L^n}{1 - L} \rho(T(x) , x) \leq \frac{\rho(T(x) , x)}{1 - L} \epsilon , \,\, \forall n > N_\epsilon , \,\, \forall p \in \N
+				\end{align}
+				Thus $\{ T^{n}(x) \}_{n = 1}^{\infty} \subset X$ is a Cauchy sequence in $X$. \\
+				Since $X$ is complete, then $\{ T^{n}(x) \}_{n = 1}^{\infty}$ converges. Let $T^n(x) \to x_0 \in X$, \\
+				Then 根据$T^{n + 1}(x) = T(T^{n}(x))$, letting $n \to \infty$, we get $T(x_0) = x_0$. $x_0 \in X$ 即为$T$ 的不动点.
+				
+				\newpage
+				
+				\item $T : X \longrightarrow X$ 的不动点唯一：Assume $x_0 , y_0 \in X$ 均为$T$ 的不动点, then 
+				\[ T^{n}(x_0) = x_0 , T^{n}(y_0) = y_0 , \,\, \forall n \in \N \]
+				Thus
+				\[ \rho(x_0 , y_0) = \rho(T^{n}(x_0) , T^{n}(y_0)) \leq L^n \rho(x_0 , y_0) , \,\, \forall n \in \N \]
+				Letting $n \to \infty$, we have $\rho(x_0 , y_0) = 0$, i.e. $x_0 = y_0$.
+			\end{itemize}
+		\end{proof}
+	\end{thm}
+	
+	\vspace{4em}
+	
+	根据\textbf{定理 \ref{thm 1.9.1}}, 我们可以得到一个有趣的推论.
+	\begin{corollary}\label{cor 1.9.2}
+		Suppose $(X , \rho)$ be a complete metric space, $T : X \longrightarrow X$. 若$T^n$ 为压缩映射, 则$T$ 存在唯一不动点.
+		
+		\vspace{2em}
+		
+		\begin{proof}
+			\begin{itemize}
+				\item 存在性：Since $T^n : X \longrightarrow X$ 为压缩映射, then by \textbf{Banach不动点定理 (Thm \ref{thm 1.9.1})}, \\
+				$\exists x_0 \in X$, $\st$
+				\[ T^{n}(x_0) = x_0 \]
+				等式两边同时作用$T$, 得到
+				\[ T^{n}(T(x_0)) = T(x_0) \]
+				于是$T(x_0) \in X$ 也为$T^n$ 的不动点. 根据\textbf{不动点的唯一性 (Thm \ref{thm 1.9.1})}, 可得
+				\[ T(x_0) = x_0 \]
+				于是$x_0 \in X$ 也为$T$ 的不动点.
+				
+				\vspace{2em}
+				
+				\item 唯一性：设$y_0 \in X$ 也为$T$ 的不动点, 即$y_0 = T(y_0)$, 则归纳可得：
+				\[ y_0 = T(y_0) = T^{k}(y_0) , \,\, \forall k \in \N \]
+				取$k = n + 1$, 得到：$T(y_0) = T^{n}(T(y_0))$, 于是$T(y_0) = y_0$ 为$T^n$ 的不动点. \\
+				根据$T^n$ 不动点唯一性, 可得：
+				\[ T(y_0) = y_0 = x_0 \]
+			\end{itemize}
+		\end{proof}
+	\end{corollary}
+
+\newpage
+
+\subsection{Volterra方程}
+	这一小节我们将回顾\textbf{常微分方程 (ODE)}课程中最常见的\textbf{Volterra方程}, 并运用\textbf{Banach不动点定理 (压缩映射原理)}及其推论来证明其解的存在唯一性.
+	
+	\begin{example}\label{ex 1.9.1}
+		\textbf{[Volterra方程解的存在唯一性]}. \\
+		证明：积分方程
+		\[ x(t) = f(t) + \lambda \int_{a}^t k(t , s) x(s) \, ds \]
+		在$C[a , b]$ 中存在唯一解, 其中$f \in C[a , b]$, $k \in C[a , b]^2$ 给定, $\lambda \in \R$ 是任意的.
+		
+		\vspace{2em}
+		
+		\begin{proof}
+			Let
+			\begin{align}
+				T : C[a , b] &\longrightarrow C[a , b] \\
+				x &\longmapsto Tx : t \longmapsto f(t) + \lambda \int_{a}^t k(t , s) x(s) \, ds
+			\end{align}
+			Then $T$ 为良定义的算子. 我们考虑使用\textbf{推论 \ref{cor 1.9.2}} 来证明, 其关键就在于该如何计算$T^n$, 即 \\
+			要证：$T$ 存在唯一不动点 \\
+			只需证：$\exists n \in \N$, $\st T^n$ 为压缩映射 \\
+			不难发现, $\forall x \in C[a , b]$ 在经过算子$T^n$ 作用后, 得到的结果中, $f$ 与$x$ 是不相关的, 于是可写为如下形式：
+			\[ T^{n}(x) = S_{n}(f) + R_{n}(x) \]
+			于是
+			\[ T^{n}(x) - T^{n}(y) = R_{n}(x) - R_{n}(y) \]
+			由于
+			\[ R_{n}(x) = \lambda^n \int_{a}^{t} \int_{a}^{t_n} \cdots \int_{a}^{t_2} k(t , t_n) k(t_n , t_{n - 1}) \cdots k(t_2 , t_1) x(t_1) \, d t_1 d t_2 \cdots d t_n \]
+			于是
+			\begin{align}
+				d(T^{n}(x) , T^{n}(y)) 
+				&= \Vert T^{n}(x) - T^{n}(y) \Vert_\infty \\
+				&= \left| \lambda \right|^n \left\Vert \int_{a}^{t_n} \cdots \int_{a}^{t_2} k(t , t_n) k(t_n , t_{n - 1}) \cdots k(t_2 , t_1) x(t_1) \, d t_1 d t_2 \cdots d t_n \right\Vert_\infty \\
+				&\leq \left| \lambda \right|^n \Vert k \Vert_{\infty}^n \Vert x - y \Vert_{\infty} \left| \int_{a}^{t_n} \cdots \int_{a}^{t_2} \, d t_1 d t_2 \cdots d t_n \right| \\
+				&\leq \left| \lambda \right|^n \Vert k \Vert_{\infty}^n \Vert x - y \Vert_{\infty} \frac{(t - a)^n}{n !} \\
+				&\leq \left| \lambda \right|^n \Vert k \Vert_{\infty}^n \Vert x - y \Vert_{\infty} \frac{(b - a)^n}{n !} \to 0 \,\, as \,\, n \to \infty
+			\end{align}
+			Thus $\exists N \in \N$, $\st T^N$ 为压缩映射, 从而$T$ 存在唯一不动点, 即方程在$C[a , b]$ 上存在唯一解.
+		\end{proof}
+	\end{example}
 
 
 	%  ############################

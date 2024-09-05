@@ -34,5 +34,8 @@
 \contentsline {subsection}{\numberline {1.7.1}紧致度量空间上的连续函数全体}{33}{subsection.1.7.1}%
 \contentsline {subsection}{\numberline {1.7.2}一致有界, 等度连续}{35}{subsection.1.7.2}%
 \contentsline {section}{\numberline {1.8}Arzel\`{a}-Ascoli定理}{36}{section.1.8}%
-\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}$Supplementary \,\, Content$}{39}{appendix.A}%
-\contentsline {section}{\numberline {A.1}度量空间稠密子集的等价刻画}{39}{section.A.1}%
+\contentsline {section}{\numberline {1.9}Banach不动点定理}{39}{section.1.9}%
+\contentsline {subsection}{\numberline {1.9.1}Banach不动点定理 / 压缩映射原理}{39}{subsection.1.9.1}%
+\contentsline {subsection}{\numberline {1.9.2}Volterra方程}{41}{subsection.1.9.2}%
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}$Supplementary \,\, Content$}{42}{appendix.A}%
+\contentsline {section}{\numberline {A.1}度量空间稠密子集的等价刻画}{42}{section.A.1}%
