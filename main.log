@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.11.9)  5 SEP 2024 11:23
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.11.9)  6 SEP 2024 21:52
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -822,7 +822,8 @@ Requested font "[TeXGyreTermesX-Regular.otf]/OT:script=latn;language=dflt;-ss05
  -> e:/Latex/texlive/2022/texmf-dist/fonts/opentype/public/newtx/TeXGyreTermesX
 -Regular.otf
 
-(./main.aux (./config/cover.aux) (./chap1/chap.aux) (./appendix/chap.aux))
+(./main.aux (./config/cover.aux) (./chap1/chap.aux) (./chap2/chap.aux)
+(./appendix/chap.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 5.
@@ -1545,6 +1546,25 @@ k/m/it/12 X\OT1/txr/m/n/12 )\OML/mak/m/it/12 ; d\OT1/txr/m/n/12 )$
  []
 
 [36] [37] [38] [39] [40]) [41]
+\openout2 = `chap2/chap.aux'.
+
+ (./chap2/chap.tex
+第二章
+
+Overfull \hbox (5.9618pt too wide) in paragraph at lines 11--12
+[]\TU/SimSun(0)/m/n/12 这 一 章 我 们 将 来 讨 论 \TU/SimSun(0)/b/n/12 赋 范 线 性 空 间 \TU/S
+imSun(0)/m/n/12 的 相 关 定 义 及 性 质\TU/TeXGyreTermesX(0)/m/n/12 . \TU/SimSun(0)/m/n
+/12 首 先 回 顾 \TU/SimSun(0)/b/n/12 范 数 \TU/SimSun(0)/m/n/12 的 定 义 \TU/TeXGyreTerm
+esX(0)/b/n/12 (\TU/SimSun(0)/b/n/12 同 定 义 [][]\TU/TeXGyreTermesX(0)/b/n/12 1.1.
+1[][])\TU/TeXGyreTermesX(0)/m/n/12 . 
+ []
+
+[42
+
+
+
+
+] [43]) [44]
 \openout2 = `appendix/chap.aux'.
 
  (./appendix/chap.tex
@@ -1575,22 +1595,23 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 9.
 
-) [42
+) [45
 
 
 
 
-] (./main.aux (./config/cover.aux) (./chap1/chap.aux) (./appendix/chap.aux))
+] (./main.aux (./config/cover.aux) (./chap1/chap.aux) (./chap2/chap.aux)
+(./appendix/chap.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 237AB3DF77388EAAAF1ACE3C5BDE7032;3924.
+(rerunfilecheck)             Checksum: EBA926C0F9B4CEEEACE96F3DE9F0AE9F;4321.
  ) 
 Here is how much of TeX's memory you used:
- 19714 strings out of 476179
- 414007 string characters out of 5810426
- 734414 words of memory out of 5000000
- 40047 multiletter control sequences out of 15000+600000
+ 19758 strings out of 476179
+ 415517 string characters out of 5810426
+ 735377 words of memory out of 5000000
+ 40084 multiletter control sequences out of 15000+600000
  508523 words of font info for 204 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  94i,15n,103p,409b,739s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (46 pages).
+Output written on main.pdf (49 pages).
