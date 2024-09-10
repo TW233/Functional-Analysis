@@ -121,6 +121,82 @@
 			\end{itemize}
 		\end{rmk}
 	\end{defn}
+	
+	\vspace{4em}
+	
+	\textbf{Banach空间}事实上十分常见, 下面给出两个经典的例子. 首先便是连续函数构成的空间.
+	\begin{example}\label{ex 2.1.2}
+		\textbf{[Banach空间]}. 
+		$(C[a , b] , \Vert \cdot \Vert_{\infty})$ 即为Banach空间, 其中$\Vert \cdot \Vert_{\infty} = \underset{[a , b]}{\max} \left| \cdot \right|$. 
+			
+		\vspace{1em}
+			
+		\begin{proof}
+			根据\textbf{命题 \ref{prop 1.7.1}}即可得证. 
+		\end{proof}
+	\end{example}
+	
+	
+	\vspace{6em}
+	下面我们来证明实分析中的$L^p$ 空间为Banach空间, 即实分析中的\textbf{Riesz-Fisher定理\footnote{详情可见\textbf{Real Analysis -- Folland , P183 Theorem 6.6}.}}. 
+	\begin{thm}\label{thm 2.1.1}
+		\textbf{[Riesz-Fisher定理]}. 
+		\begin{center}
+			$(L^{p}[a , b] , \Vert \cdot \Vert_p)$ 为Banach空间, 其中$\Vert \cdot \Vert_p = \left( \int_{[a , b]} \left| \cdot \right|^p \right)^{\tfrac{1}{p}}$. 
+		\end{center}
+		
+		\vspace{6em}
+		
+		\begin{proof}
+			根据\textbf{Minkowski不等式 (定理 \ref{thm 1.1.4})}, 不难证明$(L^{p}[a,  b] , \Vert \cdot \Vert_{p})$ 为赋范空间. \\
+			下面证明其完备性：\\
+			$\forall$ Cauchy sequence $\{ f_n \}_{n = 1}^{\infty} \subset L^{p}[a , b]$. i.e. $\forall \epsilon > 0$, $\exists N_\epsilon \in \N$, $\st$
+			\[ \Vert f_m - f_n \Vert_{p} \leq \epsilon , \,\, \forall m , n \geq N_\epsilon \]
+			For $\epsilon = \dfrac{1}{2}$, $\exists n_1 \in \N$, $\st$
+			\[ \Vert f_m - f_n \Vert_{p} \leq \frac{1}{2} , \,\, \forall m , n \geq n_1 \]
+			For $\epsilon = \dfrac{1}{4}$, $\exists n_2 > n_1$, $\st$
+			\[ \Vert f_m - f_n \Vert_{p} \leq \frac{1}{4} , \,\, \forall m , n \geq n_2 \]
+			\begin{center}
+				$\cdots$
+			\end{center}
+			Then we get a subsequence $\{ f_{n_k} \}_{k = 1}^{\infty} \subset \{ f_n \}_{n = 1}^{\infty}$, $\st$
+			\[ \Vert f_{n_k} - f_{n_{k + 1}} \Vert_p \leq \frac{1}{2^k} , \,\, \forall k \in \N \]
+			Since $\{ f_n \}_{n = 1}^{\infty} \subset L^{p}[a , b]$ is a Cauchy sequence, thus \\
+			要证：$\{ f_n \}_{n = 1}^{\infty}$ 收敛. \\
+			只需证：$\{ f_{n_k} \}_{k = 1}^{\infty} \subset \{ f_n \}_{n = 1}^{\infty}$ 收敛. Let
+			\[ g_{m}(x) = \sum_{k = 1}^{m} \left| f_{n_{k + 1}} - f_{n_k} \right| (x) , \,\, \forall m \in \N , x \in [a , b] \]
+			Then $g_m \in L^p$, $g_m \geq 0$ and $g_{m} \leq g_{m + 1}$ 单调递增, and
+			\[ g_{m}(x) \leq \sum_{k = 1}^{m} \frac{1}{2^k} \leq 1 , \,\, \forall m \in \N \]
+			记
+			\[ g(x) = \lim_{m \to \infty} g_{m}(x) = \sum_{k = 1}^{\infty} \left| f_{n_{k + 1}} - f_{n_k} \right| (x) \leq 1 \]
+			Then $g_{m}^p \in L^1$, $g_{m}^p \geq 0$, $g_{m}^p \leq g_{m + 1}^p$. By \textbf{MCT (单调收敛定理)\footnote{\textbf{Monotone Convergence Theorem}, 详见$Real \,\, Analysis$ 笔记 \textbf{定理 3.1.2 $\&$ 定理 3.1.4}.}}, 
+			\[ \lim_{m \to \infty} \int_{[a , b]} g_{m}^p(x) \, d\mu = \int_{[a , b]} \lim_{m \to \infty} g_{m}^p(x) \, d\mu \]
+			Thus
+			\begin{align}
+				\left( \int_{[a , b]} \left| g(x) \right|^p \, d\mu \right)^{\tfrac{1}{p}} 
+				&= \lim_{m \to \infty} \left( \int_{[a , b]} \left| g_{m}(x) \right|^p \, d\mu \right)^{\tfrac{1}{p}} \\
+				&\leq \lim_{m \to \infty} \left( \int_{[a , b]} 1 \, d\mu \right)^{\tfrac{1}{p}} \\
+				&= (b - a)^{\tfrac{1}{p}} < \infty
+			\end{align}
+			i.e. $\Vert g \Vert_{p} \leq (b - a)^{\tfrac{1}{p}} < \infty$, then $g \in L^p$. 故$g_m \overset{a.e.}{\to} g \in L^p$. \\
+			由于$\overset{m}{\underset{k = 1}{\sum}} \left| f_{n_{k + 1}} - f_{n_k} \right|(x)$ 与$f_{n_k}(x)$ 有相同的收敛性, 因此$\exists f \in L^p$, $\st$
+			\[ f_{n_k} \overset{a.e.}{\to} f \,\, as \,\, k \to \infty \]
+			下面来证明$f_{n_k}$ 在$p$-范数$\Vert \cdot \Vert_p$ 意义下收敛于$f$：\\
+			考虑函数列$\{ \left| f_{n_k} - f \right| \}_{k = 1}^{\infty} \subset L^p$. Since
+			\begin{align}
+				\left| f_{n_k} - f \right| 
+				= \sum_{j = k}^{\infty} \left| f_{n_{j + 1}} - f_{n_j} \right| 
+				= g - g_{k - 1} \leq 2g
+			\end{align}
+			Thus 函数列$\{ \left| f_{n_k} - f \right| \}_{k = 1}^{\infty}$ 被可积函数$2g \in L^p$ 所控制. \\
+			$\Rightarrow \,\, \{ \left| f_{n_k} - f \right|^p \}_{k = 1}^{\infty} \subset L^1$ 可被$(2g)^p \in L^1$ 所控制. 根据\textbf{DCT (控制收敛定理)\footnote{\textbf{Dominated Convergence Theorem}, 详见$Real \,\, Analysis$ 笔记 \textbf{Thm 3.1.7}.}}, 
+			\begin{align}
+				\lim_{k \to \infty} \int_{[a , b]} \left| f_{n_k} - f \right|^p \, d\mu 
+				= \int_{[a , b]} \lim_{k \to \infty} \left| f_{n_k} - f \right|^p \, d\mu = 0
+			\end{align}
+			i.e. $\Vert f_{n_k} - f \Vert_{p} \to 0$ as $k \to \infty$. 故$\{ f_{n_k} \}_{k = 1}^{\infty}$ 收敛, 从而$\{ f_n \}_{n = 1}^{\infty}$ 收敛, $L^p$ complete.
+		\end{proof}
+	\end{thm}
 
 
 
