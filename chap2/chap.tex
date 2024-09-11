@@ -198,6 +198,81 @@
 		\end{proof}
 	\end{thm}
 
+\newpage
+
+\subsection{绝对收敛}
+	回顾数学分析中级数绝对收敛的概念, 下面将其拓展到\textbf{一般的赋范空间 ($B^*$ 空间)}中. 
+	
+	\vspace{1em}
+	
+	\begin{defn}\label{def 2.1.3}
+		对于$B^*$ 空间$(X , \Vert \cdot \Vert)$ 中的无穷级数$\sum x_n$, 若$\sum \Vert x_n \Vert$ 收敛, 则称\underline{\textcolor{blue}{\textbf{$\sum x_n$ 绝对收敛}}}. 
+		
+		\vspace{2em}
+		
+		\begin{rmk}
+			\begin{itemize}
+				\item 此处对于$x_n \in X$, 部分和$\sum x_n$ 有定义的来源为$B^*$ 空间均为线性空间. 
+				
+				\vspace{2em}
+				
+				\item 在\textbf{欧氏空间}中, \textbf{绝对收敛} $\,\, \Rightarrow \,\,$ \textbf{收敛}. 但对于一般的赋范空间($B^*$ 空间), 该结论不成立. 下面给出一个反例. 
+				
+				\vspace{4em}
+				
+				\begin{example}\label{ex 2.1.3}
+					考虑$\R$ 中的一个子空间$([0 , 1) , | \cdot |)$. 取$x_n = \dfrac{1}{n} - \dfrac{1}{n + 1} \in [0 , 1) , \,\, n = 1 , 2 , \cdots$. \\
+					Since
+					\[ \sum_{n = 1}^{\infty} \left| x_n \right| = \sum_{n = 1}^{\infty} \left( \frac{1}{n} - \frac{1}{n + 1} \right) = 1 < \infty \]
+					Thus $\overset{\infty}{\underset{n = 1}{\sum}} \left| x_n \right|$ converges in $\R$. Then 无穷级数 $\overset{\infty}{\underset{n = 1}{\sum}} x_n$ 绝对收敛. However, 
+					\[ \sum_{n = 1}^{\infty} x_n = \sum_{n = 1}^{\infty} \left( \frac{1}{n} - \frac{1}{n + 1} \right) = 1 \not\in [0 , 1) \]
+					Thus $\overset{\infty}{\underset{n = 1}{\sum}} x_n$ 在$[0 , 1)$ 中不收敛.
+				\end{example}
+			\end{itemize}
+		\end{rmk}
+	\end{defn}
+	
+	\newpage
+	
+	下面的定理给出了$B^*$ 空间成为$B$ 空间的\textbf{等价刻画}, 即\textbf{绝对收敛}$\,\, \Rightarrow \,\,$ \textbf{收敛}. 
+	
+	\begin{thm}\label{thm 2.1.2}
+		\textbf{[$B^*$ 空间完备的等价刻画]}. 
+		\begin{center}
+			\textbf{$B^*$ 空间$(X , \Vert \cdot \Vert)$ 完备 $\,\, \Leftrightarrow \,\,$ 绝对收敛必收敛}
+		\end{center}
+		
+		\vspace{3em}
+		
+		\begin{proof}
+			\begin{enumerate}
+				\item[$\Rightarrow$]: $\forall \{ x_n \}_{n = 1}^{\infty} \subset X$ with $\overset{\infty}{\underset{n = 1}{\sum}} \Vert x_n \Vert < \infty$. By \textbf{范数的三角不等式 (Def \ref{def 2.1.1})}, 
+				\[ \Vert \sum_{n = 1}^{N} x_n \Vert \leq \sum_{n = 1}^{N} \Vert x_n \Vert , \,\, \forall N \in \N \]
+				Letting $N \to \infty$, then
+				\[ \Vert \sum_{n = 1}^{\infty} x_n \Vert \leq \sum_{n = 1}^{\infty} \Vert x_n \Vert < \infty \]
+				Thus $\overset{\infty}{\underset{n = 1}{\sum}} x_n$ converges. 
+				
+				\vspace{4em}
+				
+				\item[$\Leftarrow$]: $\forall$ Cauchy sequence $\{ x_n \}_{n = 1}^{\infty} \subset X$, i.e. $\forall \epsilon > 0$, $\exists N_\epsilon \in \N$, $\st$
+				\[ \rho(x_m , x_n) = \Vert x_m - x_n \Vert \leq \epsilon , \,\, \forall m , n \geq N_\epsilon \]
+				For $\epsilon = \dfrac{1}{2}$, $\exists n_1 \in \N$, $\st$
+				\[ \Vert x_m - x_n \Vert \leq \frac{1}{2} , \,\, \forall m , n \geq n_1 \]
+				For $\epsilon = \dfrac{1}{4}$, $\exists n_2 > n_1$, $\st$
+				\[ \Vert x_m - x_n \Vert \leq \frac{1}{4} , \,\, \forall m , n \geq n_2 \]
+				\begin{center}
+					$\cdots$
+				\end{center}
+				Thus we get a subsequence $\{ x_{n_k} \}_{k = 1}^{\infty} \subset \{ x_n \}_{n = 1}^{\infty}$ with $\Vert x_{n_{k + 1}} - x_{n_k} \Vert \leq \dfrac{1}{2^k}$. \\
+				WTS：$\{ x_n \}_{n = 1}^{\infty}$ converges. \\
+				只需证：$\{ x_{n_k} \}_{k = 1}^{\infty}$ converges. Since
+				\[ \sum_{k = 1}^{\infty} \Vert x_{n_{k + 1}} - x_{n_k} \Vert \leq \sum_{k = 1}^{\infty} \frac{1}{2^k} \leq 1 < \infty \]
+				Then $\overset{\infty}{\underset{k = 1}{\sum}} x_{n_k}$ 绝对收敛 $\,\, \Rightarrow \,\,$ $\overset{\infty}{\underset{k = 1}{\sum}} x_{n_k}$ 收敛. \\
+				Since $x_{n_k}$ 与$\overset{\infty}{\underset{k = 1}{\sum}} x_{n_k}$ 有相同收敛性 $\,\, \Rightarrow \,\,$ $\{ x_{n_k} \}_{k = 1}^{\infty}$ 收敛 $\,\, \Rightarrow \,\, \{ x_n \}_{n = 1}^{\infty}$ 收敛 $\,\, \Rightarrow \,\, (X , \Vert \cdot \Vert)$ complete.
+			\end{enumerate}
+		\end{proof}
+	\end{thm}
+
 
 
 
