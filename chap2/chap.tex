@@ -273,6 +273,274 @@
 		\end{proof}
 	\end{thm}
 
+\newpage
+
+\section{有限维赋范空间}
+\subsection{范数的比较}
+	这一节我们来讨论一类特殊的赋范空间——\textbf{有限维赋范空间}的性质, 首先来给出同一线性空间上所定义的不同范数之间的比较. 
+	
+	\vspace{2em}
+	
+	\begin{defn}\label{def 2.2.1}
+		在线性空间$X$ 上赋予两个范数$\Vert \cdot \Vert_1$ 和$\Vert \cdot \Vert_2$. 若$\Vert \cdot \Vert_2$ 意义下收敛蕴含$\Vert \cdot \Vert_1$ 意义下收敛, i.e. $\forall \{ x_n \}_{n = 1}^{\infty} \subset X$, $x_0 \in X$, 
+		\[ \Vert x_n - x_0 \Vert_2 \to 0 \,\, \Rightarrow \,\, \Vert x_n - x_0 \Vert_1 \to 0 \]
+		则称\underline{\textcolor{blue}{\textbf{$\Vert \cdot \Vert_2$ 比$\Vert \cdot \Vert_1$ 强}}}. 
+		
+		\vspace{4em}
+		
+		\begin{rmk}
+			范数间的比较有等价刻画, 即
+			\begin{center}
+				$\Vert \cdot \Vert_2$ 比$\Vert \cdot \Vert_1$ 强 $\,\, \Leftrightarrow \,\, \exists C > 0$, $\st \Vert \cdot \Vert_1 \leq C \, \Vert \cdot \Vert_2$
+			\end{center}
+			此即下文的\textbf{命题 \ref{prop 2.2.1}}. 同时可得到\textbf{两个范数等价}的刻画, 即 (\textbf{推论 \ref{cor 2.2.1}})
+			\begin{center}
+				$\Vert \cdot \Vert_2$ 与$\Vert \cdot \Vert_1$ 等价 $\,\, \Leftrightarrow \,\, \exists C_1 , C_2 > 0$, $\st C_1 \, \Vert \cdot \Vert_1 \leq \Vert \cdot \Vert_2 \leq C_2 \, \Vert \cdot \Vert_1$
+			\end{center}
+		\end{rmk}
+	\end{defn}
+	
+	\vspace{12em}
+	
+	下面给出\textbf{范数间比较的等价刻画}. 
+	\begin{proposition}\label{prop 2.2.1}
+		\textbf{[范数比较等价刻画]}. \\
+		设$\Vert \cdot \Vert_1$ 和$\Vert \cdot \Vert_2$ 为线性空间$X$ 上定义的两个范数, 则
+		\begin{center}
+			$\Vert \cdot \Vert_2$ 比$\Vert \cdot \Vert_1$ 强 $\,\, \Leftrightarrow \,\, \exists C > 0$, $\st \Vert \cdot \Vert_1 \leq C \, \Vert \cdot \Vert_2$
+		\end{center}
+		
+		\vspace{4em}
+		
+		\begin{proof}
+			\begin{enumerate}
+				\item[$\Leftarrow$]: Trivial. 
+				
+				\vspace{2em}
+				
+				\item[$\Rightarrow$]: 反证法. Assume for $\forall C > 0$, $\exists x \in X$, $\st \Vert x \Vert_1 > C \, \Vert x \Vert_2$. \\
+				Then for $\forall n \in \N$, $\exists x_n \in X$, $\st$
+				\[ \Vert x_n \Vert_1 > n \, \Vert x_n \Vert_2 , \,\, \forall n \in \N \]
+				Thus
+				\[ \frac{\Vert x_n \Vert_2}{\Vert x_n \Vert_1} = \left\Vert \frac{x_n}{\Vert x_n \Vert_1} \right\Vert_2 < \frac{1}{n} , \,\, \forall n \in \N \]
+				Then $\left\{ \dfrac{x_n}{\Vert x_n \Vert_1} \right\}_{n = 1}^{\infty}$ converges to $0$ in $\Vert \cdot \Vert_2$. However, 
+				\[ \left\Vert \frac{x_n}{\Vert x_n \Vert_1} \right\Vert_1 = \frac{\Vert x_n \Vert_1}{\Vert x_n \Vert_1} = 1 \not\to 0 \]
+				Thus $\left\{ \dfrac{x_n}{\Vert x_n \Vert_1} \right\}_{n = 1}^{\infty}$ doesn't converge to $0$ in $\Vert \cdot \Vert_1$, which is a contradiction to “$\Vert \cdot \Vert_2$ 比$\Vert \cdot \Vert_1$ 强”. \\
+				Therefore, $\exists C > 0$, $\st \Vert \cdot \Vert_1 \leq C \, \Vert \cdot \Vert_2$.
+			\end{enumerate}
+		\end{proof}
+	\end{proposition}
+
+	\vspace{10em}
+	
+	作为\textbf{命题 \ref{prop 2.2.1}}的推论, 下面给出\textbf{两个范数等价的刻画}. 
+	\begin{corollary}\label{cor 2.2.1}
+		\textbf{[两个范数等价的刻画]}. \\
+		设$\Vert \cdot \Vert_1$ 和$\Vert \cdot \Vert_2$ 为线性空间$X$ 上定义的两个范数, 则
+		\begin{center}
+			$\Vert \cdot \Vert_2$ 与$\Vert \cdot \Vert_1$ 等价 $\,\, \Leftrightarrow \,\, \exists C_1 , C_2 > 0$, $\st C_1 \, \Vert \cdot \Vert_1 \leq \Vert \cdot \Vert_2 \leq C_2 \, \Vert \cdot \Vert_1$
+		\end{center}
+	\end{corollary}
+
+\newpage
+
+\subsection{有限维$B^*$ 空间的范数}
+	这一小节我们主要来讨论\textbf{有限维$B^*$ 空间上范数的等价性}, 并给出其推论. 
+	
+	\vspace{2em}
+	
+	\begin{thm}\label{thm 2.2.2}
+		\textbf{[有限维$B^*$ 空间范数的等价性]}. \\
+		设$(X , \Vert \cdot \Vert) \in B^*$, $\dim X = n < \infty$, $\{ e_1 , \cdots e_n \} \subset X$ 为$X$ 的一组基, 则$\exists C_1 , C_2 > 0$, $\st$
+		\[ C_1 \, \sqrt{\sum_{i = 1}^{n} \left| x_i \right|^2} \leq \Vert x \Vert \leq C_2 \, \sqrt{\sum_{i = 1}^{n} \left| x_i \right|^2} , \,\, \forall x \in X \]
+		其中$x = \overset{n}{\underset{i = 1}{\sum}} x_i e_i , \,\, x_i \in \mathbb{K}$. 
+		
+		\vspace{4em}
+		
+		\begin{rmk}
+			该定理说明了\textbf{有限维}线性空间$X$ 上任意两种范数均等价. 这是因为：
+			
+			\vspace{1em}
+			
+			对于点列$\{ x_k \}_{k = 1}^{\infty} \subset X$, $x_k = \overset{n}{\underset{i = 1}{\sum}} x_{i}^k e_i \in X$, 其在$\Vert \cdot \Vert$ 下的收敛性与$\mathbb{K}^n$ 中的点列$\left\{ \widetilde{x_k} = (x_{1}^k , \cdots , x_{n}^k) \right\}_{k = 1}^{\infty} \subset \mathbb{K}^n$ 在欧式范数$| \cdot |$ 意义下的收敛性一致, 即
+			\[ \Vert x_k - x_0 \Vert \to 0 \,\, \Leftrightarrow \,\, \left| \widetilde{x_k} - \widetilde{x_0} \right| \to 0 \]
+			因此对于任意$X$ 上两种范数$\Vert \cdot \Vert_1$ 与$\Vert \cdot \Vert_2$, 
+			\[ \Vert x_k - x_0 \Vert_1 \to 0 \,\, \Leftrightarrow \,\, \left| \widetilde{x_k} - \widetilde{x_0} \right| \to 0 \,\, \Leftrightarrow \,\, \Vert x_k - x_0 \Vert_2 \to 0 \]
+			这就说明了其等价性.
+		\end{rmk}
+		
+		\vspace{4em}
+		
+		\begin{proof}
+			下面分别对两个不等式进行证明. 
+			\begin{itemize}
+				\item 右侧不等式是显然的. $\forall x = \overset{n}{\underset{i = 1}{\sum}} x_i e_i$, $x_i \in \mathbb{K}$. By \textbf{Triangle Inequality and linearity (Def \ref{def 2.1.1})}
+				\[
+					\Vert x \Vert 
+					= \left\Vert \sum_{i = 1}^n x_i e_i \right\Vert 
+					\leq \sum_{i = 1}^n \Vert x_{i} e_i \Vert 
+					= \sum_{i = 1}^{n} \left| x_i \right| \cdot \Vert e_i \Vert
+				\]
+				Then by \textbf{Cauchy-Schwarz's Inequality}, 
+				\[ \Vert x \Vert 
+				\leq \sum_{i = 1}^{n} \left| x_i \right| \cdot \Vert e_i \Vert 
+				\leq \left( \sum_{i = 1}^n \left| x_i \right|^2 \right)^{\tfrac{1}{2}} \left( \sum_{i = 1}^n \Vert e_i \Vert^2 \right)^{\tfrac{1}{2}} 
+				= C_2 \, \sqrt{\sum_{i = 1}^{n} \left| x_i \right|^2} \]
+				
+				\newpage
+				
+				\item 要证明左侧不等式, 不妨先设$x = \overset{n}{\underset{i = 1}{\sum}} x_i e_i \neq 0$. Then
+				\[ \frac{\Vert x \Vert}{\sqrt{\sum_{i = 1}^n \left| x_i \right|^2}} 
+				= \left\Vert \frac{x}{\sqrt{\sum_{i = 1}^n \left| x_i \right|^2}} \right\Vert 
+				= \left\Vert \sum_{k = 1}^{n} \frac{x_k}{\sqrt{\sum_{i = 1}^n \left| x_i \right|^2}} e_k \right\Vert \]
+				Then
+				\[ 
+				\left( \frac{x_1}{\sqrt{\sum_{i = 1}^n \left| x_i \right|^2}} , \cdots , \frac{x_n}{\sqrt{\sum_{i = 1}^n \left| x_i \right|^2}} \right) \in \mathbb{S}^{n - 1} 
+				\]
+				Let
+				\begin{align}
+					f : \mathbb{S}^{n - 1} &\longrightarrow \R_{> 0} \\
+					x &\longmapsto \left\Vert \sum_{i = 1}^{n} x_i e_i \right\Vert
+				\end{align}
+				where $x = \left( x_1 , \cdots , x_n \right) \in \mathbb{S}^{n - 1}$. 下面证明$f \in C(\mathbb{S}^{n - 1})$：\\
+				By the \textbf{Absolute Value Inequality}, 
+				\[
+					\left| f(x) - f(y) \right| 
+					= \left| \Vert \sum_{i = 1}^n x_i e_i \Vert - \Vert \sum_{i = 1}^n y_i e_i \Vert \right| 
+					\leq \left\Vert \sum_{i = 1}^n (x_i - y_i) e_i \right\Vert
+				\]
+				Then by \textbf{Cauchy-Schwarz's Inequality}, 
+				\begin{align}
+					\left| f(x) - f(y) \right| 
+					\leq \left\Vert \sum_{i = 1}^n (x_i - y_i) e_i \right\Vert 
+					&\leq \left( \sum_{i = 1}^n \left| x_i - y_i \right|^2 \right)^{\tfrac{1}{2}} \left( \sum_{i = 1}^n \left\Vert e_i \right\Vert^2 \right)^{\tfrac{1}{2}} \\
+					&= \left( \sum_{i = 1}^n \left\Vert e_i \right\Vert^2 \right)^{\tfrac{1}{2}} \left| x - y \right| \\
+					&= C \left| x - y \right| , \,\, \forall x , y \in \mathbb{S}^{n - 1}
+				\end{align}
+				Thus $f$ is \textbf{Lipchitz continuous} on $\mathbb{S}^{n - 1}$, specifically continuous. \\
+				Since $\mathbb{S}^{n - 1}$ is compact, $f \in C(\mathbb{S}^{n - 1})$, then $f(\mathbb{S}^{n - 1}) \subset \R$ is compact, i.e.
+				\[ f(\mathbb{S}^{n - 1}) = [m , M] \subset \R_{> 0} \]
+				Take $C_1 = m > 0$, then
+				\begin{align}
+					\frac{\Vert x \Vert}{\sqrt{\sum_{i = 1}^n \left| x_i \right|^2}} 
+					= f \left( \frac{x_1}{\sqrt{\sum_{i = 1}^n \left| x_i \right|^2}} , \cdots , \frac{x_n}{\sqrt{\sum_{i = 1}^n \left| x_i \right|^2}} \right) \geq C_1
+				\end{align}
+				i.e.
+				\[ \Vert x \Vert \geq C_1 \, \sqrt{\sum_{i = 1}^n \left| x_i \right|^2} , \,\, \forall x = \sum_{i = 1}^n x_i e_i \in X \]
+			\end{itemize}
+		\end{proof}
+	\end{thm}
+	
+	\newpage
+	
+	下面给出该定理的一些直接推论. 首先是有限维$B^*$ 空间必完备.
+	
+	\begin{corollary}\label{cor 2.2.3}
+		\textbf{[有限维$B^*$ 空间的完备性]}. 
+		\begin{center}
+			\textbf{任一有限维$B^*$ 空间$(X , \Vert \cdot \Vert)$ 必为$B$ 空间 (完备)}.
+		\end{center}
+		
+		\vspace{4em}
+		
+		\begin{proof}
+			$\forall$ Cauchy sequence $\{ x_k \}_{k = 1}^{\infty} \subset X$, $x_k = \overset{n}{\underset{i = 1}{\sum}} x_{i}^k e_i$. By \textbf{Thm \ref{thm 2.2.2}}, $\exists C_1 , C_2 > 0$, $\st$
+			\[ C_1 \, \sqrt{\sum_{i = 1}^n {\left| x_{i}^k - x_{i}^l \right|^2}} \leq \Vert x_k - x_l \Vert \leq C_2 \, \sqrt{\sum_{i = 1}^n \left| x_{i}^k - x_{i}^l \right|^2} , \,\, \forall k , l \in \N \]
+			Therefore, $\left\{ \widetilde{x_k} = \left( x_{1}^k , \cdots , x_{n}^k \right) \right\}_{k = 1}^{\infty} \subset \mathbb{K}^n$ is also a Cauchy sequence in $\mathbb{K}^n$. \\
+			Since $\mathbb{K}^n$ is complete, thus $\exists \widetilde{x_0} = \left( x_{1}^0 , \cdots , x_{n}^0 \right) \in \mathbb{K}$, $\st$
+			\[ \left| \widetilde{x_k} - \widetilde{x_0} \right| = \sqrt{\sum_{i = 1}^n \left| x_{i}^k - x_{i}^0 \right|^2} \to 0 \]
+			Let $x_0 = \overset{n}{\underset{i = 1}{\sum}} x_{i}^0 e_i \in X$, then by \textbf{Thm \ref{thm 2.2.2}}, 
+			\[ \Vert x_k - x_0 \Vert \leq C_2 \, \sqrt{\sum_{i = 1}^n \left| x_{i}^k - x_{i}^0 \right|^2} \to 0 \]
+			Therefore, $\{ x_k \}_{k = 1}^{\infty}$ converges to $x_0 \in X$ in $\Vert \cdot \Vert \,\, \Rightarrow \,\, (X , \Vert \cdot \Vert)$ is complete, $X \in B$.
+		\end{proof}
+	\end{corollary}
+	
+	\vspace{10em}
+	
+	下面的推论说明了有限维$B^*$ 空间中有界性与列紧性等价. 
+	
+	\begin{corollary}\label{cor 2.2.4}
+		\textbf{[有限维$B^*$ 空间有界与列紧等价]}. 
+		\begin{center}
+			\textbf{对于任一有限维$B^*$ 空间$(X , \Vert \cdot \Vert)$,  有界 $\,\, \Leftrightarrow \,\,$ 列紧}. 
+		\end{center}
+	
+		\vspace{4em}
+		
+		\begin{proof}
+			与\textbf{Cor \ref{cor 2.2.3}}同思路, 利用\textbf{Thm \ref{thm 2.2.2}} 范数等价性, 以及$\mathbb{K}^n$ 空间中有界 $\,\, \Leftrightarrow \,\,$ 列紧, 
+			\begin{center}
+				$A \subset X$ 有界 $\,\, \Leftrightarrow \,\, \widetilde{A} \subset \mathbb{K}^n$ 有界 $\,\, \Leftrightarrow \,\, \widetilde{A}$ 列紧 $\,\, \Leftrightarrow \,\, A$列紧
+			\end{center}
+		\end{proof}
+	\end{corollary}
+
+\newpage
+
+\subsection{Riesz引理}
+	下一小节我们将给出\textbf{赋范空间有限性的等价刻画}, 在证明其之前, 先来给出一个非常重要的引理——\textbf{Riesz引理}. 
+	
+	\vspace{2em}
+	
+	\begin{lemma}\label{lemma 2.2.5}
+		\textbf{[Riesz's Lemma]}. \\
+		设$(X , \Vert \cdot \Vert) \in B^*$, $X_0 \subset X$ 为$X$ 的真闭子空间, 则$\forall \epsilon > 0$, $\exists y \in X$, $\Vert y \Vert = 1$, $\st$
+		\[ dist(y , X_0) \geq 1 - \epsilon \]
+		
+		\vspace{4em}
+		
+		\begin{rmk}
+			\begin{itemize}
+				\item 此处$dist(y , X_0)$ 指点$y$ 与集合$X_0$ 的距离, 定义为
+				\[ dist(y  ,X_0) = \inf_{x \in X_0} \Vert y - x \Vert \]
+				
+				%\vspace{4em}
+				
+				\item 此处要求$X_0 \subset X$ closed 的目的是保证
+				\[ dist(y , X_0) > 0 , \,\, \forall y \in X \, \backslash X_0 \]
+				从而保证取点步骤的进行. 下面进行证明：
+				
+				%\vspace{1em}
+				
+				\begin{itemize}
+					\item 
+					\begin{proof}
+						反证法. Assume $\exists y \in X \, \backslash X_0$, $\st dist(y , X_0) = \underset{\inf_{x \in X_0}}{\inf} \Vert y - x \Vert = 0$. \\
+						Then for $\forall \epsilon = \dfrac{1}{n} > 0$, $\exists x_n \in X_0$, $\st$
+						\[ \Vert y - x_n \Vert \leq \frac{1}{n} , \,\, \forall n \in \N \]
+						Thus $\{ x_n \}_{n = 1}^{\infty} \subset X_0$ converges to $y \in X$ in $\Vert \cdot \Vert$. Since $X_0 \subset X$ is closed, then $y \in X_0$, contradiction.
+					\end{proof}
+				\end{itemize}
+			\end{itemize}
+		\end{rmk}
+		
+		\newpage
+		
+		\begin{proof}
+			Take $\forall y \in X \, X_0$, then $d = dist(y , X_0) > 0$. Since $d = \underset{x \in X_0}{\inf} \Vert y - x \Vert$, then \\
+			for $\forall \epsilon > 0$, $\exists x_0 \in X$, $\st$
+			\[ d \leq \Vert y - x_0 \Vert \leq (1 + \epsilon) d \]
+			Let $y_0 = \dfrac{y - x_0}{\Vert y - x_0 \Vert} \in X$, then $\Vert y_0 \Vert = 1$. 下面证明$y_0 \in X$ 即为所求点：\\
+			Since
+			\[ \Vert y_0 - x \Vert 
+			= \left\Vert \frac{y - x_0}{\Vert y - x_0 \Vert} - x \right\Vert 
+			= \frac{\Big\Vert y - \left( x_0 + \Vert y - x_0 \Vert x \right) \Big\Vert}{\Vert y - x_0 \Vert} 
+			, \,\, \forall x \in X_0 \]
+			Since $X_0 \subset X$ is a linear subspace, then 
+			\[ x_0 + \Vert y - x_0 \Vert x \in X_0 \]
+			Thus
+			\[ \Big\Vert y - \left( x_0 + \Vert y - x_0 \Vert x \right) \Big\Vert \geq \inf_{x \in X_0} \Vert y - x \Vert = d \]
+			Therefore, 
+			\[ \Vert y_0 - x \Vert 
+			= \frac{\Big\Vert y - \left( x_0 + \Vert y - x_0 \Vert x \right) \Big\Vert}{\Vert y - x_0 \Vert} 
+			\geq \frac{d}{\Vert y - x_0 \Vert} 
+			\geq \frac{d}{(1 + \epsilon) d} 
+			\geq 1 - \epsilon , \,\, \forall x \in X_0 \]
+			i.e.
+			\[ dist(y_0 ,X_0) = \inf_{x \in X_0} \Vert y_0 - x \Vert \geq 1 - \epsilon \]
+		\end{proof}
+	\end{lemma}
+
 
 
 
