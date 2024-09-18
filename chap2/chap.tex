@@ -517,8 +517,8 @@
 		\newpage
 		
 		\begin{proof}
-			Take $\forall y \in X \, X_0$, then $d = dist(y , X_0) > 0$. Since $d = \underset{x \in X_0}{\inf} \Vert y - x \Vert$, then \\
-			for $\forall \epsilon > 0$, $\exists x_0 \in X$, $\st$
+			Take $\forall y \in X \, \backslash \, X_0$, then $d = dist(y , X_0) > 0$. Since $d = \underset{x \in X_0}{\inf} \Vert y - x \Vert$, then \\
+			for $\forall \epsilon > 0$, $\exists x_0 \in X_0$, $\st$
 			\[ d \leq \Vert y - x_0 \Vert \leq (1 + \epsilon) d \]
 			Let $y_0 = \dfrac{y - x_0}{\Vert y - x_0 \Vert} \in X$, then $\Vert y_0 \Vert = 1$. 下面证明$y_0 \in X$ 即为所求点：\\
 			Since
@@ -540,6 +540,209 @@
 			\[ dist(y_0 ,X_0) = \inf_{x \in X_0} \Vert y_0 - x \Vert \geq 1 - \epsilon \]
 		\end{proof}
 	\end{lemma}
+
+\newpage
+
+\subsection{赋范空间有限性的刻画}
+	上一小节我们介绍了\textbf{Riesz引理 (Lemma \ref{lemma 2.2.5})}, 它说明了对于任一$B^*$ 空间$X$ 中的真闭子空间$X_0 \subset X$, 单位球面与其距离的下确界为1. 这一小节我们将利用Riesz引理, 来给出\textbf{有限维赋范空间的等价刻画}, 即有限维当且仅当有界$\Leftrightarrow$ 列紧.
+	
+	\vspace{2em}
+	
+	\begin{thm}\label{thm 2.2.6}
+		\textbf{[有限维赋范空间的等价刻画]}. 
+		\begin{center}
+			\textbf{若$(X , \Vert \cdot \Vert) \in B^*$ 的任意有界集均列紧, 则$dim(X) < \infty$.}
+		\end{center}
+		
+		\vspace{2em}
+		
+		\begin{rmk}
+			结合\textbf{定理 \ref{thm 2.2.2}}及\textbf{推论 \ref{cor 2.2.4}}, 对于$\forall (X , \Vert \cdot \Vert) \in B^*$, 
+			\begin{center}
+				$X$ 中有界与列紧等价 $\,\, \Leftrightarrow \,\, dim(X) < \infty$
+			\end{center}
+			这就给出了$B^*$ 空间有限性的刻画.
+		\end{rmk}
+		
+		\vspace{4em}
+		
+		\begin{proof}
+			反证法. Assume that $dim(X) = \infty$. Take $0 \neq x \in X$. Let 
+			\[ e_1 = \dfrac{x}{\Vert x \Vert} \in X , \,\, X_1 = span \{ e_1 \} \subset X \] 
+			Since $dim(X) = \infty$, then $X_1 \subset X$ 为真子空间, 且为闭子空间 (线性子空间对运算封闭). \\
+			By \textbf{Riesz's Lemma (Lemma \ref{lemma 2.2.5})}, for $\epsilon = \dfrac{1}{2}$, $\exists e_2 \in X$, $\Vert e_2 \Vert = 1$, $\st$
+			\[ dist(e_2 , X_1) \geq \frac{1}{2} \]
+			Thus $\Vert e_2 - e_1 \Vert \geq \dfrac{1}{2}$. Let $X_2 = \{ e_1 , e_2 \} \subset X$ 真闭子空间. \\
+			Similarly, By \textbf{Riesz's Lemma (Lemma \ref{lemma 2.2.5})}, $\exists e_3 \in X$, $\Vert e_3 \Vert = 1$, $\st$
+			\[ \vert e_3 - e_1 \Vert \geq \frac{1}{2} \,\, \text{and} \,\, \Vert e_3 - e_2 \Vert \geq \frac{1}{2} \]
+			\begin{center}
+				$\cdots$
+			\end{center}
+			Then we get a sequence $\{ e_n \}_{n = 1}^{\infty} \subset X$, $\Vert e_i \Vert = 1$, $\{ e_n \}_{n = 1}^{\infty}$ bounded and 
+			\[ \Vert e_i - e_j \Vert \geq \frac{1}{2} , \,\, \forall i \neq j \]
+			Thus $\{ e_n \}_{n = 1}^{\infty}$ has no convergent subsequence, which contradicts to “$X$ 中有界集均列紧”. \\
+			Therefore, $dim(X) < \infty$.
+		\end{proof}
+	\end{thm}
+
+\newpage
+
+\section{严格凸}
+	这一节我们来介绍\textbf{严格凸}的概念, 这是对于\textbf{赋范空间}而言的一种性质, 注意与数学分析中接触过的集合、函数的\textbf{凸性}区别开来. 
+	
+	\vspace{1em}
+	
+	\begin{defn}\label{def 2.3.1}
+		Suppose $(X , \Vert \cdot \Vert) \in B^*$. If for $\forall x , y \in X$, $x \neq y$, $\Vert x \Vert = \Vert y \Vert = 1$, $\st$
+		\[ \Vert \alpha x + (1 - \alpha) y \Vert < 1 , \,\, \forall \alpha \in (0 , 1) \]
+		Then 称$X$ 是\underline{\textcolor{blue}{\textbf{严格凸}}}的. 
+		
+		\vspace{2em}
+		
+		\begin{rmk}
+			简单来说, \textbf{严格凸}意味着对于$X$ 中单位球面上任意两个不同的点$x , y$, 他们之间连线上的点都在单位球的内部. 最简单直观的例子便是$(\R^n , \Vert \cdot \Vert_2 )$. 而$\R^n$ 中也可以举出如下满足\textbf{非严格凸}的反例范数. 
+			\begin{example}\label{ex 2.3.1}
+				考虑$\R^2$ 中的$1$-范数$\Vert \cdot \Vert_1$, 即
+				\[ \Vert x \Vert_1 = \left| x_1 \right| + \left| x_2 \right| , \,\, \forall x = (x_1 , x_2) \in \R^2 \]
+				此时对于单位球面上任意两个不同的点$x \neq y$, $\Vert x \Vert_1 = \Vert y \Vert_1 = 1$, 若$x , y$ 处于同一象限内, 不难得到其连线上的点均落在球面上, 故$(\R^2 , \Vert \cdot \Vert_1)$ 非严格凸. 
+				
+				\begin{figure}[thbp!]
+					\centering
+					\includegraphics[width=0.3\linewidth]{figure/2.3-1}
+					\caption{$(\R^2 , \Vert \cdot \Vert_1)$ 非严格凸}
+					\label{pic : 2.3-1} % 添加图像引用标签
+				\end{figure}
+				
+				\begin{center}
+					($(\R^2 , \Vert \cdot \Vert_1)$ 中的单位球面$S^1$ 为红线所示正方形)
+				\end{center}
+			\end{example}
+		\end{rmk}
+	\end{defn}
+
+	\vspace{2em}
+	
+	下面给出\textbf{严格凸的等价条件}, 即\textbf{范数三角不等式取等 $\Leftrightarrow$ 两向量同向共线}. 
+	
+	\newpage
+	
+	\begin{proposition}\label{prop 2.3.1}
+		\textbf{[严格凸的等价条件]}. \\
+		Suppose $(X , \Vert \cdot \Vert) \in B^*$, then $X$ 严格凸 $\Leftrightarrow$ For $\forall x , y \neq 0$, 
+		\[ \Vert x + y \Vert = \Vert x \Vert + \Vert y \Vert \,\, \Leftrightarrow \,\, \exists \lambda > 0 , \st x = \lambda y \]
+		\begin{center}
+			即$x$ 与$y$ 同向共线.
+		\end{center}
+		
+		\vspace{1em}
+		
+		\begin{proof}
+			\begin{enumerate}
+				\item[$\Leftarrow$]: $\forall x , y \in X$, $x \neq y$, $\Vert x \Vert = \Vert y \Vert = 1$, 下证：$\Vert \alpha x + (1 - \alpha) y \Vert < 1 , \,\, \forall \alpha \in (0 , 1)$：\\
+				Since $x \neq y$, $\Vert x \Vert = \Vert y \Vert = 1$, then $x$ and $y$ \textbf{不}同向共线
+				\begin{center}
+					(Otherwise if $x = \lambda y , \lambda > 0$, then $\Vert x \Vert = \Vert \lambda y \Vert = \Vert y \Vert \,\, \Rightarrow \,\, \lambda = 1$, 与$x \neq y$ 矛盾)
+				\end{center}
+				Then $\alpha x$ 与$(1 - \alpha) y$ 也不同向共线, $\forall \alpha \in (0 , 1)$. \\
+				根据条件的逆否命题, 
+				\[ \Vert \alpha x + (1 - \alpha) y \Vert \neq \alpha \, \Vert x \Vert + (1 - \alpha) \, \Vert y \Vert , \,\, \forall \alpha \in (0 , 1) \]
+				Thus by the \textbf{triangle inequality (Def \ref{def 2.1.1} (\rmnum{3}))}, 
+				\[ \Vert \alpha x + (1 - \alpha) y \Vert < \alpha \, \Vert x \Vert + (1 - \alpha) \, \Vert y \Vert , \,\, \forall \alpha \in (0 , 1) \]
+				Therefore, $X$ 严格凸. 
+				
+				\vspace{4em}
+				
+				\item[$\Rightarrow$]: Suppose $x , y \neq 0$, $\Vert x + y \Vert = \Vert x \Vert + \Vert y \Vert$, 下证：$x , y$ 同向共线：\\
+				Since $\Vert x + y \Vert = \Vert x \Vert + \Vert y \Vert$, then
+				\[ 
+				\frac{\Vert x + y \Vert}{\Vert x \Vert + \Vert y \Vert} 
+				= \left\Vert \frac{x}{\Vert x \Vert + \Vert y \Vert} + \frac{y}{\Vert x \Vert + \Vert y \Vert}  \right\Vert 
+				= 1
+				\]
+				Since
+				\[ \frac{x}{\Vert x \Vert + \Vert y \Vert} 
+				= \frac{x}{\Vert x \Vert} \cdot \frac{\Vert x \Vert}{\Vert x \Vert + \Vert y \Vert} 
+				= \alpha \, \frac{x}{\Vert x \Vert} \]
+				where $\alpha = \dfrac{\Vert x \Vert}{\Vert x \Vert + \Vert y \Vert} \in (0 , 1)$. Similarly, we can get
+				\[ \frac{y}{\Vert x \Vert + \Vert y \Vert} = (1 - \alpha) \, \frac{y}{\Vert y \Vert} , \,\, \text{where} \,\, \alpha = \frac{\Vert x \Vert}{\Vert x \Vert + \Vert y \Vert} \]
+				Thus
+				\[ 
+				\frac{\Vert x + y \Vert}{\Vert x \Vert + \Vert y \Vert} 
+				= \left\Vert \alpha \, \frac{x}{\Vert x \Vert} + (1 - \alpha) \, \frac{y}{\Vert y \Vert} \right\Vert 
+				= 1 
+				\]
+				而又因为 $X$ 严格凸, $\left\Vert \dfrac{x}{\Vert x \Vert} \right\Vert = \left\Vert \dfrac{y}{\Vert y \Vert} \right\Vert = 1$, thus 
+				\[ \frac{x}{\Vert x \Vert} = \frac{y}{\Vert y \Vert} \,\, \Rightarrow \,\, x = \frac{\Vert x \Vert}{\Vert y \Vert} y \]
+				Therefore, $x , y$ 同向共线.
+			\end{enumerate}
+		\end{proof}
+	\end{proposition}
+
+	\vspace{6em}
+	
+	下面我们给出有关严格凸的一个命题, 它给出了\textbf{最佳逼近问题}\footnote{可参考\textbf{《泛函分析讲义》 ——张恭庆、林源渠 P39 $\S 4.5$ \underline{应用：最佳逼近问题}}.}的存在唯一性的理论依据. 
+	
+	\vspace{1em}
+	
+	\begin{proposition}\label{prop 2.3.2}
+		\textbf{[最佳逼近问题解的存在唯一性]}. \\
+		Suppose $(X , \Vert \cdot \Vert) \in B^*$. If $X$ 严格凸, $X_0 \subset X$ 为有限维子空间, then for $\forall x \in X$, $\exists$ 唯一的$x_0 \in X_0$, $\st$
+		\[ \Vert x - x_0 \Vert = dist(x , X_0) \]
+		
+		\vspace{4em}
+		
+		\begin{rmk}
+			\begin{itemize}
+				\item 作为该命题的一个直接推论, 考虑
+				\begin{center}
+					\textbf{区间$[a , b]$ 上连续函数的多项式最优逼近问题}
+				\end{center}
+			即在无穷范数意义下$(C[a , b] , \Vert \cdot \Vert_\infty)$, $\forall f \in C[a , b]$, 对于有限维子空间$P[a , b] = span\{ 1 , x , x^2 , \cdots , x^n \}$, 根据该命题, 依赖$(C[a , b] , \Vert \cdot \Vert_\infty)$ 的\textbf{严格凸性}, 存在唯一的至多$n$次多项式$g_0 \in P[a , b]$, $\st$
+			\[ \Vert f - g_0 \Vert_{\infty} = \inf_{g \in P[a , b]} \Vert f - g \Vert_\infty \]
+			这样就给出了该最佳逼近问题的\textbf{解的存在唯一性}的理论依据. 
+			
+			\vspace{6em}
+			
+			\item 在命题条件中, $X$ 的\textbf{严格凸性}事实上只保证了解的\textbf{唯一性}, 而解的\textbf{存在性}不需要严格凸的保证.
+			\end{itemize}
+		\end{rmk}
+		
+		\newpage
+		
+		\begin{proof}
+			\begin{itemize}
+				\item \textbf{存在性}：Fix $x \in X$. Since $d = dist(x , X_0) = \underset{y \in X_0}{\inf} {\Vert x - y \Vert}$, then for $\epsilon = \dfrac{1}{n} > 0$, $\exists x_n \in X_0$, $\st$
+				\[ d \leq \Vert x - x_n \Vert < d + \frac{1}{n} , \,\, \forall n \in \N \]
+				Thus $x_n \in B(x , d + 1) , \,\, \forall n \in \N$. $\{ x_n \}_{n = 1}^{\infty} \subset X_0$ is bounded. \\
+				Since $dim(X_0) < \infty$, then By \textbf{有限维赋范空间的等价刻画 (Thm \ref{thm 2.2.6})}, 
+				\[ \{ x_n \}_{n = 1}^{\infty} \subset X_0 \,\, \text{bounded} \,\, \Leftrightarrow \,\, \{ x_n \}_{n = 1}^{\infty} \,\, \text{subsequentially compact} \]
+				Thus $\exists$ subsequence $\{ x_{n_k} \}_{k = 1}^{\infty} \subset \{ x_n \}_{n = 1}^{\infty}$, $\st x_{n_k} \to x_0 \in X_0$ as $k \to \infty$. \\
+				Then $\Vert x - x_0 \Vert = \underset{k \to \infty}{\lim} {\Vert x - x_{n_k} \Vert} = d$.
+				
+				\vspace{8em}
+				
+				\item \textbf{唯一性}：反证法. Assume $\exists x_0 , y_0 \in X_0$, $x_0 \neq y_0$, $\st \Vert x - x_0 \Vert = \Vert x - y_0 \Vert = d$. \\
+				For $\forall \alpha \in (0 , 1)$, 
+				\begin{align}
+				\Big\Vert x - [\alpha x_0 + (1 - \alpha) y_0] \Big\Vert 
+				&= \Big\Vert \alpha (x - x_0) + (1 - \alpha) (x - y_0) \Big\Vert \\
+				&\leq \alpha \Vert x - x_0 \Vert + (1 - \alpha) \Vert x - y_0 \Vert \\
+				&= d
+				\end{align}
+				Since $\alpha x_0 + (1 - \alpha) y_0 \in X_0$, then by the \textbf{minimality of $d$}, 
+				\[ \Big\Vert x - [\alpha x_0 + (1 - \alpha) y_0] \Big\Vert = d , \,\, \forall \alpha \in (0 , 1) \]
+				i.e.
+				\[ \left\Vert \alpha \, \frac{x - x_0}{d} + (1 - \alpha) \, \frac{x - y_0}{d} \right\Vert = 1 , \,\, \forall \alpha \in (0 , 1) \]
+				
+				\vspace{2em}
+				
+				Since $X$ 严格凸, $\left\Vert \dfrac{x - x_0}{d} \right\Vert = \left\Vert \dfrac{x - y_0}{d} \right\Vert = 1$, $\dfrac{x - x_0}{d} \neq \dfrac{x - y_0}{d}$, then 
+				
+				\[ \left\Vert \alpha \, \frac{x - x_0}{d} + (1 - \alpha) \, \frac{x - y_0}{d} \right\Vert < 1 , \,\, \forall \alpha \in (0 , 1) \]
+				which contradicts to the upper conclusion. Therefore, $x_0 = y_0$.
+			\end{itemize}
+		\end{proof}
+	\end{proposition}
 
 
 

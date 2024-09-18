@@ -46,5 +46,7 @@
 \contentsline {subsection}{\numberline {2.2.1}范数的比较}{49}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}有限维$B^*$ 空间的范数}{51}{subsection.2.2.2}%
 \contentsline {subsection}{\numberline {2.2.3}Riesz引理}{54}{subsection.2.2.3}%
-\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}$Supplementary \,\, Content$}{56}{appendix.A}%
-\contentsline {section}{\numberline {A.1}度量空间稠密子集的等价刻画}{56}{section.A.1}%
+\contentsline {subsection}{\numberline {2.2.4}赋范空间有限性的刻画}{56}{subsection.2.2.4}%
+\contentsline {section}{\numberline {2.3}严格凸}{57}{section.2.3}%
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}$Supplementary \,\, Content$}{61}{appendix.A}%
+\contentsline {section}{\numberline {A.1}度量空间稠密子集的等价刻画}{61}{section.A.1}%
