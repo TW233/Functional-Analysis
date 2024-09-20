@@ -744,6 +744,142 @@
 		\end{proof}
 	\end{proposition}
 
+\newpage
+
+\section{$B^*$ 空间的商空间}
+	这一节我们来介绍\textbf{赋范空间的商空间}, 在其上定义运算与范数, 并说明其成为\textbf{完备赋范空间 ($B$ 空间)}. 
+	
+	\vspace{1em}
+	
+	\begin{defn}\label{def 2.4.1}
+		Suppose $(X , \Vert \cdot \Vert) \in B^*$, $X_0 \subset X$ 为闭子空间, 定义等价关系
+		\[ x \sim y \,\, \Leftrightarrow \,\, x - y \in X_0 \]
+		记$x + X_0$ 表示$x \in X$ 所在等价类, 从而得到商集$X / X_0$, 即
+		\[ X / X_0 \coloneqq \{ x + X_0 \mid x \in X \} \]
+		引入$X / X_0$ 中加法和数乘运算如下：
+		\[ 
+		 \begin{cases}
+		 	(x + X_0) + (y + X_0) \coloneqq (x + y) + X_0 , \,\, \forall x , y \in X \\
+		 	k \cdot (x + X_0) \coloneqq kx + X_0 , \,\, \forall k \in \mathbb{K} , \,\, \forall x \in X
+		 \end{cases}
+		 \]
+		 不难证明此时$X / X_0$ 满足线性空间的要求. 再引入范数
+		 \[ \Vert x + X_0 \Vert_0 \coloneqq dist(x , X_0) = \inf_{y \in X_0} \Vert x - y \Vert , \,\, \forall x \in X \]
+		 则$(X / X_0 , \Vert \cdot \Vert_0) \in B^*$, 称$(X / X_0 , \Vert \cdot \Vert_0)$ 为关于$X$ 的\underline{\textcolor{blue}{\textbf{商空间}}}. 
+		 
+		 \vspace{4em}
+		 
+		 \begin{rmk}
+		 	\begin{itemize}
+		 		\item 由于$X_0 \subset X$ 为子空间, 不难验证二元关系$\sim$ 满足：\textbf{自反性、对称性、传递性}. 
+		 		
+		 		\vspace{4em}
+		 		
+		 		\item 下面来证明上述定义的$\Vert \cdot \Vert_0$ 满足\textbf{范数的三条公理 (Def \ref{def 2.1.1})}：
+		 		
+		 		\vspace{4em}
+		 		
+		 		\begin{proof}
+		 			由于$\Vert \cdot \Vert$ 满足正定性, 因此$\Vert \cdot \Vert_0$ 显然满足\textbf{正定性}. \\
+		 			For $\forall k \in \mathbb{K}$, $k \neq 0$, 
+		 			\begin{align}
+		 				\Vert k \cdot (x + X_0) \Vert_0 
+		 				= \Vert kx + X_0 \Vert_0 
+		 				&= \inf_{y \in X_0} \Vert kx - y \Vert \\
+		 				&= \left| k \right| \inf_{\tfrac{y}{k} \in X_0} \Vert x - \frac{y}{k} \Vert \\
+		 				&= \left| k \right| \inf_{z \in X_0} \Vert x - z \Vert 
+		 				= \left| k \right| \cdot \Vert x + X_0 \Vert_0 , \,\, \forall x \in X
+		 			\end{align}
+	 				Thus $\Vert \cdot \Vert_0$ 满足\textbf{绝对齐性}. 
+	 				\begin{align}
+	 					\Vert (x + X_0) + (y + X_0) \Vert_0 
+	 					= \Vert (x + y) + X_0 \Vert_0 
+	 					&= \inf_{z \in X_0} \Vert (x + y) - z \Vert \\
+	 					&= \inf_{\substack{x_0 \in X_0 \\ y_0 \in X_0}} \Vert (x + y) - (x_0 + y_0) \Vert \\
+	 					&\leq \inf_{\substack{x_0 \in X_0 \\ y_0 \in X_0}} \left( \Vert x - x_0 \Vert + \Vert y - y_0 \Vert \right) \\
+	 					&= \inf_{y_0 \in X_0} \left[ \inf_{x_0 \in X_0} \Big( \Vert x - x_0 \Vert + \Vert y - y_0 \Vert \Big) \right] \\
+	 					&= \inf_{y_0 \in X_0} \left( \Vert y - y_0 \Vert + \inf_{x_0 \in X_0} \Vert x - x_0 \Vert \right) \\
+	 					&= \inf_{x_0 \in X_0} \Vert x - x_0 \Vert + \inf_{y_0 \in X_0} \Vert y - y_0 \Vert \\
+	 					&= \Vert x + X_0 \Vert_0 + \Vert y + X_0 \Vert_0 , \,\, \forall x , y \in X
+	 				\end{align}
+ 					Therefore, $\Vert \cdot \Vert_0$ satisfies the \textbf{triangle inequality}, $(X / X_0 , \Vert \cdot \Vert_0) \in B^*$.
+		 		\end{proof}
+	 		\end{itemize}
+		 \end{rmk}
+	\end{defn}
+
+\newpage
+
+\subsection{商空间的完备性}
+	在前面我们给出了$B^*$ 空间$(X , \Vert \cdot \Vert)$ 上商空间$(X / X_0 , \Vert \cdot \Vert_0)$ 的定义, 并说明了其为\textbf{赋范空间 ($B^*$ 空间)}. 在这一小节我们将揭示, 如果$X \in B$ 完备, 则\textbf{其上定义的商空间均为完备赋范空间 ($B$ 空间)}. 
+	
+	\vspace{1em}
+	
+	\begin{thm}\label{thm 2.4.1}
+		\textbf{[商空间的完备性]}. 
+		\begin{center}
+			\textbf{设$(X , \Vert \cdot \Vert) \in B , \,\, X_0 \subset X$ 为闭子空间, 则$(X / X_0 , \Vert \cdot \Vert_0) \in B$.}
+		\end{center}
+		
+		\vspace{4em}
+		
+		\begin{proof}
+			$\forall$ Cauchy sequence $\{ x_n + X_0 \}_{n = 1}^{\infty} \subset X / X_0$, i.e. $\forall \epsilon > 0$, $\exists N_\epsilon \in \N$, $\st$
+			\[ \Big\Vert (x_n + X_0) - (x_m + X_0) \Big\Vert_0 < \epsilon , \,\, \forall m , n \geq N_\epsilon \]
+			For $\epsilon = \dfrac{1}{2}$, $\exists n_1 \in \N$, $\st$
+			\[ \Big\Vert (x_n + X_0) - (x_m + X_0) \Big\Vert_0 < \frac{1}{2} , \,\, \forall m , n \geq n_1 \]
+			For $\epsilon = \dfrac{1}{4}$, $\exists n_2 > n_1$, $\st$
+			\[ \Big\Vert (x_n + X_0) - (x_m + X_0) \Big\Vert_0 < \frac{1}{4} , \,\, \forall m , n \geq n_2 \]
+			\begin{center}
+				$\cdots$
+			\end{center}
+			Then we get a subsequence $\{ x_{n_k} + X_0 \}_{k = 1}^{\infty} \subset \{ x_n + X_0 \}_{n = 1}^{\infty}$, $\st$
+			\[ \Big\Vert (x_{n_{k + 1}} + X_0) - (x_{n_k} + X_0) \Big\Vert_0 < \frac{1}{2^k} , \,\, \forall k \in \N \]
+			i.e.
+			\[ dist(x_{n_{k + 1}} - x_{n_k} , X_0) = \inf_{y \in X_0} \Vert (x_{n_{k + 1}} - x_{n_k}) - y \Vert < \frac{1}{2^k} \]
+			Thus $\exists y_k \in X_0$, $\st$
+			\[ \Vert x_{n_{k + 1}} - x_{n_k} - y_k \Vert < \frac{1}{2^k} , \,\, \forall k \in \N \]
+			Then the series $\overset{\infty}{\underset{k = 1}{\sum}} \Big( x_{n_{k + 1}} - x_{n_k} - y_k \Big)$ 绝对收敛. \\
+			Since $(X , \Vert \cdot \Vert) \in B$ complete, then by \textbf{$B^*$ 空间完备的等价刻画 (Thm \ref{thm 2.1.2})}, 级数收敛, \\
+			即$\exists z \in X$, $\st$
+			\[
+				\sum_{k = 1}^{\infty} \Big( x_{n_{k + 1}} - x_{n_k} - y_k \Big) = z
+			\]
+			i.e.
+			\[
+				\sum_{k = 1}^{N - 1} \Big( x_{n_{k + 1}} - x_{n_k} - y_k \Big) = x_{n_N} - x_{n_1} - \sum_{k = 1}^{N - 1} y_k \longrightarrow z \,\, \text{as} \,\, N \to \infty 
+			\]
+			Thus
+			\[ x_{n_N} - \sum_{k = 1}^{N - 1} y_k \to z + x_{n_1} \,\, \text{as} \,\, N \to \infty \]
+			Consider 自然同态
+			\begin{align}
+				\pi : X &\longrightarrow X / X_0 \\
+				x &\longmapsto x + X_0
+			\end{align}
+			Since $X_0 \subset X$ 为子空间, then $0 \in X_0$. Thus for $\forall \epsilon > 0$, $\exists \delta = \epsilon > 0$, $\st$
+			\begin{align}
+				\Vert \pi(x) - \pi(y) \Vert_0 
+				= \Vert (x - y) + X_0 \Vert_0 
+				&= dist(x - y , X_0) \\
+				&= \inf_{z \in X_0} \Vert (x - y) - z \Vert \\
+				&\leq \Vert x - y \Vert + \inf_{z \in X_0} \Vert z \Vert \\
+				&= \Vert x - y \Vert 
+				< \epsilon , \,\, \forall \Vert x - y \Vert < \delta
+			\end{align}
+			Thus $\pi$ is continuous. Since
+			\[ x_{n_N} - \sum_{k = 1}^{N - 1} y_k \to z + x_{n_1} \,\, \text{as} \,\, N \to \infty \]
+			Then
+			\[ \pi \left( x_{n_N} - \sum_{k = 1}^{N - 1} y_k \right) \to \pi(z + x_{n_1}) \]
+			i.e.
+			\[ \left( x_{n_N} - \sum_{k = 1}^{N - 1} y_k \right) + X_0 \to (z + x_{n_1}) + X_0 \]
+			Since $y_k \in X_0 , \,\, \forall k \in \N$, then
+			\[ \left( x_{n_N} - \sum_{k = 1}^{N - 1} y_k \right) + X_0 = x_{n_N} + X_0 \to (z + x_{n_1}) + X_0 \,\, \text{as} \,\, N \to \infty \]
+			Therefore, $\{ x_{n_k} + X_0 \}_{k = 1}^{\infty}$ converges to $(z + x_{n_1}) + X_0 \in X / X_0$ \\
+			$\Rightarrow \,\,$ Cauchy sequence $\{ x_n + X_0 \}_{n = 1}^{\infty}$ converges \\
+			$\Rightarrow \,\, (X / X_0 , \Vert \cdot \Vert_0)$ complete
+		\end{proof}
+	\end{thm}
+
 
 
 
