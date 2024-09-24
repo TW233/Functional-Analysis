@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.11.9)  20 SEP 2024 11:45
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.11.9)  24 SEP 2024 12:02
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -823,7 +823,7 @@ Requested font "[TeXGyreTermesX-Regular.otf]/OT:script=latn;language=dflt;-ss05
 -Regular.otf
 
 (./main.aux (./config/cover.aux) (./chap1/chap.aux) (./chap2/chap.aux)
-(./appendix/chap.aux))
+(./chap3/chap.aux) (./appendix/chap.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 5.
@@ -1617,6 +1617,23 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 749.
 
 [61] [62] [63]) [64]
+\openout2 = `chap3/chap.aux'.
+
+ (./chap3/chap.tex
+第三章
+[65
+
+
+
+
+]
+Overfull \hbox (6.03415pt too wide) in paragraph at lines 74--76
+\TU/SimSun(0)/m/n/12 而 对 于 三 角 不 等 式\TU/TeXGyreTermesX(0)/m/n/12 , \TU/SimSun(0
+)/m/n/12 根 据 我 们 接 下 来 马 上 介 绍 的 \TU/TeXGyreTermesX(0)/b/n/12 Cauchy-Schwarz’s 
+Inequality (Thm [][]3.1.1[][])\TU/TeXGyreTermesX(0)/m/n/12 , 
+ []
+
+[66]) [67]
 \openout2 = `appendix/chap.aux'.
 
  (./appendix/chap.tex
@@ -1647,23 +1664,23 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 9.
 
-) [65
+) [68
 
 
 
 
 ] (./main.aux (./config/cover.aux) (./chap1/chap.aux) (./chap2/chap.aux)
-(./appendix/chap.aux))
+(./chap3/chap.aux) (./appendix/chap.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 20EB2349CE15C081E2ED54D2E1204069;5335.
+(rerunfilecheck)             Checksum: FA9AC30239EC6616E7ABC62533A7E5DD;5698.
  ) 
 Here is how much of TeX's memory you used:
- 19874 strings out of 476179
- 420585 string characters out of 5810426
- 739122 words of memory out of 5000000
- 40198 multiletter control sequences out of 15000+600000
+ 19906 strings out of 476179
+ 421416 string characters out of 5810426
+ 740011 words of memory out of 5000000
+ 40223 multiletter control sequences out of 15000+600000
  508523 words of font info for 204 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  94i,15n,103p,409b,739s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (69 pages).
+Output written on main.pdf (72 pages).

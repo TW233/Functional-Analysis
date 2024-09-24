@@ -50,5 +50,8 @@
 \contentsline {section}{\numberline {2.3}严格凸}{57}{section.2.3}%
 \contentsline {section}{\numberline {2.4}$B^*$ 空间的商空间}{61}{section.2.4}%
 \contentsline {subsection}{\numberline {2.4.1}商空间的完备性}{63}{subsection.2.4.1}%
-\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}$Supplementary \,\, Content$}{65}{appendix.A}%
-\contentsline {section}{\numberline {A.1}度量空间稠密子集的等价刻画}{65}{section.A.1}%
+\contentsline {chapter}{\numberline {第三章\hspace {.3em}}内积空间}{65}{chapter.3}%
+\contentsline {section}{\numberline {3.1}内积空间}{65}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Cauchy-Schwarz's Inequality}{67}{subsection.3.1.1}%
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}$Supplementary \,\, Content$}{68}{appendix.A}%
+\contentsline {section}{\numberline {A.1}度量空间稠密子集的等价刻画}{68}{section.A.1}%

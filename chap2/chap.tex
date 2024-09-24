@@ -11,7 +11,7 @@
 	这一章我们将来讨论\textbf{赋范线性空间}的相关定义及性质. 首先回顾\textbf{范数}的定义\textbf{(同定义 \ref{def 1.1.1})}.
 	
 	\begin{defn}\label{def 2.1.1}
-		Let $X$ be a vector space over field $\mathbb{F}$, a \underline{\textcolor{blue}{\textbf{norm}}} is a function:
+		Let $X$ be a vector space over field $\mathbb{K}$, a \underline{\textcolor{blue}{\textbf{norm}}} is a function:
 		\begin{align}
 			X &\longrightarrow \R_{\geq 0} \\
 			f &\longmapsto \Vert f \Vert
@@ -20,7 +20,7 @@
 		\begin{enumerate}
 			\item[(\rmnum{1})]$\Vert f \Vert \geq 0$, $\forall f \in X$. \hspace*{3em} ($\Vert f \Vert = 0 \,\, \Leftrightarrow \,\, f = 0$)
 			
-			\item[(\rmnum{2})]$\Vert af \Vert = \left| a \right| \Vert f \Vert$, $\forall a \in \mathbb{F}, f \in X$.
+			\item[(\rmnum{2})]$\Vert af \Vert = \left| a \right| \Vert f \Vert$, $\forall a \in \mathbb{K}, f \in X$.
 			
 			\item[(\rmnum{3})]$\Vert f + g \Vert \leq \Vert f \Vert + \Vert g \Vert$, $\forall f , g \in X$.
 		\end{enumerate}
@@ -53,7 +53,7 @@
 				\vspace*{1em}
 				
 				\begin{enumerate}
-					\item 引入(数)域$\mathbb{F}$, 在$X$ 中定义加法$\&$ 数乘运算, 使其满足线性空间八大公理. 即度量$\rho$ 需要先定义在线性空间上, 使其称为\textbf{度量线性空间}. 
+					\item 引入(数)域$\mathbb{K}$, 在$X$ 中定义加法$\&$ 数乘运算, 使其满足线性空间八大公理. 即度量$\rho$ 需要先定义在线性空间上, 使其称为\textbf{度量线性空间}. 
 					
 					\vspace*{0.5em}
 					
@@ -61,7 +61,7 @@
 					\[ \rho(x , 0) = \rho(x + y , y) , \,\, \forall x , y \in X \]
 					
 					\item 对应\textbf{范数}定义的\textbf{绝对齐性}, 度量$\rho$ 也需要满足
-					\[ \rho(\alpha x , 0) = \left| \alpha \right| \rho(x , 0) , \,\, \forall x \in X , \alpha \in \mathbb{F} \]
+					\[ \rho(\alpha x , 0) = \left| \alpha \right| \rho(x , 0) , \,\, \forall x \in X , \alpha \in \mathbb{K} \]
 				\end{enumerate}
 				
 				\vspace*{1em}
