@@ -13,7 +13,7 @@
 	\vspace{1em}
 	
 	\begin{defn}\label{def 3.1.1}
-		设$X$ 为定义在域$\mathbb{F}$ 上的线性空间, 如果映射$(\cdot , \cdot)$
+		设$X$ 为定义在域$\mathbb{K}$ 上的线性空间, 如果映射$(\cdot , \cdot)$
 		\[ (\cdot , \cdot) : X \times X \longrightarrow \mathbb{K} \]
 		满足如下三条性质：
 		\begin{enumerate}
@@ -24,7 +24,7 @@
 			\[ (x , y) = \overline{(y , x)} , \,\, \forall x , y \in X \]
 			
 			\item \textbf{[关于第一变元线性性]}. 
-			\[ (\alpha x_1 + \beta x_2 , y) = \alpha (x_1 , y) + \beta (x_2 , y) , \,\, \forall x_1 , x_2 , y \in X , \,\, \forall \alpha , \beta \in \mathbb{F} \]
+			\[ (\alpha x_1 + \beta x_2 , y) = \alpha (x_1 , y) + \beta (x_2 , y) , \,\, \forall x_1 , x_2 , y \in X , \,\, \forall \alpha , \beta \in \mathbb{K} \]
 		\end{enumerate}
 		则称$(\cdot , \cdot)$ 为$X$ 上的\underline{\textcolor{blue}{\textbf{内积}}}, $(X , (\cdot , \cdot))$ 称为\underline{\textcolor{blue}{\textbf{内积空间}}}. 
 		
@@ -37,7 +37,7 @@
 				\vspace{3em}
 				
 				\item 内积关于\textbf{第二变元}具有\textbf{共轭线性性}：
-				\[ (x , \alpha y_1 + \beta y_2) = \overline{\alpha} (x , y_1) + \overline{\beta} (x , y_2) , \,\, \forall x , y_1 , y_2 \in X , \,\, \forall \alpha , \beta \in \mathbb{F} \]
+				\[ (x , \alpha y_1 + \beta y_2) = \overline{\alpha} (x , y_1) + \overline{\beta} (x , y_2) , \,\, \forall x , y_1 , y_2 \in X , \,\, \forall \alpha , \beta \in \mathbb{K} \]
 				
 				\newpage
 				
@@ -103,10 +103,27 @@
 		\[ \Big| (x , y) \Big| \leq \Vert x \Vert \cdot \Vert y \Vert , \,\, \forall x , y \in X \]
 		且等号“$=$” 成立$\,\, \Leftrightarrow \,\, x , y$ 线性相关. 
 		
-		\vspace{4em}
+		\vspace{6em}
 		
 		\begin{proof}
-			
+			下面考虑一般情况, 即域$\mathbb{K} = \C$ 的情况 (\textbf{Def \ref{def 3.1.1}}). \\
+			Fix $\forall x,  y \in X$. Let $f : \C \longrightarrow \R_{\geq 0}$, 
+			\begin{align} 
+			f(t) 
+			= \Vert x + ty \Vert^2 
+			&= (x , x) + 2 Re(x , ty) + \left| t \right|^2 (y , y) \\
+			&= (x , x) + 2 Re \Big( \overline{t} (x , y) \Big) + \left| t \right|^2 (y , y)
+			\end{align}
+			Then $f(t) \geq 0 , \,\, \forall t \in \C$. 下面我们只考虑$\overline{t} (x , y) \in \R$ 的情形, 即
+			\[ t = s \frac{(x , y)}{\left| (x , y) \right|} , \,\, \forall s \in \R \]
+			Thus $2Re \Big( \overline{t} (x , y) \Big) = 2 Re \Big( s \cdot \dfrac{\overline{(x , y)}}{\left| (x , y) \right|} \cdot (x , y) \Big) = 2s \left| (x , y) \right|$. Then we have
+			\[
+				f(t) = g(s) = (x , x) + 2s \left| (x , y) \right| + s^2 (y , y) , \,\, \forall s \in \R
+			\]
+			Since $f(t) \geq 0 , \,\, \forall t \in \C$, then $g(s) \geq 0 , \,\, \forall s \in \R$. Thus
+			\[ \Delta_g = 4\Big| (x , y) \Big|^2 - 4 (x , x) (y , y) \leq 0 \]
+			i.e. 
+			\[ \Big| (x , y) \Big| \leq \Vert x \Vert \cdot \Vert y \Vert , \,\, \forall x , y \in X \]
 		\end{proof}
 	\end{thm}
 
