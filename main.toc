@@ -53,5 +53,8 @@
 \contentsline {chapter}{\numberline {第三章\hspace {.3em}}内积空间}{65}{chapter.3}%
 \contentsline {section}{\numberline {3.1}内积空间}{65}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Cauchy-Schwarz's Inequality}{67}{subsection.3.1.1}%
-\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}$Supplementary \,\, Content$}{68}{appendix.A}%
-\contentsline {section}{\numberline {A.1}度量空间稠密子集的等价刻画}{68}{section.A.1}%
+\contentsline {section}{\numberline {3.2}内积与范数的关系}{68}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}内积的连续性}{68}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}极化恒等式与平行四边形公式}{69}{subsection.3.2.2}%
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}$Supplementary \,\, Content$}{72}{appendix.A}%
+\contentsline {section}{\numberline {A.1}度量空间稠密子集的等价刻画}{72}{section.A.1}%

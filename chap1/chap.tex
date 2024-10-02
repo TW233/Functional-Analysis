@@ -13,7 +13,7 @@
 \end{center}
 	
 \subsection{范数，度量}
-	下面给出\textbf{范数}和\textbf{度量}的严格定义.
+	下面给出\textbf{范数}和\textbf{度量}的大致定义.
 	\begin{defn}\label{def 1.1.1}
 		Let $X$ be a vector space over field $\mathbb{K}$, a \underline{\textcolor{blue}{\textbf{norm}}} is a function:
 		\begin{align}
@@ -556,7 +556,7 @@
 				\begin{align}
 					X_1 = \left\{ \{ x_n \}_{n = 1}^{\infty} \mid \{ x_n \}_{n = 1}^{\infty} \subset X \,\, is \,\, a \,\, Cauchy \,\, squence \right\}
 				\end{align}
-				$\forall \xi = \{ x_n \}_{n = 1}^{\infty} , \eta = \{ y_n \}_{n = 1}^{\infty} \in X_1$, we define a equivalence relation $\sim$\footnote{不难证明well-defined: 自反性、对称性、传递性}:
+				$\forall \xi = \{ x_n \}_{n = 1}^{\infty} , \eta = \{ y_n \}_{n = 1}^{\infty} \in X_1$, we define an equivalence relation $\sim$\footnote{不难证明well-defined: 自反性、对称性、传递性}:
 				\begin{align}
 					\xi \sim \eta \,\, \Leftrightarrow \,\, \lim_{n \to \infty}{\rho(x_n , y_n)} = 0
 				\end{align}
@@ -616,7 +616,7 @@
 				下面证明$T$ 为保距映射: \\
 				$\forall x , y \in X$, then
 				\begin{align}
-					\rho(T(x) , T(y)) = \lim_{n \to \infty}{\rho(x , y)} = \rho(x , y) , \,\, \forall x,  y \in X
+					\rho_2 (T(x) , T(y)) = \lim_{n \to \infty}{\rho(x , y)} = \rho(x , y) , \,\, \forall x,  y \in X
 				\end{align}
 				Thus $T$ is an isometry (保距映射).
 				
@@ -715,7 +715,7 @@
 				\newpage
 				
 				\item $X_2$ 在保距同构下的唯一性: \\
-				Suppose $(X_2 , \rho_2), (X_2^{'} , \rho_{2}^{'})$ 均为$(X , \rho)$ 的完备化空间. $i_1 : X \rightarrow X_2 , \,\, i_2 : X \rightarrow X_{2}^{'}$ 为保距同构. \\
+				Suppose $(X_2 , \rho_2), (X_2^{'} , \rho_{2}^{'})$ 均为$(X , \rho)$ 的完备化空间. $i_1 : X \rightarrow X_2 , \,\, i_2 : X \rightarrow X_{2}^{'}$ 为保距映射. \\
 				$\forall [\xi] \in X_2$. By \textbf{Step 3}, $\exists \{ x_n \}_{n = 1}^{\infty} \subset X$, $\st$
 				\begin{align}
 					i_{1}(x_n) \to [\xi] \,\, in \,\, X_2 , \,\, as \,\, n \to \infty
@@ -1164,7 +1164,7 @@
 		
 		\begin{proof}
 			下面对一般情形进行证明, 且下述证明过程均以子空间$(A , \tau_A)$ 作为全空间. \\
-			$\forall \{ U_i \}_{i \in I}$, $U_i \underset{open}{\subset} X$, $\forall i \in I$, $\st$
+			$\forall \{ U_i \}_{i \in I}$, $U_i \underset{open}{\subset} A$, $\forall i \in I$, $\st$
 			\[ K \subset \bigcup_{i \in I}{U_i} \]
 			Since $K \subset A$ closed, then $K^c \subset A$ open. Thus
 			\[ A = K^c \cup K = K^c \cup \bigcup_{i \in I} U_i \]
@@ -1314,7 +1314,7 @@
 						不难证明$C(X)$ 为线性空间, 于是对于$\forall f , g \in C(X)$, $f - g \in C(X)$. \\
 						根据\textbf{绝对值不等式}, 容易得到绝对值保持$C(X)$ 中函数的连续性. 
 						\begin{center}
-							($\left| \left| \varphi(x) \right| - \left| \varphi(y) \right| \right| \leq \left| \varphi(x) - \varphi(y) \right| , \,\, \forall \varphi \in C(X) , x , y \in X$)
+							($\Big| \left| \varphi(x) \right| - \left| \varphi(y) \right| \Big| \leq \left| \varphi(x) - \varphi(y) \right| , \,\, \forall \varphi \in C(X) , x , y \in X$)
 						\end{center}
 						因此$\left| f - g \right| \in C(X)$, 即连续. \\
 						Since $X$ is compact, then $\left| f - g \right| (X) \subset \R_{\geq 0}$ compact, 可取到最大值. 故$d(f , g)$ 存在.

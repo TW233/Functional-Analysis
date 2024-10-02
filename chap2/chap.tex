@@ -48,12 +48,16 @@
 				
 				\newpage
 				
+				\item 此处讨论的\textbf{赋范空间}的范数应当为定义在\textbf{数域 $\mathbb{K}$}上的线性空间之上, 否则第(\rmnum{2})条\textbf{“绝对齐性”}中“a”的\textbf{绝对值}无从定义. 且默认取完备的数域, 即$\mathbb{K} \in \{ \C , \R \}$. 
+				
+				\vspace{2em}
+				
 				\item 对于“\textbf{度量空间} $\,\, \not\Rightarrow \,\,$ \textbf{赋范空间}”, 先来明确\textbf{度量空间$(X , \rho)$}要扩充为\textbf{赋范空间}所需条件：
 				
-				\vspace*{1em}
+				\vspace*{0.5em}
 				
 				\begin{enumerate}
-					\item 引入(数)域$\mathbb{K}$, 在$X$ 中定义加法$\&$ 数乘运算, 使其满足线性空间八大公理. 即度量$\rho$ 需要先定义在线性空间上, 使其称为\textbf{度量线性空间}. 
+					\item 引入数域$\mathbb{K}$, 在$X$ 中定义加法$\&$ 数乘运算, 使其满足线性空间八大公理. 即度量$\rho$ 需要先定义在线性空间上, 使其称为\textbf{度量线性空间}. 
 					
 					\vspace*{0.5em}
 					
@@ -64,7 +68,7 @@
 					\[ \rho(\alpha x , 0) = \left| \alpha \right| \rho(x , 0) , \,\, \forall x \in X , \alpha \in \mathbb{K} \]
 				\end{enumerate}
 				
-				\vspace*{1em}
+				\vspace*{0.5em}
 				
 				而即便是对于\textbf{度量线性空间}, 大多数也并不满足后两者条件, 下面给出一个反例.
 				
@@ -74,7 +78,7 @@
 					则$\rho$ 不满足绝对齐性, 从而无法扩充为\textbf{赋范空间}.
 				\end{example}
 				
-				\vspace*{6em}
+				\vspace*{4em}
 				
 				\item 对于任意\textbf{赋范空间}$(X , \Vert \cdot \Vert)$, 其上定义的范数$\Vert \cdot \Vert$ 均为连续函数.
 				
@@ -89,12 +93,13 @@
 							\[ \Vert y \Vert \leq \Vert y - x \Vert + \Vert x \Vert = \Vert x - y \Vert \]
 							移项后可得：$\Big| \, \Vert x \Vert - \Vert y \Vert \, \Big| \leq \Vert x - y \Vert$.
 							
-							\vspace*{2em}
+							\vspace*{1em}
 							
 							\item $\Vert \cdot \Vert$ 连续：$\forall \{ x_n \}_{n = 1}^{\infty} \subset X$ with $x_n \to x \in X$. Since
 							\[ \Big| \, \Vert x_n \Vert - \Vert x \Vert \, \Big| \leq \Vert x_n - x \Vert \]
-							Thus $\Vert x_n \Vert \to \Vert x \Vert$, 即$\Vert \cdot \Vert$ 连续.
+							
 						\end{enumerate}
+						Thus $\Vert x_n \Vert \to \Vert x \Vert$, 即$\Vert \cdot \Vert$ 连续.
 					\end{proof}
 				\end{itemize}
 			\end{itemize}

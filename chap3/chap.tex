@@ -13,7 +13,7 @@
 	\vspace{1em}
 	
 	\begin{defn}\label{def 3.1.1}
-		设$X$ 为定义在域$\mathbb{K}$ 上的线性空间, 如果映射$(\cdot , \cdot)$
+		设$X$ 为定义在数域$\mathbb{K}$ 上的线性空间, 如果映射$(\cdot , \cdot)$
 		\[ (\cdot , \cdot) : X \times X \longrightarrow \mathbb{K} \]
 		满足如下三条性质：
 		\begin{enumerate}
@@ -24,22 +24,26 @@
 			\[ (x , y) = \overline{(y , x)} , \,\, \forall x , y \in X \]
 			
 			\item \textbf{[关于第一变元线性性]}. 
-			\[ (\alpha x_1 + \beta x_2 , y) = \alpha (x_1 , y) + \beta (x_2 , y) , \,\, \forall x_1 , x_2 , y \in X , \,\, \forall \alpha , \beta \in \mathbb{K} \]
+			\[ (\alpha x_1 + \beta x_2 , y) = \alpha (x_1 , y) + \beta (x_2 , y) , \,\, \forall x_1 , x_2 , y \in X , \,\, \forall \alpha , \beta \in \mathbb{F} \]
 		\end{enumerate}
 		则称$(\cdot , \cdot)$ 为$X$ 上的\underline{\textcolor{blue}{\textbf{内积}}}, $(X , (\cdot , \cdot))$ 称为\underline{\textcolor{blue}{\textbf{内积空间}}}. 
 		
-		\vspace{4em}
+		\vspace{3em}
 		
 		\begin{rmk}
 			\begin{itemize}
+				\item 此处讨论的\textbf{内积}应当定义在\textbf{数域$\mathbb{K}$} 上的线性空间之上, 即内积的\textbf{陪域$\mathbb{K}$} 与线性空间的域$\mathbb{K}$ 二者应当为相同的数域, 且默认取完备数域, 即$\mathbb{K} \in \{ \C , \R \}$\footnote{可参考\textbf{《Linear and Nonlinear Functional Analysis with Applications》 -- Philippe G. Ciarlet} $\S$ 4.1 Page 174, 其分别对\textbf{实内积空间}与\textbf{复内积空间}进行了定义.}. 
+				
+				\vspace{1em}
+				
 				\item $(x , 0) = (0 , x) = 0 , \,\, \forall x \in X$
 				
-				\vspace{3em}
+				\newpage
 				
 				\item 内积关于\textbf{第二变元}具有\textbf{共轭线性性}：
 				\[ (x , \alpha y_1 + \beta y_2) = \overline{\alpha} (x , y_1) + \overline{\beta} (x , y_2) , \,\, \forall x , y_1 , y_2 \in X , \,\, \forall \alpha , \beta \in \mathbb{K} \]
 				
-				\newpage
+				\vspace{1em}
 				
 				\begin{proof}
 					根据\textbf{共轭对称性}及\textbf{第一变元线性性}, $\forall x , y_1 , y_2 \in X , \,\, \forall \alpha , \beta \in \mathbb{F}$, 
@@ -106,7 +110,7 @@
 		\vspace{6em}
 		
 		\begin{proof}
-			下面考虑一般情况, 即域$\mathbb{K} = \C$ 的情况 (\textbf{Def \ref{def 3.1.1}}). \\
+			下面考虑一般情况, 即数域$\mathbb{K} = \C$ 的情况 (\textbf{Def \ref{def 3.1.1}}). \\
 			Fix $\forall x,  y \in X$. Let $f : \C \longrightarrow \R_{\geq 0}$, 
 			\begin{align} 
 			f(t) 
@@ -126,6 +130,160 @@
 			\[ \Big| (x , y) \Big| \leq \Vert x \Vert \cdot \Vert y \Vert , \,\, \forall x , y \in X \]
 		\end{proof}
 	\end{thm}
+
+\newpage
+
+\section{内积与范数的关系}
+	这一节我们将揭示\textbf{内积}与\textbf{范数}的关系, 即内积空间为特殊的$B^*$ 空间, 但二者事实上只相差一个\textbf{平行四边形公式}. 
+	
+\subsection{内积的连续性}
+	下面我们来说明, 内积$(\cdot , \cdot)$ 关于其所诱导的范数连续. 
+	
+	\vspace{1em}
+	
+	\begin{proposition}\label{prop 3.2.1}
+		\textbf{[内积的连续性]}. 
+		\begin{center}
+			\textbf{对于内积空间$(X , (\cdot , \cdot))$, 其内积$(\cdot , \cdot)$ 在$X \times X$ 上关于其诱导的范数$\Vert \cdot \Vert$ 连续}.
+		\end{center}
+		
+		\vspace{2em}
+		
+		\begin{rmk}
+			该命题严谨叙述应该为$(\cdot , \cdot)$ 在其诱导的范数$\Vert \cdot \Vert$ 所诱导的度量$\rho(\cdot , \cdot)$ 下连续, 即连续的概念应当建立在拓扑上, 特别地可为度量所诱导的拓扑. 
+		\end{rmk}
+		
+		\vspace{4em}
+		
+		\begin{proof}
+			Suppose $x_n \overset{\Vert \cdot \Vert}{\to} x \in X$, $y_n \overset{\Vert \cdot \Vert}{\to} y \in X$. Then both $\{ x_n \}_{n = 1}^{\infty}$ and $\{ y_n \}_{n = 1}^{\infty}$ are bounded. \\
+			i.e. $\exists M > 0$, $\st$
+			\[ \Vert x_n \Vert \leq M , \,\, \Vert y_n \Vert \leq M , \,\, \forall n \in \N \]
+			Therefore, 
+			\begin{align}
+				\Big| (x_n , y_n) - (x , y) \Big| 
+				&= \Big| (x_n , y_n) - (x , y_n) + (x , y_n) - (x , y) \Big| \\
+				&\leq \Big| (x_n - x , y_n) \Big| + \Big| (x , y_n - y) \Big|
+			\end{align}
+			By \textbf{Cauchy-Schwarz's Inequality (Thm \ref{thm 3.1.1})}, 
+			\begin{align}
+				\Big| (x_n , y_n) - (x , y) \Big| 
+				&\leq \Big| (x_n - x , y_n) \Big| + \Big| (x , y_n - y) \Big| \\
+				&\leq \Vert x_n - x \Vert \cdot \Vert y_n \Vert + \Vert x \Vert \cdot \Vert y_n - y \Vert \\
+				&\leq M \cdot \Vert x_n - x \Vert + \Vert x \Vert \cdot \Vert y_n - y \Vert \to 0
+			\end{align}
+			Therefore, $(x_n , y_n) \to (x , y)$ in $\mathbb{K}$. $(\cdot , \cdot) : X \times X \longrightarrow \mathbb{K}$ is continuous. 
+		\end{proof}
+	\end{proposition}
+
+\newpage
+
+\subsection{极化恒等式与平行四边形公式}
+	本小节将说明赋范空间配备上\textbf{平行四边形公式}后即可成为内积空间, 并给出内积的定义式 -- \textbf{极化恒等式}. 首先来给出内积空间的\textbf{极化恒等式}. 
+	
+	\vspace{1em}
+	
+	\begin{proposition}\label{prop 3.2.2}
+		\textbf{[极化恒等式]}. \\
+		设$(X , (\cdot , \cdot))$ 为定义在数域$\mathbb{K}$ 上的内积空间, 则 
+		\begin{enumerate}
+			\item[(\rmnum{1})] If $\mathbb{K} = \R$, then 
+			\[ (x , y) = \dfrac{1}{4} \Big( \Vert x + y \Vert^2 - \Vert x - y \Vert^2 \Big) , \,\, \forall x , y \in X \]
+			
+			\item[(\rmnum{2})] If $\mathbb{K} = \C$, then
+			\[ (x , y) = \dfrac{1}{4} \Big( \Vert x + y \Vert^2 - \Vert x - y \Vert^2 \Big) + \dfrac{i}{4} \Big( \Vert x + iy \Vert^2 - \Vert x - iy \Vert^2 \Big) , \,\, \forall x , y \in X \]
+		\end{enumerate}
+		
+		\vspace{6em}
+		
+		\begin{proof}
+			当$\mathbb{K} = \C$ 时, 
+			\begin{align}
+				\frac{1}{4} \Big( \Vert x + y \Vert^2 - \Vert x - y \Vert^2 \Big) 
+				&= Re(x , y) \\
+				\frac{i}{4} \Big( \Vert x + iy \Vert^2 - \Vert x - iy \Vert^2 \Big) 
+				&= i Re(x , iy) , \,\, \forall x , y \in X
+			\end{align}
+			而
+			\[ Re(x , iy) = Re \Big( \bar{i} (x , y) \Big) = Im(x , y) , \,\, \forall x , y \in X \]
+			Therefore, 
+			\begin{align}
+				&\frac{1}{4} \Big( \Vert x + y \Vert^2 - \Vert x - y \Vert^2 \Big) + \dfrac{i}{4} \Big( \Vert x + iy \Vert^2 - \Vert x - iy \Vert^2 \Big) \\
+				&= Re(x , y) + i Im(x , y) \\
+				&= (x , y) , \,\, \forall x , y \in X
+			\end{align}
+		\end{proof}
+	\end{proposition}
+
+	\vspace{4em}
+	
+	下面我们将说明, 对于$B^*$ 空间$(X , \Vert \cdot \Vert)$, 若其范数满足\textbf{平行四边形公式}, 则可引入内积$(\cdot , \cdot)$, $\st$
+	\[ \sqrt{(x , x)} = \Vert x \Vert , \,\, \forall x \in X \]
+	
+	\newpage
+	
+	\begin{thm}\label{thm 3.2.1}
+		\textbf{[范数诱导内积]}. \\
+		设$(X , \Vert \cdot \Vert) \in B^*$, 若其范数满足平行四边形公式, 即
+		\[ \Vert x + y \Vert^2 + \Vert x - y \Vert^2 = 2 \Big( \Vert x \Vert^2 + \Vert y \Vert^2 \Big) , \,\, \forall x , y \in X \]
+		则可定义由此范数诱导的内积$(\cdot , \cdot)$, $\st \sqrt{(x , x)} = \Vert x \Vert , \,\, \forall x \in X$, 使之成为内积空间. 
+		
+		\vspace{4em}
+		
+		\begin{proof}
+			内积按照\textbf{极化恒等式 (Prop \ref{prop 3.2.2})}定义. \\
+			下面我们只证明$\mathbb{K} = \R$ 的情形, $\mathbb{K} = \C$ 可类似证明. 即定义
+			\[ (x , y) \coloneqq \frac{1}{4} \Big( \Vert x + y \Vert^2 - \Vert x - y \Vert^2 \Big) , \forall x , y \in X \]
+			依次验证\textbf{内积的三条公理 (Def \ref{def 3.1.1})}, \textbf{正定性}及\textbf{共轭对称性}显然成立. \\ 
+			下面分两方面来证明\textbf{关于第一变元线性性}：(对加法$\&$ 数乘封闭) 
+			
+			\vspace{1em}
+			
+			\begin{itemize}
+				\item \textbf{对加法封闭}：Since
+				\begin{align}
+					(x , z) + (y , z) 
+					&= \frac{1}{4} \Big( \Vert x + z \Vert^2 - \Vert x - z \Vert^2 + \Vert y + z \Vert^2 - \Vert y - z \Vert^2 \Big) \\
+					&= \frac{1}{8} \Big[ 2 \Big( \Vert x + z \Vert^2 + \Vert y + z \Vert^2 \Big) - 2 \Big( \Vert x - z \Vert^2 + \Vert y - z \Vert^2 \Big) \Big]
+				\end{align}
+				By \textbf{平行四边形公式}, 
+				\begin{align}
+					(x , z) + (y , z) 
+					&= \frac{1}{8} \Big[ 2 \Big( \Vert x + z \Vert^2 + \Vert y + z \Vert^2 \Big) - 2 \Big( \Vert x - z \Vert^2 + \Vert y - z \Vert^2 \Big) \Big] \\
+					&= \frac{1}{8} \Big( \Vert x + y + 2z \Vert^2 + \Vert x - y \Vert^2 - \Vert x + y - 2z \Vert^2 - \Vert x - y \Vert^2 \Big) \\ 
+					&= \frac{1}{8} \Big( \Vert x + y + 2z \Vert^2 - \Vert x + y - 2z \Vert^2 \Big) \\
+					&= \frac{1}{2} (x + y , 2z) 
+					= 2 \left( \frac{x + y}{2} , z \right) , \,\, \forall x , y , z \in X
+				\end{align}
+				Let $y = 0$, we get
+				\[ (x , z) = 2 \left( \frac{x}{2} , z \right) , \,\, \forall x , z \in X \]
+				Thus replace $x$ by $x + y$, 
+				\[ (x , z) + (y , z) = 2 \left( \frac{x + y}{2} , z \right) = (x + y , z) , \,\, \forall x , y , z \in X \]
+				i.e. 
+				\[ (x , z) + (y , z) = (x + y , z) , \,\, \forall x , y , z \in X \]
+				
+				\newpage
+				
+				\item \textbf{对数乘封闭}：Fix $\forall x , y \in X$. Let
+				\begin{align}
+					f : \R &\longrightarrow \R \\
+					t &\longmapsto f(t) = (tx , y)
+				\end{align}
+				只需证：$f(t)$ 为线性函数. \\
+				By the previous result, 
+				\[ f(t_1 + t_2) = f(t_1) + f(t_2) , \,\, \forall t_1 , t_2 \in \R \]
+				Since $\Vert \cdot \Vert$ is continuous (\textbf{范数的连续性 (Def \ref{def 2.1.1})}), then $f$ is continuous. \\
+				Thus $f$ 为线性函数, i.e.
+				\[ f(t) = tf(1) , \,\, \forall t \in \R \]
+				Therefore, 
+				\[ (tx , y) = t(x , y) , \,\, \forall t \in \R \]
+			\end{itemize}
+			
+			综上, 
+			\[ (\alpha x + \beta y , z) = \alpha (x , z) + \beta (y , z) , \,\, \forall x , y , z \in X , \,\, \forall \alpha , \beta \in \R \]
+		\end{proof}
+	\end{thm}
+	
 
 
 
