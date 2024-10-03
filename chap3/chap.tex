@@ -228,7 +228,7 @@
 		\[ \Vert x + y \Vert^2 + \Vert x - y \Vert^2 = 2 \Big( \Vert x \Vert^2 + \Vert y \Vert^2 \Big) , \,\, \forall x , y \in X \]
 		则可定义由此范数诱导的内积$(\cdot , \cdot)$, $\st \sqrt{(x , x)} = \Vert x \Vert , \,\, \forall x \in X$, 使之成为内积空间. 
 		
-		\vspace{4em}
+		\vspace{6em}
 		
 		\begin{proof}
 			内积按照\textbf{极化恒等式 (Prop \ref{prop 3.2.2})}定义. \\
@@ -283,6 +283,171 @@
 			\[ (\alpha x + \beta y , z) = \alpha (x , z) + \beta (y , z) , \,\, \forall x , y , z \in X , \,\, \forall \alpha , \beta \in \R \]
 		\end{proof}
 	\end{thm}
+
+	\vspace{6em}
+	
+	\begin{example}\label{ex 3.2.1}
+		\textbf{[$l^p$ 及$L^p$ 内积空间]}. 
+		\begin{center}
+			\textbf{对于$l^p$ 空间 (Ex \ref{ex 1.3.1})及$L^p$ 空间, 平行四边形公式成立的充要条件均为$p = 2$}.
+		\end{center}
+		
+		\vspace{2em}
+		
+		\begin{proof}
+			充分性可按定义验证. 对于必要性, 只需给出$l^p$ 空间特例即可 ($l^p$ 空间可视作$L^p$ 空间的子空间(阶梯函数)). \\
+			Let $x = (1 , 0 , 0 , \cdots) , y = (0 , 1 , 0 , \cdots) \in l^p$, then $\Vert x \Vert = \Vert y \Vert = 1$, 
+			\[ \Vert x + y \Vert = \left( 1^p + 1^p \right)^{\tfrac{1}{p}} = 2^{\tfrac{1}{p}} , \,\, \Vert x - y \Vert = \left( 1^p + \left| -1 \right|^p \right)^{\tfrac{1}{p}} = 2^{\tfrac{1}{p}} \]
+			Thus $\Vert x + y \Vert^2 + \Vert x - y \Vert^2 = 2 \Big( \Vert x \Vert^2 + \Vert y \Vert^2 \Big) \,\, \Rightarrow \,\, 2 \cdot 2^{\tfrac{2}{p}} = 2 \cdot 2 \,\, \Rightarrow \,\, p = 2$. 
+		\end{proof}
+	\end{example}
+
+\newpage
+
+\section{正交分解}
+\subsection{正交补}
+	这一节开始我们来探索内积空间的几何性质. 首先给出在高等代数中接触过的\textbf{正交}及\textbf{正交补}的概念. 
+	
+	\vspace{1em}
+	
+	\begin{defn}\label{def 3.3.1}
+		对于内积空间$(X , (\cdot , \cdot))$ 中的两个元素$x , y \in X$, 如果
+		\[ (x , y) = 0 \]
+		则称$x$ 与$y$ \underline{\textcolor{blue}{\textbf{正交}}}. 设$M \subset X$ 为非空子集, 如果$\forall y \in M$, $(x , y) = 0$, 则称$x$ 与$M$ \underline{\textcolor{blue}{\textbf{正交}}}. \\
+		同时, 对于内积空间$(X , (\cdot , \cdot))$ 的子集$M \subset X$, 定义其\underline{\textcolor{blue}{\textbf{正交补$M^{\perp}$}}} 如下：
+		\[ M^{\perp} \coloneqq \left\{ x \in X \mid \forall y \in M , \,\, (x , y) = 0 \right\} \]
+		即为与$M$ 中所有成员均正交的元素所构成的集合. 
+		
+		\vspace{2em}
+		
+		\begin{rmk}
+			\begin{itemize}
+				\item $\forall M \subset X$, $0 \in M^{\perp} \neq \varnothing$. 
+				
+				\vspace{1em}
+				
+				\item 正交补继承了补运算的\textbf{反包含性}, 即$\forall M_1 \subset M_2$, 有$M_{2}^{\perp} \subset M_{1}^{\perp}$. (根据定义容易验证) 
+				
+				\vspace{1em}
+				
+				\item $\forall M \subset X , \,\, M^{\perp} \cap M \subset \{ 0 \}$, 即$M$ 与$M^{\perp}$ 交集为0 或空集. 
+				
+				\vspace{1em}
+				
+				\item $M^{\perp}$ 为$X$ 的\textbf{闭线性子空间}, 即对\textbf{加法}、\textbf{数乘}和\textbf{极限}封闭. (并不依赖于$M$ 的线性性)
+				
+				\vspace{3em}
+				
+				\begin{proof}
+					根据\textbf{内积关于第一变元的线性性(Def \ref{def 3.1.1})}, $\forall x , y \in M^{\perp}$, 
+					\[ (\alpha x + \beta y , z) = \alpha (x , z) + \beta (y , z) = 0 , \,\, \forall z \in M , \,\, \forall \alpha , \beta \in \mathbb{K} \]
+					于是$\alpha x + \beta y \in M^{\perp} , \,\, \forall \alpha , \beta \in \mathbb{K}$, 即为线性子空间. \\
+					$\forall \{ x_n \}_{n = 1}^{\infty} \subset M^{\perp}$ with $x_n \overset{\Vert \cdot \Vert}{\to} x_0 \in X$. 根据\textbf{内积的连续性 (Prop \ref{prop 3.2.1})}, 
+					\[ (x_0 , y) 
+					= \left( \lim_{n \to \infty} x_n , y \right) 
+					= \lim_{n \to \infty} \left( x_n , y \right) 
+					= 0 , \,\, \forall y \in M \]
+					Thus $x_0 \in M^{\perp}$. Therefore, $M^{\perp}$ 对极限运算封闭, 即为闭线性子空间. 
+				\end{proof}
+				
+				\newpage
+				
+				\item 根据$M^{\perp}$ 为$X$ 的闭线性子空间, 不难得到将$M$ 扩张为线性空间后$M^{\perp}$ 不变, 即
+				\[ M^{\perp} = span(M)^{\perp} = \overline{span(M)}^{\perp} , \,\, \forall M \subset X \]
+				
+				\vspace{3em}
+				
+				\begin{proof}
+					分别证明两个等式：\\
+					$M^{\perp} = span(M)^{\perp}$：Trivial. \\
+					$span(M)^{\perp} = \overline{span(M)}^{\perp}$：By \textbf{反包含性}, $\overline{span(M)}^{\perp} \subset span(M)^{\perp}$. \\
+					Fix $x \in span(M)^{\perp}$. $\forall y \in \overline{span(M)}$. 
+					\begin{enumerate}
+						\item[(a)] If $y \in span(M)$, then since $x \in span(M)^{\perp}$, then $(x , y) = 0$. 
+						
+						\item[(b)] If $y \in \overline{span(M)} \, \backslash \, span(M)$, then $\exists \{ y_n \}_{n = 1}^{\infty} \subset span(M)$, $\st y_n \overset{\Vert \cdot \Vert}{\to} y$. \\
+						By \textbf{内积的连续性 (Prop \ref{prop 3.2.1})}, 
+						\[ (x , y) 
+						= \left( x , \lim_{n \to \infty} y_n \right) 
+						= \lim_{n \to \infty} (x , y_n) 
+						= 0 \]
+					\end{enumerate}
+					Therefore, 
+					\[ (x , y) = 0 , \,\, \forall y \in \overline{span(M)}^{\perp} \]
+					$span(M)^{\perp} \subset \overline{span(M)}^{\perp} \,\, \Rightarrow \,\, span(M)^{\perp} = \overline{span(M)}^{\perp}$.
+				\end{proof}
+				
+				\vspace{8em}
+				
+				\item $\forall M \subset X$, 其正交补空间$M^{\perp}$满足勾股定理, 即
+				\[ \left\Vert \sum_{i = 1}^{n} x_i \right\Vert^2 = \sum_{i = 1}^n \Vert x_i \Vert^2 , \,\, \forall x_i \in M^{\perp} , \,\, \forall i = 1 \sim n \]
+				
+				\vspace{3em}
+				
+				\begin{proof}
+					只需对$n = 2$ 情形证明, 即$\forall x , y \in M^{\perp}$, WTS：$\Vert x + y \Vert^2 = \Vert x \Vert^2 + \Vert y \Vert^2$. \\
+					Since $x , y \in M^{\perp}$, $(x , y) = 0$, then
+					\begin{align}
+						\Vert x + y \Vert^2 
+						= (x + y , x + y) 
+						&= (x , x) + 2Re(x , y) + (y , y) \\
+						&= (x , x) + (y , y) \\
+						&= \Vert x \Vert^2 + \Vert y \Vert^2 , \,\, \forall x , y \in M^{\perp}
+					\end{align}
+					再由归纳法容易证明原命题. 
+				\end{proof}
+			\end{itemize}
+		\end{rmk}
+	\end{defn}
+
+\newpage
+
+\subsection{内积空间的严格凸性}
+	回顾\textbf{严格凸 (Def \ref{def 2.3.1})} 的定义, 下面我们说明内积空间均为严格凸的$B^*$ 空间. 
+	
+	\vspace{1em}
+	
+	\begin{proposition}\label{prop 3.3.1}
+		\textbf{[内积空间的严格凸性]}. 
+		\begin{center}
+			\textbf{内积空间$(X , (\cdot , \cdot))$ 必严格凸}.
+		\end{center}
+		
+		\vspace{4em}
+		
+		\begin{proof}
+			$\forall x , y \in X$ with $\Vert x \Vert = \Vert y \Vert = 1$, $x \neq y$. Fix $x$ and $y$. \\
+			Let
+			\begin{align}
+				f : [0 , 1] &\longrightarrow \R_{\geq 0} \\
+				\lambda &\longmapsto f(\lambda) = \Big\Vert (1 - \lambda) x + \lambda y \Big\Vert
+			\end{align}
+			By \textbf{范数的连续性 (Def \ref{def 2.1.1})}, $f \in C[0 , 1]$. Since 平行四边形公式 can be represented as
+			\begin{align}
+				\Vert x + y \Vert^2 + \Vert x - y \Vert^2 
+				&= 2 \Big( \Vert x \Vert^2 + \Vert y \Vert^2 \Big) \\
+				\Leftrightarrow \,\, 
+				\left\Vert \frac{x + y}{2} \right\Vert^2 + \left\Vert \frac{x - y}{2} \right\Vert^2 
+				&= \frac{1}{2} \Big( \left\Vert x \right\Vert^2 + \left\Vert y \right\Vert^2 \Big)
+			\end{align}
+			Take 
+			\[ x \Rightarrow (1 - \lambda)x + \lambda y , \,\, y \Rightarrow (1 - \mu)x + \mu y , \,\, \forall 0 \leq \lambda < \mu \leq 1  \]
+			Then by \textbf{平行四边形公式}, since $\Big\Vert (\mu - \lambda)(x - y) \Big\Vert > 0$, 
+			\begin{align}
+				\left\Vert \left( 1 - \frac{\lambda + \mu}{2} \right) x + \frac{\lambda + \mu}{2} y  \right\Vert^2 
+				&= \frac{1}{2} \Big( \Big\Vert (1 - \lambda)x + \lambda y \Big\Vert^2 + \Big\Vert (1 - \mu)x + \mu y \Big\Vert^2 \Big) - \Big\Vert (\mu - \lambda)(x - y) \Big\Vert^2 \\
+				&< \frac{1}{2} \Big( \Big\Vert (1 - \lambda)x + \lambda y \Big\Vert^2 + \Big\Vert (1 - \mu)x + \mu y \Big\Vert^2 \Big)
+			\end{align}
+			i.e. 
+			\[ f\left( \frac{\lambda + \mu}{2} \right) < \frac{1}{2} \Big( f\left( \lambda \right) + f(\mu) \Big) , \,\, \forall 0 \leq \lambda < \mu \leq 1 \]
+			Since $f \in C[0 , 1]$ continuous, then $f$ is \textbf{strictly convex (严格凸)}. \\
+			With $f(0) = f(1) = 1$, we can easily proof that $X$ is \textbf{strictly convex}. 
+			\begin{center}
+				(对$\forall \lambda_0 \in (0 , 1)$, 可用二分法得到一系列区间端点$\lambda_n \to \lambda_0$, 从而得到严格不等式$f(\lambda_0) < 1$)
+			\end{center}
+		\end{proof}
+	\end{proposition}
+
 	
 
 
