@@ -638,6 +638,59 @@
 			\end{enumerate}
 		\end{proof}
 	\end{proposition}
+
+\newpage
+
+\subsection{最佳逼近元的内积刻画}
+	作为\textbf{投影定理 (正交分解)}的推广, 对于\textbf{Thm \ref{thm 3.3.1}}中给出的\textbf{Hilbert空间上闭凸子集的最佳逼近问题}, 下面我们用内积来给出其\textbf{最佳逼近元}的刻画. 
+	
+	\vspace{1em}
+	
+	\begin{thm}\label{thm 3.3.3}
+		\textbf{[Hilbert空间上闭凸子集最佳逼近元的内积刻画]}. \\
+		设$(X , (\cdot , \cdot)) \in \mathcal{H}$, $M \subset X$ 为闭凸子集, then for $\forall x \in X$, 
+		\begin{center}
+			\textbf{$y \in M$ 为$x$ 在$M$ 上最佳逼近元 $\,\, \Leftrightarrow \,\, Re (x - y , y - z) \geq 0 , \,\, \forall z \in M$}
+		\end{center}
+	
+		\vspace{2em}
+		
+		\begin{rmk}
+			此处\textbf{最佳逼近元 $y \in M$}的\textbf{存在唯一性}可由\textbf{Thm \ref{thm 3.3.1}} 得到. 
+		\end{rmk}
+		
+		\vspace{4em}
+		
+		\begin{proof}
+			\begin{itemize}
+				\item \textbf{必要性$\Rightarrow$}：$\forall z \in M$. Since $M \subset X$ is convex, then $tz + (1 - t)y \in M , \,\, \forall t \in [0 , 1]$.  \\
+				Since $y \in M$ 为唯一最佳逼近元 (\textbf{Thm \ref{thm 3.3.1}}), then
+				\begin{align}
+					\Big\Vert x - \Big( tz + (1 - t)y \Big) \Big\Vert^2 
+					&\geq \Vert x - y \Vert^2 \\
+					\Leftrightarrow \,\, \Big\Vert (x - y) + t(y - z) \Big\Vert^2 
+					&\geq \Vert x - y \Vert^2 \\
+					\Leftrightarrow \,\, t^2 \Vert y - z \Vert^2 + 2t \, Re(x - y , y - z) 
+					&\geq 0 , \,\, \forall t \in [0 , 1]
+				\end{align}
+				Calculate 该二次函数判别式, we get
+				\[ \Delta = 4 Re(x - y , y - z)^2 \leq 0 \,\, \Rightarrow \,\, Re(x - y , y - z) = 0 , \,\, \forall z \in M \]
+				
+				\vspace{4em}
+				
+				\item \textbf{充分性$\Leftarrow$}：由条件$Re(x - y , y - z) \geq 0 , \,\, \forall z \in M$, we can get
+				\[ \Big\Vert x - \Big( tz + (1 - t)y \Big) \Big\Vert^2 \geq \Vert x - y \Vert^2 , \,\, \forall z \in M , \,\, \forall t \in [0 , 1] \]
+				Take $t = 1$, then we have
+				\[ \Vert x - z \Vert \geq \Vert x - y \Vert , \,\, \forall z \in M \]
+				Thus $y \in M$ 为$x$ 在$M$ 上的最佳逼近元. By \textbf{Thm \ref{thm 3.3.1}}, we have proved the uniqueness of $y$. 
+			\end{itemize}
+		\end{proof}
+	\end{thm}
+
+\newpage
+
+\section{正交系}
+	
 	
 
 
