@@ -63,5 +63,9 @@
 \contentsline {subsection}{\numberline {3.3.4}投影定理 (正交分解)}{77}{subsection.3.3.4}%
 \contentsline {subsection}{\numberline {3.3.5}正交补的性质}{79}{subsection.3.3.5}%
 \contentsline {subsection}{\numberline {3.3.6}最佳逼近元的内积刻画}{80}{subsection.3.3.6}%
-\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}$Supplementary \,\, Content$}{81}{appendix.A}%
-\contentsline {section}{\numberline {A.1}度量空间稠密子集的等价刻画}{81}{section.A.1}%
+\contentsline {section}{\numberline {3.4}正交系}{81}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}正交系与Bessel不等式}{81}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}正交系的完备性与完全性}{83}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}可分Hilbert空间的分类}{87}{subsection.3.4.3}%
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}$Supplementary \,\, Content$}{89}{appendix.A}%
+\contentsline {section}{\numberline {A.1}度量空间稠密子集的等价刻画}{89}{section.A.1}%

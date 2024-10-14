@@ -379,14 +379,14 @@
 				
 				\vspace{8em}
 				
-				\item $\forall M \subset X$, 其正交补空间$M^{\perp}$满足勾股定理, 即
-				\[ \left\Vert \sum_{i = 1}^{n} x_i \right\Vert^2 = \sum_{i = 1}^n \Vert x_i \Vert^2 , \,\, \forall x_i \in M^{\perp} , \,\, \forall i = 1 \sim n \]
+				\item $\forall \{ x_i \}_{i = 1}^{n} \subset X$, 若$x_i$ 两两正交, 即$(x_i , x_j) = 0 , \,\, \forall i \neq j$, 则满足勾股定理, i.e.
+				\[ \left\Vert \sum_{i = 1}^{n} x_i \right\Vert^2 = \sum_{i = 1}^n \Vert x_i \Vert^2 \]
 				
 				\vspace{3em}
 				
 				\begin{proof}
-					只需对$n = 2$ 情形证明, 即$\forall x , y \in M^{\perp}$, WTS：$\Vert x + y \Vert^2 = \Vert x \Vert^2 + \Vert y \Vert^2$. \\
-					Since $x , y \in M^{\perp}$, $(x , y) = 0$, then
+					只需对$n = 2$ 情形证明, 即$\forall (x , y) = 0 $, WTS：$\Vert x + y \Vert^2 = \Vert x \Vert^2 + \Vert y \Vert^2$. \\
+					Since $(x , y) = 0$, then
 					\begin{align}
 						\Vert x + y \Vert^2 
 						= (x + y , x + y) 
@@ -607,7 +607,7 @@
 		
 		\begin{enumerate}
 			\item[(\rmnum{1})] $X = M \oplus M^{\perp}$. 更一般地, 对于$\forall$ 子集$M \subset X$, 
-			\[ X = \overline{span(M)}^{\perp} \oplus M^{\perp} \]
+			\[ X = \overline{span(M)} \oplus M^{\perp} \]
 			
 			\item[(\rmnum{2})] 若$M \subsetneqq X$ 为真闭子空间, 则$M^{\perp} \neq \{ 0 \}$. 
 			
@@ -690,6 +690,304 @@
 \newpage
 
 \section{正交系}
+\subsection{正交系与Bessel不等式}
+	这一节我们来介绍有关\textbf{正交系}的相关概念, 首先给出\textbf{正交系}的定义. 
+	
+	\vspace{1em}
+	
+	\begin{defn}\label{def 3.4.1}
+		设$(X , (\cdot , \cdot))$ 为内积空间, $\{ e_n \}_{n \geq 1} \subset X$. 若$\{ e_n \}_{n \geq 1}$ 满足两两正交, 即
+		\[ (e_n , e_m) = 0 , \,\, \forall n \neq m \]
+		则称$\{ e_n \}_{n \geq 1}$ 为$X$ 的一个\underline{\textcolor{blue}{\textbf{正交系}}}. 若进一步有$\Vert e_n \Vert = 1 , \,\, \forall n \geq 1$, 即
+		\[ (e_i , e_j) = \delta_{i}^{j} , \,\, \forall i , j \]
+		则称之为\underline{\textcolor{blue}{\textbf{标准正交系}}}, 此时称$\{ (x , e_n) \}_{n \geq 1}$ 为$x \in X$ 关于$\{ e_n \}_{n \geq 1}$ 的\underline{\textcolor{blue}{\textbf{Fourier系数}}}. 
+		
+		\vspace{2em}
+		
+		\begin{rmk}
+			此处$\{ e_n \}_{n \geq 1}$ 既可为有限项, 也可为无穷项. 大部分情况下我们将其视作无穷项的一般情况讨论, 即$\{ e_n \}_{n = 1}^{\infty}$.
+		\end{rmk}
+	\end{defn}
+	
+	\vspace{6em}
+	
+	下面给出在欧氏空间$\R^n$ 中十分显然的一个定理, 这里将其拓展到了一般的内积空间中. 
+	
+	\begin{thm}\label{thm 3.4.1}
+		\textbf{[Bessel's Inequality]}. \\
+		设$(X , (\cdot , \cdot))$ 为内积空间, $\{ e_n \}_{n = 1}^{\infty} \subset X$ 为$X$ 的一个标准正交系, then
+		\[ \sum_{n = 1}^{\infty} \Big| (x , e_n) \Big|^2 \leq \Vert x \Vert^2 , \,\, \forall x \in X \]
+		
+		\vspace{2em}
+		
+		\begin{rmk}
+			事实上, 若$(X , (\cdot , \cdot)) \in \mathcal{H}$, 则$\overset{\infty}{\underset{n = 1}{\sum}} (x , e_n) e_n$ 即为$x \in X$ 在闭线性子空间
+			\[ \overline{\underset{n \in \N}{span}(e_n)} \subset X \]
+			上的投影. 在下面的证明过程中也会有所体现. 
+		\end{rmk}
+	
+		\newpage
+		
+		\begin{proof}
+			Fix $\forall x \in X , \,\, \forall m \in \N$. Let $M = \overline{span(e_1 , \cdots , e_m)} \subset X$ be a closed linear subspace. \\
+			Since
+			\[ \Big( x - \sum_{n = 1}^{m} (x , e_n) e_n , e_k \Big) 
+			= (x , e_k) - (x , e_k) 
+			= 0 , \,\, \forall k = 1 \sim m \]
+			Then for $M = \overline{\underset{1 \leq n \leq m}{span} (e_n)}$, 
+			\[ \Big( x - \sum_{n = 1}^{m} (x , e_n) e_n , y \Big) = 0 , \,\, \forall y \in M  \]
+			Thus $x - \overset{m}{\underset{n = 1}{\sum}} (x , e_n) e_n \in M^{\perp}$, and
+			\[ x = \sum_{n = 1}^{m} (x , e_n) e_n + \Big( x - \sum_{n = 1}^{m} (x , e_n) e_n \Big) \]
+			Since $\overset{m}{\underset{n = 1}{\sum}} (x , e_n) e_n \in M$, then
+			\[ \Big( \sum_{n = 1}^{m} (x , e_n) e_n , x - \sum_{n = 1}^{m} (x , e_n) e_n \Big) = 0 \]
+			Hence by \textbf{勾股定理 (Def \ref{def 3.3.1})}, 
+			\[
+				\Vert x \Vert^2 
+				= \Big\Vert \sum_{n = 1}^{m} (x , e_n) e_n \Big\Vert^2 + \Big\Vert x - \sum_{n = 1}^{m} (x , e_n) e_n \Big\Vert^2 
+				\geq \Big\Vert \sum_{n = 1}^{m} (x , e_n) e_n \Big\Vert^2
+			\]
+			Since $(e_i , e_j) = 0 , \,\, \forall i \neq j$, then by \textbf{勾股定理 (Def \ref{def 3.3.1})}, 
+			\[ \Big\Vert \sum_{n = 1}^{m} (x , e_n) e_n \Big\Vert^2 
+			= \sum_{n = 1}^{m} \Big\Vert (x , e_n) e_n \Big\Vert^2 
+			= \sum_{n = 1}^{m} \Big| (x , e_n) \Big|^2 \]
+			Thus
+			\[ \Vert x \Vert^2 
+			\geq \Big\Vert \sum_{n = 1}^{m} (x , e_n) e_n \Big\Vert^2 
+			= \sum_{n = 1}^{m} \Big| (x , e_n) \Big|^2 , \,\, \forall m \in \N \]
+			Letting $m \to \infty$, we have
+			\[ \sum_{n = 1}^{\infty} \Big| (x , e_n) \Big|^2 \leq \Vert x \Vert^2 \]
+		\end{proof}
+	\end{thm}
+
+\newpage
+
+\subsection{正交系的完备性与完全性}
+	这一小节我们来介绍\textbf{完备}与\textbf{完全}正交系, 并说明其在\textbf{Hilbert空间}中等价. 
+	
+	\vspace{1em}
+	
+	\begin{defn}\label{def 3.4.2}
+		设$(X , (\cdot , \cdot))$ 为内积空间, $\{ e_n \}_{n \geq 1} \subset X$ 为$X$ 的一个标准正交系. 若对于$\forall x \in X$, Parseval等式成立 (Bessel 不等式 \textbf{(Thm \ref{thm 3.4.1})} 取等情况), i.e.
+		\[ \sum_{n = 1}^{\infty} \Big| (x , e_n) \Big|^2 = \Vert x \Vert^2 , \,\, \forall x \in X \]
+		则称$\{ e_n \}_{n \geq 1}$ 在$X$ 中\underline{\textcolor{blue}{\textbf{完备 (complete)}}}. 
+	\end{defn}
+
+	\vspace{2em}
+	
+	\begin{defn}\label{def 3.4.3}
+		设$(X , (\cdot , \cdot))$ 为内积空间, $\{ e_n \}_{n \geq 1} \subset X$ 为$X$ 的一个标准正交系. 若对于$\forall x \in X$, 
+		\begin{center}
+			$(x , e_n) = 0 , \,\, \forall n \in \N \,\, \Rightarrow \,\, x = 0$
+		\end{center}
+		则称$\{ e_n \}_{n \geq 1}$ 是\underline{\textcolor{blue}{\textbf{完全的 (perfect)}}}. 
+	\end{defn}
+	
+	\vspace{5em}
+	
+	下面我们就来说明在Hilbert空间中上述两个定义等价. 
+	
+	\vspace{1em}
+	
+	\begin{thm}\label{thm 3.4.2}
+		\textbf{[Hilbert空间中标准正交系完备与完全等价]}. \\
+		设$(X , (\cdot , \cdot)) \in \mathcal{H}$, $\{ e_n \}_{n \geq 1} \subset X$ 为$X$ 的一个标准正交系, 则下列叙述等价：
+		\begin{enumerate}
+			\item[(\rmnum{1})] $\{ e_n \}_{n \geq 1}$ 完备. 
+			
+			%\vspace{0.5em}
+			
+			\item[(\rmnum{2})] $x = \overset{\infty}{\underset{n = 1}{\sum}} (x , e_n) e_n , \,\, \forall x \in X$. 
+			
+			%\vspace{0.5em}
+			
+			\item[(\rmnum{3})] $\forall x , y \in X$, 
+			\[ (x , y) = \sum_{n = 1}^{\infty} (x , e_n) \overline{(y , e_n)} \]
+			
+			%\vspace{0.5em}
+			
+			\item[(\rmnum{4})] $\{ e_n \}_{n \geq 1}$ 完全.
+		\end{enumerate}
+		
+		\vspace{4em}
+		
+		\begin{rmk}
+			\begin{itemize}
+				\item 事实上, 上述叙述均等价于$\overline{\underset{n \geq 1}{span} (e_n)}^{\perp} = \{ 0 \}$, 在证明中会有所体现. 又因为$\overline{\underset{n \geq 1}{span} (e_n)} \subset X$ 为$X$ 的子空间, 根据\textbf{Prop 3.3.2 (\rmnum{4})}, 
+				\[ \overline{\underset{n \geq 1}{span} (e_n)}^{\perp} = \{ 0 \} \,\, \Leftrightarrow \,\, \overline{\underset{n \geq 1}{span} (e_n)} = X \]
+				即上述叙述等价于$\underset{n \geq 1}{span} (e_n)$ 在$X$ 中稠密. 
+				
+				\newpage
+				
+				\item 对于内积空间$(X , (\cdot , \cdot))$, $\{ e_n \}_{n \geq 1} \subset X$ 为$X$ 的一个标准正交系. 考虑映射
+				\begin{align}
+					T : X &\longrightarrow l^2 \\
+					x &\longmapsto \Big( (x , e_n) \Big)_{n = 1}^{\infty}
+				\end{align}
+				根据\textbf{Bessel's Inequality (Thm \ref{thm 3.3.1})}, 
+				\[ \sum_{n = 1}^{\infty} \Big| (x  , e_n) \Big|^2 \leq \Vert x \Vert^2 < \infty , \,\, \forall x \in X \]
+				Thus the definition of $f : X \longrightarrow l^2$ is reasonable. Also we can show that $f$ is \textbf{surjective (满射)}：\\
+				$\forall (a_n)_{n = 1}^{\infty} \in l^2$. Let 
+				\[ x = \sum_{n = 1}^{\infty} a_n e_n \in \overline{\underset{n \geq 1}{span} (e_n)} \subset X \]
+				Then $(x , e_n) = a_n , \,\, \forall n \in \N \,\, \Rightarrow \,\, Tx = (a_n)_{n = 1}^{\infty} \in l^2$. Hence $f : X \longrightarrow l^2$ is surjective. 
+				
+				\vspace{3em}
+				
+				下面我们来说明：
+				\begin{center}
+					\textbf{对于一般的内积空间$(X , (\cdot , \cdot))$, $T \Big|_{\overline{\underset{n \geq 1}{span} (e_n)}} : \overline{\underset{n \geq 1}{span} (e_n)} \longrightarrow l^2$ 为等距同构}\footnote{对于本定理的条件, 即对于\textbf{Hilbert空间$X$}上的\textbf{完备的标准正交系$\{ e_n \}_{n \geq 1}$}, $T : X \longrightarrow l^2$ 即为\textbf{等距同构}. \\
+						对于一般的内积空间, 将$T$ 限制在$\overline{\underset{n \geq 1}{span} (e_n)}$上有两个作用：(\rmnum{1}) 是保证双射；(\rmnum{2}) 是保证\textbf{Parseval's Equality}.}
+				\end{center}
+				
+				\vspace{3em}
+				
+				根据上述说明, 不难证明$T \Big|_{\overline{\underset{n \geq 1}{span} (e_n)}}$ 为双射. 下面证明其等距性. \\
+				$\forall x , y \in \overline{\underset{n \geq 1}{span} (e_n)}$, 
+				\[ \Big( \rho_{l^2}(Tx , Ty) \Big)^2 
+				= \sum_{n = 1}^{\infty} \Big| (x , e_n) - (y , e_n) \Big|^2 
+				= \sum_{n = 1}^{\infty} \Big| (x - y , e_n) \Big|^2 \]
+				Since $x - y \in \overline{\underset{n \geq 1}{span} (e_n)}$, then by \textbf{Bessel's Inequality (Pareval's Equality, Thm \ref{thm 3.3.1})}, 
+				\[ \Big( \rho_{l^2}(Tx , Ty) \Big)^2 
+				= \sum_{n = 1}^{\infty} \Big| (x - y , e_n) \Big|^2 
+				= \Vert x - y \Vert^2 
+				= \Big( \rho_{X}(x , y) \Big)^2 , \,\, \forall x , y \in \overline{\underset{n \geq 1}{span} (e_n)} \]
+				i.e.
+				\[ \rho_{l^2} \circ T = \rho_{X} \]
+				Therefore, $T \Big|_{\overline{\underset{n \geq 1}{span} (e_n)}} : \overline{\underset{n \geq 1}{span} (e_n)} \longrightarrow l^2$ 为等距同构. 
+			\end{itemize}
+		\end{rmk}
+		
+		\newpage
+		
+		\begin{proof}
+			\begin{enumerate}
+				\item 首先(\rmnum{1}) 与(\rmnum{2}) 的等价性是显然的：
+				\begin{itemize}
+					\item Since $\Big( \overset{\infty}{\underset{n = 1}{\sum}} (x , e_n) e_n , x - \overset{\infty}{\underset{n = 1}{\sum}} (x , e_n) e_n \Big) = 0$, and
+					\[
+					x = \sum_{n = 1}^{\infty} (x  ,e_n) e_n + \Big( x - \sum_{n = 1}^{\infty} (x , e_n) e_n \Big)
+					\]
+					Then by \textbf{勾股定理 (Def \ref{def 3.3.1})}
+					\[ \Vert x \Vert^2 = \Big\Vert \sum_{n = 1}^{\infty} (x , e_n) e_n \Big\Vert^2 + \Big\Vert x - \sum_{n = 1}^{\infty} (x , e_n) e_n \Big\Vert^2 \]
+					Thus 
+					\begin{align}
+						\{ e_n \}_{n \geq 1} \text{完备} 
+						\,\, &\Leftrightarrow \,\, 
+						\Big\Vert x - \sum_{n = 1}^{\infty} (x , e_n) e_n \Big\Vert^2 
+						= \Vert x \Vert^2 - \Big\Vert \sum_{n = 1}^{\infty} (x , e_n) e_n \Big\Vert^2 = 0 , \,\, \forall x \in X \\
+						&\Leftrightarrow \,\, x = \sum_{n = 1}^{\infty} (x , e_n) e_n , \,\, \forall x \in X
+					\end{align} 
+				\end{itemize}
+				
+				\vspace{4em}
+				
+				\item 上述叙述(\rmnum{1})、(\rmnum{2})、(\rmnum{3})、(\rmnum{4}) 均等价于$\overline{\underset{n \geq 1}{span}(e_n)}^{\perp} = \{ 0 \}$：
+				\begin{itemize}
+					\item Since $x = \overset{\infty}{\underset{n = 1}{\sum}} (x , e_n) e_n \in \overline{\underset{n \geq 1}{span} (e_n)} , \,\, \forall x \in X \,\, \Leftrightarrow \,\, \overline{\underset{n \geq 1}{span} (e_n)}^{\perp} = \{ 0 \}$, then
+					\[ (\rmnum{1}) \,\, \Leftrightarrow \,\, (\rmnum{2}) \,\, \Leftrightarrow \,\, \overline{\underset{n \geq 1}{span} (e_n)}^{\perp} = \{ 0 \} \]
+					
+					\vspace{2em}
+					
+					\item $\forall x , y \in X$ with $x = x_0 + x_1$, $y = y_0 + y_1$, where $x_0 , y_0 \in \overline{\underset{n \geq 1}{span} (e_n)}$, $x_1 , y_1 \in \overline{\underset{n \geq 1}{span} (e_n)}^{\perp}$. \\
+					Then $x_0 = \overset{\infty}{\underset{n = 1}{\sum}} (x , e_n) e_n$ and $y_0 = \overset{\infty}{\underset{n = 1}{\sum}} (y , e_n) e_n$. \\
+					Since
+					\[ (x , y) = (x_0 , y_0) + (x_0 , y_1) + (x_1 , y_0) + (x_1 , y_1) = (x_0 , y_0) + (x_1 , y_1) \]
+					and
+					\[ (x_0 , y_0) = \Big( \sum_{n = 1}^{\infty} (x , e_n) e_n \Big) \overline{ \Big( \sum_{n = 1}^{\infty} (y , e_n) e_n \Big) } 
+					= \sum_{n = 1}^{\infty} (x , e_n) \overline{(y , e_n)} \]
+					Thus
+					\[ (\rmnum{3}) \,\, \Leftrightarrow \,\, (x_1 , y_1) = 0 , \,\, \forall x , y \in X \]
+					遍历$x , y \in X$, 不难说明同时遍历了$x_1 , y_1 \in \overline{\underset{n \geq 1}{span} (e_n)}^{\perp}$. Therefore, 
+					\[ (\rmnum{3}) \,\, \Leftrightarrow \,\, 
+					(x_1 , y_1) = 0 , \,\, \forall x_1 , y_1 \in \overline{\underset{n \geq 1}{span} (e_n)}^{\perp} \,\, \Leftrightarrow \,\, 
+					\overline{\underset{n \geq 1}{span} (e_n)}^{\perp} = \{ 0 \} \]
+					
+					\newpage
+					
+					\item Since for $\forall x \in X$, 
+					\[ (x , e_n) = 0 , \,\, \forall n \in \N \,\, \Leftrightarrow \,\, x \in \overline{\underset{n \geq 1}{span} (e_n)}^{\perp} \]
+					Therefore, 
+					\[ (\rmnum{4}) \,\, \Leftrightarrow \,\, \overline{\underset{n \geq 1}{span} (e_n)}^{\perp} = \{ 0 \} \]
+				\end{itemize}
+			\end{enumerate}
+		\end{proof}
+	\end{thm}
+
+\newpage
+
+\subsection{可分Hilbert空间的分类}
+	这一小节我们将给出\textbf{可分Hilbert空间}的所有分类, 即在等距同构的意义下, 只有$\mathbb{K}^n$ 与$l^2$ 两类\textbf{可分Hilbert空间}. 
+	
+	\vspace{1em}
+	
+	首先回顾一下高等代数中接触过的\textbf{Gram-Schmidt正交化}过程, 可以应用到一般的内积空间之中：\\
+	设$(X , (\cdot , \cdot))$ 为内积空间, $\{ x_n \}_{n \geq 1} \subset X$ 线性无关且至多可数. Let
+	\begin{align}
+		y_1 &= x_1 , \hspace*{0.5em} &e_1 = \frac{y_1}{\Vert y_1 \Vert} \\
+		y_2&= x_2 - (x_2 , e_1)e_1 , &e_2 = \frac{y_2}{\Vert y_2 \Vert} \\
+		&\cdots &\cdots \\
+		y_n &= x_n - (x_n , e_{n - 1})e_{n - 1} , &e_n = \frac{y_n}{\Vert y_n \Vert} \\
+		&\cdots &\cdots
+	\end{align}
+	上述过程即为\textbf{Gram-Schmidt正交化过程}. 可以证明, $\{ x_n \}_{n \geq 1}$ 与$\{ e_n \}_{n \geq 1}$ 可互相表出, 即
+	\[ \underset{n \geq 1}{span} (x_n) = \underset{n \geq 1}{span} (e_n) \]
+	
+	\vspace{6em}
+	
+	下面我们就来给出\textbf{可分Hilbert空间}的分类. 
+	
+	\vspace{1em}
+	
+	\begin{thm}\label{thm 3.4.3}
+		\textbf{[可分Hilbert空间的分类]}. \\
+		设$(X , (\cdot , \cdot)) \in \mathcal{H}$, 
+		\begin{center}
+			\textbf{若$X$ 为有限维(n维)可分Hilbert空间, 则$X$ 与$\mathbb{K}^n$ 等距同构. \\
+				若$X$ 为无穷维可分Hilbert空间, 则$X$ 与$l^2$ 等距同构. }
+		\end{center}
+	
+		\vspace{4em}
+		
+		\begin{rmk}
+			\begin{itemize}
+				\item 事实上, 对于\textbf{内积空间}, 其具有两种维数, 分别为\textbf{正交维数}及\textbf{线性维数}. 大部分情况下 (包括此处)均讨论的为其\textbf{正交维数}, 即\textbf{标准正交系的最大元素个数}. 
+				
+				\newpage
+				
+				对于\textbf{线性维数}, 即$X$ 作为线性空间的维数, 可以证明的是, 对于\textbf{Hilbert空间}, 
+				\begin{center}
+					\textbf{其线性维数要么有限, 要么不可数. (正交维数有限 $\Leftrightarrow$ 线性维数有限)}\footnote{对于命题\textbf{“无可数无穷维Hilbert空间”}, 可根据\textbf{Baire's Theorem (Thm \ref{thm 1.2.1})} 反证：可数无穷维Hilbert空间为第一纲集, 这与Baire's Theorem 矛盾. 事实上该命题可推广为\textbf{“无可数无穷维Banach空间”}. \\
+					对于Hilbert空间不可数线性维数的讨论, 可参考\textbf{文献}：
+					\begin{center}
+						吴亚敏. 希尔伯特空间H中两种维数的比较[C]. //第七届中国智能计算大会论文集. 2013:157-158.
+					\end{center}
+					}
+				\end{center}
+				
+				\vspace{2em}
+				
+				\item 该定理说明, 在等距同构意义下, 可分的Hilbert空间只有$\mathbb{K}^n$ (有限维)和$l^2$ (无穷维).
+			\end{itemize}
+			
+		\end{rmk}
+	
+		\vspace{4em}
+		
+		\begin{proof}
+			\begin{itemize}
+				\item If $X$ 为无穷维可分Hilbert空间, then $\exists$ 可数稠密子集$\{ x_n \}_{n = 1}^{\infty} \subset X$. \\
+				Since $X$ 正交维数为$\infty$, then $\{ x_n \}_{n = 1}^{\infty} \subset X$ 线性无关. 对$\{ x_n \}_{n = 1}^{\infty}$ 进行Gram-Schmidt正交化, 得到标准正交系$\{ e_n \}_{n = 1}^{\infty}$, $\st$
+				\[ \underset{n \geq 1}{span} (x_n) = \underset{n \geq 1}{span} (e_n) \]
+				Since $\{ x_n \}_{n = 1}^{\infty} \subset \underset{n \geq 1}{span} (x_n)$ and $\{ x_n \}_{n = 1}^{\infty} \subset X$ dense, then
+				\[ X = \overline{\{ x_n \}_{n = 1}^{\infty}} \subset \overline{\underset{n \geq 1}{span} (x_n)} = \overline{\underset{n \geq 1}{span} (e_n)} \,\, \Rightarrow \,\, \overline{\underset{n \geq 1}{span} (e_n)} = X \]
+				Therefore, by \textbf{Thm \ref{thm 3.4.2}'s Remark}, 
+				\[ T \Big|_{\overline{\underset{n \geq 1}{span} (e_n)}} = T : X \longrightarrow l^2 \,\, \text{为等距同构} \]
+				
+				\vspace{4em}
+				
+				\item If $X$ 为n维可分Hilbert空间, Similarly.
+			\end{itemize}
+		\end{proof}
+	\end{thm}
 	
 	
 
