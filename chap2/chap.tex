@@ -768,7 +768,9 @@
 		 	k \cdot (x + X_0) \coloneqq kx + X_0 , \,\, \forall k \in \mathbb{K} , \,\, \forall x \in X
 		 \end{cases}
 		 \]
-		 不难证明此时$X / X_0$ 满足线性空间的要求. 再引入范数
+		 不难证明此时$X / X_0$ 满足线性空间的要求. 再引入范数\footnote{此处定义的范数与\textbf{《泛函分析讲义》 -- 张恭庆、林源渠} 一书中$\S 4.7$ 节所定义的范数是一致的, 即\\
+		 对于$\forall$ fixed $x \in X$, 
+		 \[ \Big\Vert [x] \Big\Vert_0 = \inf_{y \in [x]} \Vert y \Vert = \inf_{x - y \in X_0} \Vert y \Vert = \inf_{z = x - y \in X_0} \Vert x - z \Vert \] }
 		 \[ \Vert x + X_0 \Vert_0 \coloneqq dist(x , X_0) = \inf_{y \in X_0} \Vert x - y \Vert , \,\, \forall x \in X \]
 		 则$(X / X_0 , \Vert \cdot \Vert_0) \in B^*$, 称$(X / X_0 , \Vert \cdot \Vert_0)$ 为关于$X$ 的\underline{\textcolor{blue}{\textbf{商空间}}}. 
 		 

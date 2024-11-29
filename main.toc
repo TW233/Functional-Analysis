@@ -69,5 +69,5 @@
 \contentsline {subsection}{\numberline {3.4.3}可分Hilbert空间的分类}{87}{subsection.3.4.3}%
 \contentsline {chapter}{\numberline {第四章\hspace {.3em}}线性算子与线性泛函}{89}{chapter.4}%
 \contentsline {section}{\numberline {4.1}线性算子$\&$ 线性泛函}{89}{section.4.1}%
-\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}$Supplementary \,\, Content$}{92}{appendix.A}%
-\contentsline {section}{\numberline {A.1}度量空间稠密子集的等价刻画}{92}{section.A.1}%
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}$Supplementary \,\, Content$}{95}{appendix.A}%
+\contentsline {section}{\numberline {A.1}度量空间稠密子集的等价刻画}{95}{section.A.1}%

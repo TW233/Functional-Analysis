@@ -93,7 +93,7 @@
 		\begin{rmk}
 			此处给出$T$ 有界的几个\textbf{等价定义}, 即对于$\forall T \in Hom(X , Y)$, 
 			\begin{center}
-				\textbf{$T$ 有界 $\,\, \Leftrightarrow \,\, $ 单位球 (面)的像有界 $\,\, \Leftrightarrow \,\, \exists M > 0 , \,\, \st \Vert T x \Vert \leq M \, \Vert x \Vert , \,\, \forall x \in X$}
+				\textbf{$T$ 有界 $\,\, \Leftrightarrow \,\, $ 单位球 (面)的像有界 $\,\, \Leftrightarrow \,\, \exists M > 0 , \,\, \st \Vert T x \Vert_Y \leq M \, \Vert x \Vert_X , \,\, \forall x \in X$}
 			\end{center}
 			
 			\vspace*{2em}
@@ -101,28 +101,128 @@
 			\begin{proof}
 				\begin{itemize}
 					\item $T$ 有界 $\,\, \Leftrightarrow \,\, $ 单位球 (面)的像有界：必要性显然. 下面证充分性$\Leftarrow$：$\exists M > 0$, $\st$
-					\[ \Vert Tx \Vert \leq M \, \Vert x \Vert = M , \,\, \forall x \in B(0 , 1) \]
+					\[ \Vert Tx \Vert_Y \leq M \, \Vert x \Vert_X = M , \,\, \forall x \in B(0 , 1) \subset X \]
 					$\forall A \subset X$ bounded, i.e. $\exists r > 0$, $\st A \subset B(0 , r)$. Then by the linearity of $T \in Hom(X , Y)$, 
-					\[ \Vert T x \Vert 
-					= \Big\Vert T \Big( \Vert x \Vert \cdot \frac{x}{\Vert x \Vert} \Big) \Big\Vert 
-					= \Vert x \Vert \cdot \Big\Vert T \Big( \frac{x}{\Vert x \Vert} \Big) \Big\Vert 
+					\[ \Vert T x \Vert_Y 
+					= \Big\Vert T \Big( \Vert x \Vert_X \cdot \frac{x}{\Vert x \Vert_X} \Big) \Big\Vert_Y 
+					= \Vert x \Vert_X \cdot \Big\Vert T \Big( \frac{x}{\Vert x \Vert_X} \Big) \Big\Vert_Y 
 					\leq r \cdot M < \infty , \,\, \forall x \in A \]
 					Therefore, $T(A) \subset \mathbb{K}$ bounded. $T$ bounded. 
 					
 					\vspace*{8em}
 					
-					\item 单位球 (面)的像有界 $\,\, \Leftrightarrow \,\, \exists M > 0 , \,\, \st \Vert T x \Vert \leq M \, \Vert x \Vert , \,\, \forall x \in X$：\\
+					\item 单位球 (面)的像有界 $\,\, \Leftrightarrow \,\, \exists M > 0 , \,\, \st \Vert T x \Vert_Y \leq M \, \Vert x \Vert_X , \,\, \forall x \in X$：\\
 					充分性显然. 下面证明必要性$\Rightarrow$：$\exists M > 0$, $\st$
-					\[ \Vert Tx \Vert \leq M , \,\, \forall x \in \partial B(0 , 1) \]
+					\[ \Vert Tx \Vert_Y \leq M , \,\, \forall x \in \partial B(0 , 1) \]
 					Then for $\forall x \in X$, 
-					\[ \Big\Vert T\Big( \frac{x}{\Vert x \Vert} \Big) \Big\Vert 
-					= \frac{\Vert Tx \Vert}{\Vert x \Vert}
+					\[ \Big\Vert T\Big( \frac{x}{\Vert x \Vert_X} \Big) \Big\Vert_Y 
+					= \frac{\Vert Tx \Vert_Y}{\Vert x \Vert_X}
 					\leq M , \,\, \forall x \in M \]
-					i.e. $\Vert Tx \Vert \leq M \, \Vert x \Vert , \,\, \forall x \in X$.
+					i.e. $\Vert Tx \Vert_Y \leq M \, \Vert x \Vert_X , \,\, \forall x \in X$.
 				\end{itemize}
 			\end{proof}
 		\end{rmk}
 	\end{defn}
+	
+	\newpage
+	
+	下面来介绍有关线性算子的十分重要的结论, 即对于$B^*$ 空间上的线性算子, \textbf{连续与有界等价}. 
+	
+	\begin{proposition}\label{prop 4.1.1}
+		\textbf{[$B^*$ 空间线性算子连续$\Leftrightarrow$ 有界]}. \\
+		Suppose $X , Y \in B^*$, $T \in Hom(X , Y)$, then
+		\begin{center}
+			\textbf{T连续 $\,\, \Leftrightarrow \,\, $T 有界}
+		\end{center}
+		
+		\vspace*{4em}
+		
+		\begin{proof}
+			\begin{itemize}
+				\item \textbf{充分性$\Leftarrow$}：Suppose $T \in Hom(X, Y)$ bounded, then \\
+				By \textbf{$B^*$ 空间上有界线性算子等价定义 (Def \ref{def 4.1.3})}, $\exists M > 0$, $\st$
+				\[ \Vert Tx \Vert_Y \leq M \, \Vert x \Vert_X , \,\, \forall x \in X \]
+				Thus $T : X \longrightarrow Y$ is lipschitz continuous, specifically continuous. 
+				
+				\vspace*{6em}
+				
+				\item \textbf{必要性$\Rightarrow$}：Suppose $T \in Hom(X , Y)$ continuous. \\
+				反证法. 假设$T$ 无界, 则$\forall n \in \N$, $\exists x_n \in X$, $\st$
+				\[ \Vert T x_n \Vert_Y > n \, \Vert x_n \Vert_X , \,\, \forall n \in \N \]
+				i.e. 
+				\[ \left\Vert T \left( \frac{1}{n} \cdot \frac{x_n}{\Vert x_n \Vert_X} \right) \right\Vert_Y > 1 , \,\, \forall n \in \N \]
+				Let $y_n = \dfrac{x_n}{n \Vert x_n \Vert_X} \in X$, then letting $n \to \infty$, we have
+				\[ \Vert y_n \Vert_X \to 0 , \,\, \Vert Ty_n \Vert_Y > 1 \not\to 0 \,\, \text{as} \,\, n \to \infty \]
+				Therefore, $T(x)$ is discontinuous at $x = \overrightarrow{0}$. 从而$T$ 不连续, 矛盾.
+			\end{itemize}
+		\end{proof}
+	\end{proposition}
+	
+	\newpage
+	
+	下面给出$B^*$ 空间上\textbf{线性泛函连续的充要条件}, 即其\textbf{核空间为闭集}. 
+	
+	\begin{proposition}\label{prop 4.1.2}
+		\textbf{[$B^*$ 空间上线性泛函连续的充要条件]}. \\
+		Suppose $X \in B^*$, $f \in Hom(X , \mathbb{K})$. Then
+		\begin{center}
+			\textbf{$f \in X^* \,\, \Leftrightarrow \,\, Ker f \subset X$ closed}
+		\end{center}
+		
+		\vspace*{2em}
+		
+		\begin{rmk}
+			回顾线性空间$X , Y$ 之间线性映射$f \in Hom(X , Y)$ 的核空间的定义
+			\[ Kerf = \{ x \in X \mid f(x) = 0 \in Y \} \subset X \]
+			此命题即说明了$B^*$ 空间上线性泛函连续$\,\, \Leftrightarrow \,\,$ 其核空间为闭集. 
+		\end{rmk}
+		
+		\vspace*{4em}
+		
+		\begin{proof}
+			\begin{itemize}
+				\item \textbf{必要性$\Rightarrow$}：Suppose $f \in X^* = L(X , Y)$ continuous. Then \\
+				For $\forall \{ x_n \}_{n = 1}^{\infty} \subset Ker f$ with $x_n \overset{\Vert \cdot \Vert_X}{\to} x \in X$ converges, since $f$ is continuous, then
+				\[ f(x) = f \left( \lim_{n \to \infty} x_n \right) = \lim_{n \to \infty} f(x_n) = 0 \]
+				Thus $x \in Ker f$. $Ker f$ is closed. 
+				
+				\vspace*{6em}
+				
+				\item \textbf{充分性$\Leftarrow$}：不妨设$Ker f \subsetneqq X$ 为$X$ 的真闭子集 (否则$f \equiv 0$ 自然连续). \\
+				Consider the Quotient Space $(X / Ker f , \Vert \cdot \Vert_0) \in B^*$ (范数的定义及合理性可回顾 \textbf{Def \ref{def 2.4.1}}). \\
+				下面说明$X / Ker f$ 为1维线性空间 (可将$X / Ker f$ 中的成员理解为$f$ 的等值面)：\\
+				Fix $\forall x_0 \not\in Kerf$, then $f(x_0) \neq 0$. Since $f(x_0) \neq 0$, then $\forall [y] \in X / Ker f$, it's clear that
+				\[ [y] = \frac{f(y)}{f(x_0)} [x_0] , \,\, \forall [y] \in X / Ker f \]
+				Thus $X / Ker f$ can be linearly expressed by $\{ [x_0] \} \subset X / Ker f$. 故$dim(X / Ker f) = 1$. Let
+				\begin{align*}
+					\widetilde{f} : X / Ker f &\longrightarrow \mathbb{K} \\
+					[x] &\longmapsto f(x)
+				\end{align*}
+				不难证明$\widetilde{f}$ 是个线性映射 (well-defined, 与代表元无关, 保持线性运算). \\
+				下面证明$\widetilde{f} \in Hom(X / Ker f , \mathbb{K})$ 有界, 即\underline{\textbf{一维$B^*$ 空间上的线性泛函均有界}}：\\
+				Since $dim(X / Ker f) = 1$, then for $\forall$ fixed $x_0 \not\in Ker f$, $\exists \lambda_x \in \mathbb{K}$, $\st$
+				\[ [x] = \lambda_x [x_0] = [\lambda_x x_0] , \,\, \forall [x] \in X / Ker f \]
+				Suppose $\dfrac{\left| \widetilde{f}([x_0]) \right|}{\Big\Vert [x_0] \Big\Vert_0} = M \in \R_{\neq 0}$. i.e. $\left| \widetilde{f}([x_0]) \right| = M \cdot \Big\Vert [x_0] \Big\Vert_0$. Then 
+				\[ \left| \widetilde{f}([x]) \right| 
+				= \left| \widetilde{f}(\lambda_x [x_0]) \right| 
+				= \left| \lambda_x \right| \cdot \left| \widetilde{f}([x_0]) \right| 
+				= \left| \lambda_x \right| \cdot M \cdot \Big\Vert [x_0] \Big\Vert_0 
+				= M \cdot \Big\Vert [x] \Big\Vert_0 , \,\, \forall [x] \in X / Ker f \]
+				根据\textbf{$B^*$ 空间上有界线性算子的等价定义 (Def \ref{def 4.1.3})}, $\widetilde{f} : (X / Ker f , \Vert \cdot \Vert_0) \longrightarrow (\mathbb{K} , | \cdot |)$ 有界. \\
+				从而
+				\begin{align*}
+					\left| f(x) \right| 
+					= \left| \widetilde{f}([x]) \right| 
+					= M \cdot \Big\Vert [x] \Big\Vert_0 
+					= M \cdot \inf_{z \in Ker f} \Vert x - z \Vert
+				\end{align*}
+				Since $\overrightarrow{0} \in Ker f$, then $\underset{z \in Ker f}{\inf} \Vert x - z \Vert \leq \Vert x - \overrightarrow{0} \Vert = \Vert x \Vert$. Therefore, 
+				\[ \left| f(x) \right| \leq M \cdot \Vert x \Vert , \,\, \forall x \in X \]
+				从而$f \in Hom(X , \mathbb{K})$ 有界. \\
+				根据\textbf{$B^*$ 空间线性算子连续与有界等价 (Prop \ref{prop 4.1.1})}, $f \in L(X , \mathbb{K}) = X^*$ 连续. 
+			\end{itemize}
+		\end{proof}
+	\end{proposition} 
 
 
 	%  ############################
