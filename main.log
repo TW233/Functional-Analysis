@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.11.9)  29 NOV 2024 23:40
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.11.9)  2 DEC 2024 22:36
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1568,12 +1568,12 @@ Requested font "[TeXGyreTermesX-Regular.otf]/OT:script=latn;language=dflt;-ss05
 Requested font "SimSun/OT:script=hani;language=dflt;" at 6.0pt
  -> C:/Windows/fonts/simsun_0.ttc
  [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35]
-Overfull \hbox (8.1726pt too wide) in paragraph at lines 1408--1409
-[]\TU/SimSun(0)/m/n/12 接 下 来 我 们 将 介 绍 \TU/TeXGyreTermesX(0)/b/n/12 Arezelà-Asc
-oli \TU/SimSun(0)/b/n/12 定 理\TU/TeXGyreTermesX(0)/m/n/12 , \TU/SimSun(0)/m/n/12
- 它 给 出 了 \TU/SimSun(0)/b/n/12 紧 致 度 量 空 间 $\OML/mak/m/it/12 X$ \TU/SimSun(0)/b/
-n/12 上 连 续 函 数 全 体 $\OT1/txr/m/n/12 (\OML/mak/m/it/12 C\OT1/txr/m/n/12 (\OML/ma
-k/m/it/12 X\OT1/txr/m/n/12 )\OML/mak/m/it/12 ; d\OT1/txr/m/n/12 )$
+Overfull \hbox (2.96461pt too wide) in paragraph at lines 1408--1409
+[]\TU/SimSun(0)/m/n/12 接 下 来 我 们 将 介 绍 \TU/TeXGyreTermesX(0)/b/n/12 Arzelà-Asco
+li \TU/SimSun(0)/b/n/12 定 理\TU/TeXGyreTermesX(0)/m/n/12 , \TU/SimSun(0)/m/n/12 
+它 给 出 了 \TU/SimSun(0)/b/n/12 紧 致 度 量 空 间 $\OML/mak/m/it/12 X$ \TU/SimSun(0)/b/n
+/12 上 连 续 函 数 全 体 $\OT1/txr/m/n/12 (\OML/mak/m/it/12 C\OT1/txr/m/n/12 (\OML/mak
+/m/it/12 X\OT1/txr/m/n/12 )\OML/mak/m/it/12 ; d\OT1/txr/m/n/12 )$
  []
 
 [36] [37] [38] [39] [40]) [41]
@@ -1666,7 +1666,7 @@ Inequality (Thm [][]3.1.1[][])\TU/TeXGyreTermesX(0)/m/n/12 ,
 
 [66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80]
 [81] [82]
-Overfull \hbox (24.28893pt too wide) in paragraph at lines 815--816
+Overfull \hbox (24.28893pt too wide) in paragraph at lines 814--815
 []\TU/SimSun(0)/m/n/12 事 实 上\TU/TeXGyreTermesX(0)/m/n/12 , \TU/SimSun(0)/m/n/12
  上 述 叙 述 均 等 价 于 $[][] \OT1/txr/m/n/12 = \OMS/txsy/m/n/12 f\T1/mak/m/n/12 0\OMS
 /txsy/m/n/12 g$\TU/TeXGyreTermesX(0)/m/n/12 , \TU/SimSun(0)/m/n/12 在 证 明 中 会 有 
@@ -1700,7 +1700,8 @@ n/12 对 偶 空 间 \TU/SimSun(0)/m/n/12 概 念 的 推 广\TU/TeXGyreTermesX(
 imSun(0)/m/n/12 即|   []   |   []
  []
 
-[90] [91] [92] [93]) [94]
+[90] [91] [92] [93] [94] [95] [96] [97] [98] [99] [100] [101] [102] [103]
+[104]) [105]
 \openout2 = `appendix/chap.aux'.
 
  (./appendix/chap.tex
@@ -1731,7 +1732,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 9.
 
-) [95
+) [106
 
 
 
@@ -1739,15 +1740,15 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 ] (./main.aux (./config/cover.aux) (./chap1/chap.aux) (./chap2/chap.aux)
 (./chap3/chap.aux) (./chap4/chap.aux) (./appendix/chap.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: C0F2E5497D3E36B98D5CEDABC50375E8;7808.
+(rerunfilecheck)             Checksum: E1185DEC8EF2178158785586164355FE;8220.
  ) 
 Here is how much of TeX's memory you used:
- 20600 strings out of 476179
- 436490 string characters out of 5810426
- 755758 words of memory out of 5000000
- 40899 multiletter control sequences out of 15000+600000
+ 20620 strings out of 476179
+ 437260 string characters out of 5810426
+ 761497 words of memory out of 5000000
+ 40919 multiletter control sequences out of 15000+600000
  508523 words of font info for 204 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 94i,15n,103p,427b,760s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 94i,24n,103p,503b,760s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (100 pages).
+Output written on main.pdf (111 pages).

@@ -174,7 +174,7 @@
 		\begin{rmk}
 			回顾线性空间$X , Y$ 之间线性映射$f \in Hom(X , Y)$ 的核空间的定义
 			\[ Kerf = \{ x \in X \mid f(x) = 0 \in Y \} \subset X \]
-			此命题即说明了$B^*$ 空间上线性泛函连续$\,\, \Leftrightarrow \,\,$ 其核空间为闭集. 
+			此命题即说明了\textbf{$B^*$ 空间上线性泛函连续$\,\, \Leftrightarrow \,\,$ 其核空间为闭集}. 
 		\end{rmk}
 		
 		\vspace*{4em}
@@ -202,7 +202,7 @@
 				下面证明$\widetilde{f} \in Hom(X / Ker f , \mathbb{K})$ 有界, 即\underline{\textbf{一维$B^*$ 空间上的线性泛函均有界}}：\\
 				Since $dim(X / Ker f) = 1$, then for $\forall$ fixed $x_0 \not\in Ker f$, $\exists \lambda_x \in \mathbb{K}$, $\st$
 				\[ [x] = \lambda_x [x_0] = [\lambda_x x_0] , \,\, \forall [x] \in X / Ker f \]
-				Suppose $\dfrac{\left| \widetilde{f}([x_0]) \right|}{\Big\Vert [x_0] \Big\Vert_0} = M \in \R_{\neq 0}$. i.e. $\left| \widetilde{f}([x_0]) \right| = M \cdot \Big\Vert [x_0] \Big\Vert_0$. Then 
+				Suppose $\dfrac{\left| \widetilde{f}([x_0]) \right|}{\Big\Vert [x_0] \Big\Vert_0} = M \in \R_{> 0}$. i.e. $\left| \widetilde{f}([x_0]) \right| = M \cdot \Big\Vert [x_0] \Big\Vert_0$. Then 
 				\[ \left| \widetilde{f}([x]) \right| 
 				= \left| \widetilde{f}(\lambda_x [x_0]) \right| 
 				= \left| \lambda_x \right| \cdot \left| \widetilde{f}([x_0]) \right| 
@@ -223,6 +223,448 @@
 			\end{itemize}
 		\end{proof}
 	\end{proposition} 
+
+\newpage
+
+\section{算子范数}
+	在这一节, 我们将在$B^*$ 空间之间的连续线性算子构成的空间$L(X , Y)$ 上定义线性运算, 使其成为\textbf{线性空间}, 并进一步赋予\textbf{算子范数}, 使其成为$B^*$ 空间. 
+	
+	\vspace*{1em}
+	
+	\hspace*{-1.95em}首先我们来说明, $B^*$ 空间上连续线性算子空间$L(X , Y)$ 在定义自然线性运算后成为\textbf{线性空间}. 
+	
+	\vspace*{1em}
+	
+	\begin{thm}\label{thm 4.2.1}
+		\textbf{[$B^*$ 空间上连续线性算子$L(X , Y)$ 成为自然的线性空间]}. \\
+		Suppose $X , Y \in B^*$. Then 
+		\begin{center}
+			\textbf{$L(X , Y)$ 在引入自然的线性运算后成为线性空间}.
+		\end{center} 
+		
+		\vspace*{4em}
+		
+		\begin{proof}
+			下面只需验证连续性在线性运算下被保持：\\
+			根据\textbf{$B^*$ 空间线性算子连续与有界等价 (Prop \ref{prop 4.1.1})}, 即证明有界性在线性运算下被保持：\\
+			$\forall T_1 , T_2 \in L(X , Y)$. Since $T_1 , T_2$ continuous, $X , Y \in B^*$, then $T_1 , T_2$ are bounded (\textbf{Prop \ref{prop 4.1.1}}). \\
+			Suppose $\Vert T_1 x \Vert_Y \leq M_1 \, \Vert x \Vert_X , \,\, \Vert T_2 x \Vert_Y \leq M_2 \, \Vert x \Vert_X , \,\, \forall x \in X$, where $M_1 , M_2 \in \R_{> 0}$. Then
+			\begin{align*}
+				\Vert (\alpha T_1 + \beta T_2)x \Vert_Y 
+				&\leq \Vert \alpha T_1 x \Vert_Y + \Vert \beta T_2 x \Vert_Y \\
+				&\leq \left| \alpha \right| \cdot M_1 \, \Vert x \Vert_X + \left| \beta \right| \cdot M_2 \, \Vert x \Vert_X \\
+				&= \Big( \left| \alpha \right| \cdot M_1 + \left| \beta \right| \cdot M_2 \Big) \, \Vert x \Vert_X , \,\, \forall x \in X , \,\, \forall \alpha , \beta \in \mathbb{K}
+			\end{align*}
+			Therefore, $\alpha T_1 + \beta T_2$ is bounded, and also continuous. ($\forall T_1 , T_2 \in L(X , Y) , \forall \alpha , \beta \in \mathbb{K}$)
+		\end{proof}
+	\end{thm}
+	
+	\vspace*{6em}
+	
+	\hspace*{-1.95em}为了使得$B^*$ 空间上连续线性算子空间$L(X , Y)$ 进一步成为$B^*$ 空间, 下面引入\textbf{算子范数}的概念. 
+	
+	\newpage
+	
+	\begin{defn}\label{def 4.2.1}
+		Suppose $X , Y \in B^*$, $T \in L(X , Y)$. Define
+		\begin{align*}
+			\Vert T \Vert \coloneqq \inf \Big\{ M > 0 \,\, \Big| \,\, \Vert Tx \Vert_Y \leq M \, \Vert x \Vert_X , \,\, \forall x \in X \Big\}
+		\end{align*}
+		为连续线性算子$T$ 的\underline{\textcolor{blue}{\textbf{算子范数}}}. 
+		
+		\vspace*{6em}
+		
+		\begin{rmk}
+			\begin{itemize}
+				\item 算子范数事实上可视作线性函数\textbf{梯度大小}的推广, 即
+				\[ \Vert Tx \Vert_Y \leq \Vert T \Vert \cdot \Vert x \Vert_X , \,\, \forall x \in X \]
+				
+				\vspace*{6em}
+				
+				\item 算子范数有如下几种\textbf{等价定义}：\\
+				(事实上最后一种可将\textbf{“$\Vert x \Vert_X < 1$”} 换成$X$ 中\textbf{“任一以$0$ 为内点的有界集合”})
+				\begin{align*}
+					\Vert T \Vert 
+					= \sup_{x \neq 0} \frac{\Vert Tx \Vert_Y}{\Vert x \Vert_X} 
+					= \sup_{\Vert x \Vert_X = 1} \Vert Tx \Vert_Y 
+					= \sup_{\Vert x \Vert_X \leq 1} \Vert Tx \Vert_Y 
+					= \sup_{\Vert x \Vert_X < 1} \Vert Tx \Vert_Y
+				\end{align*}
+				
+				\vspace*{1em}
+				
+				\begin{proof}
+					前面几种等价性显然, 对于最后一个定义的等价性, 只需对边界$\Vert x \Vert_X = 1$ 上的点用$\Vert x \Vert_X < 1$ 中的点逼近即可得证. 
+				\end{proof}
+				
+				\vspace*{8em}
+				
+				\item 利用算子范数, 我们可以验证连续线性算子的乘积 (复合)可保持连续性, 即\\
+				Suppose $X , Y , Z \in B^*$, $T \in L(X , Y)$, $S \in L(Y , Z)$, then
+				\[ \Vert ST \Vert \leq \Vert S \Vert \cdot \Vert T \Vert \]
+				Thus $ST : X \longrightarrow Z$ is bounded, and also continuous. 
+				
+				\vspace*{1em}
+				
+				\begin{proof}
+					利用\textbf{算子范数的等价定义}, 
+					\[ \Vert ST \Vert = \sup_{\Vert x \Vert_X = 1} \Vert S(T(x)) \Vert_Z 
+					\leq \sup_{\Vert x \Vert_X = 1} \Vert S \Vert \cdot \Vert Tx \Vert_{Y} 
+					\leq \sup_{\Vert x \Vert_X = 1} \Vert S \Vert \cdot \Vert T \Vert \cdot \Vert x \Vert_X 
+					= \Vert S \Vert \cdot \Vert T \Vert \]
+				\end{proof}
+				
+				\newpage
+				
+				\item \underline{\textbf{$L(X , Y)$ 在赋予算子范数后成为$B^*$ 空间}}, 即算子范数满足范数的三条公理 (Def \ref{def 2.1.1}). 
+				
+				\vspace*{1em}
+				
+				\begin{proof}
+					正定性$\&$ 绝对齐性显然成立. 对于三角不等式, 根据\textbf{算子范数等价定义 (Def \ref{def 4.2.1})}, 
+					\begin{align*}
+						\Vert T_1 + T_2 \Vert 
+						= \sup_{\Vert x \Vert_X = 1} \Vert (T_1 + T_2)x \Vert_Y 
+						&\leq \sup_{\Vert x \Vert_X = 1} \Big( \Vert T_1 x \Vert_Y + \Vert T_2 x \Vert_Y \Big) \\
+						&\leq \sup_{\Vert x \Vert_X = 1} \Vert T_1 x \Vert_Y + \sup_{\Vert x \Vert_X = 1} \Vert T_2 x \Vert_Y \\
+						&= \Vert T_1 \Vert + \Vert T_2 \Vert , \,\, \forall T_1 , T_2 \in L(X , Y)
+					\end{align*}
+				\end{proof}
+			\end{itemize}
+		\end{rmk}
+	\end{defn}
+	
+	\vspace*{2em}
+	
+	\hspace*{-1.95em}下面给出$B^*$ 空间$(L(X , Y),  \Vert \cdot \Vert)$ 上\textbf{序列依范数收敛的等价刻画}.
+	
+	\vspace*{2em}
+	
+	\begin{proposition}\label{prop 4.2.1}
+		\textbf{[$B^*$ 空间上连续线性算子空间$L(X , Y)$ 依范数收敛的等价刻画]}. \\
+		Suppose $X , Y \in B^*$. 对于$(L(X , Y) , \Vert \cdot \Vert) \in B^*$, 其上
+		\begin{center}
+			\underline{\textbf{序列按算子范数收敛等价于在单位球面 (任一存在内点的有界集)上一致收敛}}.
+		\end{center}
+		i.e. 
+		\begin{align*}
+			T_n \overset{\Vert \cdot \Vert}{\to} T \,\, &\Leftrightarrow \,\, T_n \,\, \text{在单位球面上一致收敛于$T$} \\
+			&\Leftrightarrow \,\, T_n \,\, \text{在任一存在内点的有界集上一致收敛于$T$}
+		\end{align*}
+		
+		\vspace*{4em}
+		
+		\begin{proof}
+			Suppose $\{ T_n \}_{n = 1}^{\infty} \subset L(X , Y)$. Then $T_{n} \overset{\Vert \cdot \Vert}{\to} T \in L(X , Y)$ $\,\, \Leftrightarrow \,\, $ $\forall \varepsilon > 0$, $\exists N_\varepsilon \in \N$, $\st$
+			\[ \Vert T_n - T \Vert = \sup_{\Vert x \Vert_X = 1} \Vert (T_n - T)x \Vert_Y < \varepsilon , \,\, \forall n \geq N_\varepsilon \]
+			i.e. 
+			\[ \Vert (T_n - T)x \Vert_Y < \epsilon , \,\, \forall \Vert x \Vert_X = 1 , \,\, \forall n \geq N_\epsilon \]
+			Thus $T_n \overset{\Vert \cdot \Vert}{\to} T \,\, \Leftrightarrow \,\, T_n$ 在单位球面上一致收敛于$T$. Therefore, 
+			\begin{align*}
+				T_n \overset{\Vert \cdot \Vert}{\to} T \,\, &\Leftrightarrow \,\, T_n \,\, \text{在单位球面上一致收敛于$T$} \\
+				&\Leftrightarrow \,\, T_n \,\, \text{在单位球中一致收敛于$T$} \\
+				&\Leftrightarrow \,\, T_n \,\, \text{在任一以$\overrightarrow{0}$ 为内点的有界集上一致收敛于$T$} \\
+				&\Leftrightarrow \,\, T_n \,\, \text{在任一存在内点的有界集上一致收敛于$T$} 
+			\end{align*}
+			最后一个等价性即根据$T_n$ 的线性性, 将有界集平移至以$\overrightarrow{0}$ 为内点. 
+		\end{proof}
+	\end{proposition}
+
+\newpage
+
+\section{强收敛与一致收敛}
+	在上一节的结尾我们已经讨论了, 赋予\textbf{算子范数}的连续线性算子空间$(L(X , Y) , \Vert \cdot \Vert)$ 中\textbf{序列依范数收敛的等价刻画 (Prop \ref{prop 4.2.1})}. 在这一节, 我们将介绍一种比\textbf{依范数收敛}更弱的收敛——\textbf{强收敛}, 即逐点收敛. 
+	
+	\vspace*{1em}
+	
+	\begin{defn}\label{def 4.3.1}
+		Suppose $X , Y \in B^*$, $\{ T_n \}_{n = 1}^{\infty} \subset L(X , Y)$ and $T \in L(X , Y)$. If for $\forall x \in X$, $\st$ 
+		\[ T_n x \overset{\Vert \cdot \Vert_Y}{\to} Tx \,\, \text{as} \,\, n \to \infty \]
+		Then we call $T_n$ \underline{\textcolor{blue}{\textbf{强收敛}}}于$T$, 记为$T_n \overset{s}{\to} T$. 
+		
+		\vspace*{2em}
+		
+		\begin{rmk}
+			\begin{itemize}
+				\item \textbf{强收敛}即为传统意义上的\textbf{逐点收敛}, 即对于$X$ 中每一点$x$, 都有$T_nx \in Y$ 依$Y$ 中范数$\Vert \cdot \Vert_Y$ 收敛到$Tx \in Y$. 
+				
+				\vspace*{2em}
+				
+				\item 根据\textbf{$L(X , Y)$ 中序列依范数收敛等价刻画 (Prop \ref{prop 4.2.1})}, $T_n \overset{\Vert \cdot \Vert}{\to} T$ 蕴含\footnote{此处$T_n \overset{\Vert \cdot \Vert}{\to} T$ 指的是$T_n \in L(X , Y)$ 依\textbf{算子范数}收敛到$T \in L(X , Y)$, \textbf{《泛函分析讲义》 -- 张恭庆、林源渠} 一书中将\underline{\textbf{“依算子范数收敛”}}称为\underline{\textbf{一致收敛}}, 记作$T_n \rightrightarrows T$. (可见$\S 2.5$ 定义 2.5.22)}$T_n \overset{s}{\to} T$, 反之不成立, 下面将给出反例. 
+			\end{itemize}
+		\end{rmk}
+	\end{defn}
+	
+	\vspace*{3em}
+
+	\begin{example}\label{ex 4.3.1}
+		\textbf{[$l^p$ 空间中的左平移算子, 强收敛而非依范数收敛]}. \\
+		Consider the sequence of mapping $\{ T_n \}_{n = 1}^{\infty} \subset L(l^p , l^p)$, 
+		\begin{align*}
+			T_n : l^p &\longrightarrow l^p \\
+			\{ x_k \}_{k = 1}^{\infty} &\longmapsto \{ x_{n + k} \}_{k = 1}^{\infty}
+		\end{align*}
+		显然$\Vert T_n x \Vert_{l^p} \leq \Vert x \Vert_{l^p} , \,\, \forall x = \{ x_k \}_{k = 1}^{\infty} \subset l^p$. For $\forall$ fixed $n \in \N$, take $x_0 = (0 , \cdots , 0 , x_{n + 1} , \cdots) \in l^p$, then
+		\[ \Vert T_n x_0 \Vert_{l^p} = \sum_{k = 1}^{\infty} \left| x_{n + k} \right|^p = \Vert x_0 \Vert_{l^p} \]
+		于是$T_n$ 的算子范数$\Vert T_n \Vert = 1 , \,\, \forall n \in \N$. \\
+		Since for $\forall x = \{ x_k \}_{k = 1}^{\infty} \in l^p$, 
+		\[ \Vert T_n x \Vert_{l^p} = \sum_{k = 1}^{\infty} \left| x_{n + k} \right|^p \to 0 \,\, \text{as} \,\, n \to \infty \,\, (\text{Otherwise $x \notin l^p$}) \]
+		Therefore, $T_n \overset{s}{\to} \overrightarrow{0} \in L(l^p , l^p)$. However, $\Vert T_n - \overrightarrow{0} \Vert = \Vert T_n \Vert \equiv 1 , \,\, \forall n \in \N$, hence $T_n \overset{\Vert \cdot \Vert}{\not\to} \overrightarrow{0}$ ($T_n \not\rightrightarrows \overrightarrow{0}$).
+	\end{example}
+	
+	\newpage
+	
+	下面我们给出一个有关$B^*$ 空间上连续线性算子空间$L(X , Y)$ 的完备性的结论, 即\textbf{若像空间$Y \in B$ 完备, 则算子空间$L(X , Y) \in B$ 完备}. 
+	
+	\vspace*{1em}
+	
+	\begin{thm}\label{thm 4.3.1}
+		\textbf{[像空间$Y \in B$ 完备推出连续线性算子空间$L(X , Y) \in B$ 完备]}. 
+		\begin{center}
+			\textbf{Suppose $X , Y \in B^*$. If $Y \in B$ complete, then $L(X , Y) \in B$ complete}. 
+		\end{center}
+		
+		\vspace*{4em}
+		
+		\begin{proof}
+			$\forall$ Cauchy sequence $\{ T_n \}_{n = 1}^{\infty} \subset L(X , Y)$. 下面分三步进行证明：
+			
+			\begin{enumerate}
+				\item[\textbf{Step 1}]. \underline{\textbf{Constuction of $T \in Hom(X , Y) , \,\, \st T_n \overset{s}{\to} T$}}：\\
+				Since $\{ T_n \}_{n = 1}^{\infty}$ is a Cauchy sequence in $L(X , Y)$, then for $\forall \varepsilon > 0$, $\exists N_{\varepsilon} \in \N$, $\st$
+				\[ \Vert T_n - T_m \Vert < \varepsilon , \,\, \forall n , m \geq N_{\varepsilon} \]
+				Thus for $\forall$ fixed $x \in X$, 
+				\[ \Vert T_n x - T_m x \Vert_{Y} \leq \Vert T_n - T_m \Vert \cdot \Vert x \Vert_X \leq \Vert x \Vert_X \cdot \varepsilon , \,\, \forall n , m \geq N_{\varepsilon} \]
+				Hence $\{ T_nx \}_{n = 1}^{\infty} \subset Y$ is a Cauchy sequence in $Y$ for all $x \in X$. Since $Y \in B$ is complete, then $\forall x \in X$, $\exists y_x \in Y$, $\st T_n x \to y_x$ as $n \to \infty$. Let 
+				\begin{align*}
+					T : X &\longrightarrow Y \\
+					x &\longmapsto \lim_{n \to \infty} T_n x
+				\end{align*}
+				Then $T \in Hom(X , Y)$ is well-defined with $T_n \overset{s}{\to} T$. 
+				
+				\vspace*{8em}
+				
+				\item[\textbf{Step 2}]. \underline{\textbf{证明：$T \in L(X , Y)$}}：\\
+				根据\textbf{$B^*$ 空间线性算子连续与有界等价 (Prop \ref{prop 4.1.1})}, 即证$T \in Hom(X , Y)$ 有界：\\
+				Since $\{ T_n \}_{n = 1}^{\infty} \subset L(X , Y)$ is a Cauchy sequence, 而Cauchy列均有界, then $\exists M > 0$, $\st$
+				\[ \Vert T_n \Vert \leq M , \,\, \forall n \in \N \]
+				Thus 
+				\begin{align*}
+					\Vert T x \Vert_Y 
+					&\leq \Vert Tx - T_n x \Vert_Y + \Vert T_n x \Vert_Y \\
+					&\leq \Vert Tx - T_n x \Vert_Y + M \cdot \Vert x \Vert_X , \,\, \forall n \in \N , \,\, \forall x \in X
+				\end{align*}
+				Letting $n \to \infty$, since $T_n \overset{s}{\to} T$, then 
+				\[ \Vert T x \Vert_Y \leq M \cdot \Vert x \Vert_X , \,\, \forall x \in X \]
+				Then by \textbf{有界线性算子的等价刻画 (Def \ref{def 4.1.3})}, $T$ is bounded, hence $T \in L(X , Y)$ continuous. 
+				
+				\vspace*{10em}
+				
+				\item[\textbf{Step 3}]. \underline{\textbf{证明$T_n \rightrightarrows T$ 依范数收敛 (一致收敛)}}：\\
+				Since $\{ T_n \}_{n = 1}^{\infty} \subset L(X , Y)$ Cauchy, then for $\forall \varepsilon = \dfrac{1}{k}$, $\exists N_{k} \in \N$, $\st$
+				\[ \Vert T_n - T_m \Vert \leq \frac{1}{k} , \,\, \forall n , m \geq N_k \]
+				Thus
+				\begin{align*}
+					\Vert (T_n - T) x \Vert_Y 
+					&\leq \Vert (T_n - T_m) x \Vert_Y + \Vert T_m x - Tx \Vert_Y \\
+					&\leq \frac{1}{k} \Vert x \Vert_X + \Vert T_m x - Tx \Vert_Y , \,\, \forall m , n \geq N_k , \,\, \forall x \in X
+				\end{align*}
+				Letting $m \to \infty$, since $T_n \overset{s}{\to} T$, then
+				\[ \Vert (T_n - T) x \Vert_Y \leq \frac{1}{k} \Vert x \Vert_X , \,\, \forall n \geq N_k , \,\, \forall x \in X \]
+				Therefore, $\Vert T_{N_k} - T \Vert \leq \dfrac{1}{k} , \,\, \forall k \in \N$. Letting $k \to \infty$, we have
+				\[ T_{N_k} \rightrightarrows T \]
+				i.e. $T_n \rightrightarrows T$. 
+			\end{enumerate}
+		\end{proof}
+	\end{thm}
+
+\newpage
+
+\section{关于谱的不等式}
+	这一节我们来给出一个有关\textbf{谱}的不等式, \textbf{线性算子的谱}是对矩阵的特征值的推广, 我们将在后续介绍. 
+	
+	\vspace*{2em}
+	
+	\begin{thm}\label{thm 4.4.1}
+		\textbf{[有关谱的不等式]}. \\
+		Suppose $X \in B^*$, $T \in L(X) \coloneqq L(X , X)$. Then
+		\[ \lim_{n \to \infty} \Big\Vert T^n \Big\Vert^{\tfrac{1}{n}} = \inf_{n \geq 1} \Big\Vert T^n \Big\Vert^{\tfrac{1}{n}} \]
+		
+		\vspace*{4em}
+		
+		\begin{rmk}
+			在证明前先回顾数列的一个结论, 即对于$\forall \{ a_n \}_{n = 1}^{\infty} \subset \R$, 有
+			\[ \inf_{n \geq 1} a_n \leq \varliminf_{n \to \infty} a_n \]
+			\begin{proof}
+				由于$\underset{n \geq 1}{\inf} a_n \leq a_k , \,\, \forall k \in \N$, 因此两侧对$a_k , \,\, \forall k \in \N$ 取下极限即得证. 
+			\end{proof}
+		\end{rmk}
+		
+		\vspace*{6em}
+		
+		\begin{proof}
+			下面分两步来证明：
+			\begin{enumerate}
+				\item[\textbf{Step 1}]. \underline{\textbf{证明：$\underset{n \geq 1}{\inf} \Big\Vert T^n \Big\Vert^{\tfrac{1}{n}} \leq \underset{n \to \infty}{\varliminf} \Big\Vert T^n \Big\Vert^{\tfrac{1}{n}}$}}：
+				
+				\vspace*{1em}
+				
+				首先根据\textbf{连续线性算子的复合保持连续性 (Def \ref{def 4.2.1})}, $\Vert ST \Vert \leq \Vert S \Vert \cdot \Vert T \Vert , \,\, \forall S \in L(Y , Z) , T \in L(X , Y)$, then
+				\[ \Vert T^n \Vert \leq \Vert T \Vert^n , \,\, \forall T \in L(X) \]
+				i.e. $\Big\Vert T^n \Big\Vert^{\tfrac{1}{n}} \leq \Vert T \Vert < \infty , \,\, \forall T \in L(X) , \,\, \forall n \in \N$. 故上述运算均有限. \\
+				根据\textbf{Remark} 中有关数列的结论可得, 
+				\[ \inf_{n \geq 1} \Big\Vert T^n \Big\Vert^{\tfrac{1}{n}} \leq \varliminf_{n \to \infty} \Big\Vert T^n \Big\Vert^{\tfrac{1}{n}} , \,\, \forall T \in L(X) \]
+				
+				\newpage
+				
+				\item[\textbf{Step 2}]. \underline{\textbf{证明：$\underset{n \to \infty}{\varlimsup} \Big\Vert T^n \Big\Vert^{\tfrac{1}{n}} \leq \underset{n \geq 1}{\inf} \Big\Vert T^n \Big\Vert^{\tfrac{1}{n}}$}}：
+				
+				\vspace*{1em}
+				
+				不妨设$T \neq \overrightarrow{0}$, 记$r = \underset{n \geq 1}{\inf} \Big\Vert T^n \Big\Vert^{\tfrac{1}{n}} < \infty$. 根据下确界的性质, $\forall \varepsilon > 0$, $\exists N \in \N$, $\st$
+				\[ r \leq \Big\Vert T^N \Big\Vert^{\tfrac{1}{N}} < r + \varepsilon \]
+				对于$\forall n \geq N$, 作带余除法$n = kN + q$, $0 \leq q < N$. 则 \\
+				根据$\Vert ST \Vert \leq \Vert S \Vert \cdot \Vert T \Vert , \,\, \forall S \in L(Y , Z) , T \in L(X , Y)$ (\textbf{Def \ref{def 4.2.1}}), 
+				\begin{align*}
+					\Big\Vert T^n \Big\Vert^{\tfrac{1}{n}} 
+					= \Big\Vert T^{kN + q} \Big\Vert^{\tfrac{1}{n}} 
+					= \Big\Vert T^{kN} \circ T^q \Big\Vert^{\tfrac{1}{n}} 
+					&\leq \Big\Vert T^{kN} \Big\Vert^{\tfrac{1}{n}} \cdot \Big\Vert T^q \Big\Vert^{\tfrac{1}{n}} \\
+					&= \Big\Vert T^N \circ \cdots \circ T^N \Big\Vert^{\tfrac{1}{n}} \cdot \Big\Vert T \circ \cdots \circ T \Big\Vert^{\tfrac{1}{n}} \\
+					&\leq \Big\Vert T^N \Big\Vert^{\tfrac{k}{n}} \cdot \Big\Vert T \Big\Vert^{\tfrac{q}{n}} \\
+					&= \left( \Big\Vert T^N \Big\Vert^{\tfrac{1}{N}} \right)^{\tfrac{kN}{n}} \cdot \Big\Vert T \Big\Vert^{\tfrac{q}{n}}
+				\end{align*}
+				Let $M = \max \Big\{ \Vert T \Vert , \Vert T \Vert^2 , \cdots , \Vert T \Vert^q \Big\} < \infty$. Since $0 \leq q < N$, then 
+				\[ \Big\Vert T^n \Big\Vert^{\tfrac{1}{n}} \leq M^{\tfrac{1}{n}} \cdot \left( \Big\Vert T^N \Big\Vert^{\tfrac{1}{N}} \right)^{\tfrac{kN}{n}} , \,\, \forall n \geq N \]
+				Since $\dfrac{kN}{n} \to 1$ as $n \to \infty$, then 不等式两侧取上极限, we have
+				\[ \varlimsup_{n \to \infty} \Big\Vert T^n \Big\Vert^{\tfrac{1}{n}} \leq \Big\Vert T^N \Big\Vert^{\tfrac{1}{N}} \leq r + \varepsilon , \,\, \forall \varepsilon > 0 \]
+				Letting $\varepsilon \to 0^+$, 
+				\[ \varlimsup_{n \to \infty} \Big\Vert T^n \Big\Vert^{\tfrac{1}{n}} \leq r = \inf_{n \geq 1} \Big\Vert T^n \Big\Vert^{\tfrac{1}{n}} , \,\, \forall T \in L(X) \]
+			\end{enumerate}
+			
+			\vspace*{4em}
+			
+			\hspace*{-1.95em}综上所述, 
+			\[ \varlimsup_{n \to \infty} \Big\Vert T^n \Big\Vert^{\tfrac{1}{n}} 
+			\leq \inf_{n \geq 1} \Big\Vert T^n \Big\Vert^{\tfrac{1}{n}} 
+			\leq \varliminf_{n \to \infty} \Big\Vert T^n \Big\Vert^{\tfrac{1}{n}} \]
+			从而极限$\underset{n \to \infty}{\lim} \Big\Vert T^n \Big\Vert^{\tfrac{1}{n}}$ 存在, 且
+			\[ \lim_{n \to \infty} \Big\Vert T^n \Big\Vert^{\tfrac{1}{n}} = \inf_{n \geq 1} \Big\Vert T^n \Big\Vert^{\tfrac{1}{n}} \]
+		\end{proof}
+	\end{thm}
+
+\newpage
+
+\section{开映射定理}
+	这一节我们将介绍\textbf{开映射定理}, 即对于$B$ 空间上的连续线性算子$T \in L(X , Y)$, 若$TX$ 为第二纲集, 则$T$ 为满射且为开映射. 在此之前, 先给出\textbf{$B^*$ 空间上线性算子为开映射的等价刻画}. 
+	
+	\vspace*{1em}
+	
+	\begin{lemma}\label{lemma 4.5.1}
+		\textbf{[$B^*$ 空间上线性算子为开映射的等价刻画]}. \\
+		Suppose $X , Y \in B^*$, $T \in Hom(X , Y)$. Then
+		\begin{center}
+			$T$ 为开映射 $\,\, \Leftrightarrow \,\, \exists \delta > 0$, $\st B_Y(0,  \delta) \subset T \Big( B_X(0 , 1) \Big)$
+		\end{center}
+		
+		\vspace*{4em}
+		
+		\begin{proof}
+			\begin{itemize}
+				\item \textbf{必要性$\Rightarrow$}：Since $T \in Hom(X , Y)$ 为开映射, $B_{X}(0 , 1) \subset X$ open, then 
+				\[ 0 \in T \Big( B_X(0 , 1) \Big) \subset Y \,\, \text{open} \]
+				Since $0 \in T \Big( B_{X}(0 , 1) \Big)$ open, then $\exists \delta > 0$, $\st$
+				\[ B_Y(0 , \delta) \subset T \Big( B_X(0 , 1) \Big) \]
+				
+				\vspace*{6em}
+				
+				\item \textbf{充分性$\Leftarrow$}：$\forall U \subset X$ open, 下面证明$TU \subset Y$ open：\\
+				$\forall y_0 \in TU$, $\exists x_0 \in U$, $\st Tx_0 = y_0$. By the given condition, $\exists \delta > 0$, $\st$
+				\[ B_Y(0 , \delta) \subset T \Big( B_X(0 , 1) \Big) \]
+				Since $T \in Hom(X , Y)$ is linear, then 上述条件等价于
+				\[ B_Y(y_0 , r\delta) \subset T \Big( B_X(x_0 , r) \Big) , \,\, \forall r > 0 \]
+				Since $x_0 \in U$ open, then $\exists r_0 > 0$, $\st$
+				\[ B_X(x_0 , r_0) \subset U \]
+				Hence
+				\[ B_Y(y_0 , r_0\delta) \subset T \Big( B_X(0 , r_0) \Big) \subset TU \]
+				Therefore, $B_Y(Tx_0 , r_0) \subset TU , \,\, \forall x_0 \in U$. $T \in Hom(X , Y)$ 为开映射. 
+			\end{itemize}
+		\end{proof}
+	\end{lemma}
+	
+	\newpage
+	
+	下面给出\textbf{开映射定理}的表述. 
+	
+	\begin{thm}\label{thm 4.5.2}
+		\textbf{[Banach Open Mapping Theorem]}. \\
+		Suppose $X , Y \in B$, $T \in L(X , Y)$, $TX$ 为第二纲集, 则
+		\begin{center}
+			\textbf{$T$ 为开映射, 且为满射}.
+		\end{center} 
+		
+		\vspace*{4em}
+		
+		\begin{proof}
+			\begin{enumerate}
+				\item \underline{\textbf{$T$ 为开映射}}：根据\textbf{$B^*$ 空间上线性映射为开映射的等价刻画 (Lemma \ref{lemma 4.5.1})}, 即证\\
+				$\exists \delta > 0$, $\st$
+				\[ B_{Y}(0 , \delta) \subset T \Big( B_X(0 , 1) \Big) \]
+				Since 
+				\[ X = \bigcup_{n \geq 1} B_X(0 , n) = \bigcup_{n \geq 1} n B_X(0 , 1) \]
+				Then 
+				\[ TX = \bigcup_{n \geq 1} n T \Big( B_X(0 , 1) \Big) \]
+				由于$TX$ 为第二纲集, 因此$T \Big( B_X(0 , 1) \Big) \subset Y$ 非稀疏集.
+				\begin{center}
+					(否则$TX$ 即为可数个稀疏集的并, 故为第一纲集, 与$TX$ 为第二纲集矛盾) 
+				\end{center}
+				从而$\exists$ 内点$y_0 \in \left( \overline{T \Big( B_X(0 , 1) \Big)} \right)^{\circ}$, then $\exists \delta_0 > 0$, $\st$
+				\[ B_Y(y_0 , \delta_0) \subset \overline{T \Big( B_X(0 , 1) \Big)} \]
+				由于$B_X(0 , 1) \subset X$ 为对称凸集, $T \in L(X ,Y)$ linear, 因此$\overline{T \Big( B_X(0 , 1) \Big)} \subset Y$ 也为对称凸集. \\
+				Since $\{ y_0 \} \subset \overline{T \Big( B_X(0 , 1) \Big)}$, then $\{ - y_0 \} \subset \overline{T \Big( B_X(0 , 1) \Big)}$. Thus
+				\[ B_Y(0 , \delta_0) = \{ - y_0 \} + B_Y(y_0 , \delta_0) \subset \{ -y_0 \} + \overline{T \Big( B_X(0 , 1) \Big)} \subset \overline{T \Big( B_X(0 , 2) \Big)} \]
+				i.e.
+				\[ B_Y(0 , \delta_0) \subset \overline{T \Big( B_X (0 , 2) \Big)} \]
+				Let $\delta^{'} = \dfrac{\delta_0}{2}$, then by the linearity of $T$,
+				\[ B_Y(0 , \delta^{'}) \subset \overline{T \Big( B_X(0 , 1) \Big)} \]
+				Similarly, we have
+				\[ B_Y(0 , \frac{\delta^{'}}{3^k}) \subset \overline{T \Big( B_X(0 , \frac{1}{3^k}) \Big)} , \,\, \forall k \in \N \]
+				
+				\newpage
+				
+				Take $\delta = \dfrac{\delta^{'}}{3}$. 下面证明$B_Y(0 , \delta) \subset T \Big( B_X (0 , 1) \Big)$：即对于$\forall y \in B_Y(0 , \delta)$, 证明$y \in T \Big( B_X(0 , 1) \Big)$：\\
+				Since $y \in B_Y(0 , \dfrac{\delta^{'}}{3}) \subset \overline{T \Big( B_X(0 , \dfrac{1}{3}) \Big)}$, then for $\varepsilon = \dfrac{\delta}{3} > 0$, $\exists x_1 \in B_X(0 , \dfrac{1}{3})$, $\st$
+				\[ \Vert y - Tx_1 \Vert_Y < \frac{\delta}{3} \]
+				Since $y - Tx_1 \in B_Y(0 , \dfrac{\delta}{3}) \subset \overline{T \Big( B_X (0 , \dfrac{1}{3^2}) \Big)}$, then for $\varepsilon = \dfrac{\delta}{3^2} > 0$, $\exists x_2 \in B_X(0 , \dfrac{1}{3^2})$, $\st$ 
+				\[ \Vert y - Tx_1 - Tx_2 \Vert_Y = \Vert y - T(x_1 + x_2) \Vert_Y < \frac{\delta}{3^2} \]
+				\begin{center}
+					$\cdots$ 
+				\end{center}
+				Then we get a sequence $\{ x_n \}_{n = 1}^{\infty} \subset B_X(0 , 1)$ with $\Vert x_n \Vert_X < \dfrac{1}{3^n}$. Thus
+				\[ \sum_{n = 1}^{\infty} \Vert x_n \Vert_X \leq \frac{1}{2} < 1 < \infty \,\, \text{绝对收敛} \]
+				Since $X \in B$ complete, then by \textbf{$B^*$ 空间完备的等价刻画 (Thm \ref{thm 2.1.2})}, $\overset{\infty}{\underset{n = 1}{\sum}} x_n$ converges.\\ 
+				i.e. $\exists x \in X$, $\st$
+				\[ x = \sum_{n = 1}^{\infty} x_n \in X \]
+				Since $\Vert x \Vert_X \leq \overset{\infty}{\underset{n = 1}{\sum}} \Vert x_n \Vert_X < 1$, then $x \in B_X(0 , 1)$. Since 
+				\[ \Vert y - T \Big( \sum_{k = 1}^n x_k \Big) \Vert_Y < \frac{\delta}{3^n} , \,\, \forall n \in \N \]
+				Then letting $n \to \infty$, by the continuity of $T$ and $\Vert \cdot \Vert_Y$, we have
+				\[ \Vert y - Tx \Vert_Y = 0 \]
+				i.e. 
+				\[ y = Tx \in T \Big( B_X(0 , 1) \Big) , \,\, \forall y \in B_Y(0 , \delta) \]
+				Therefore, 
+				\[ B_Y(0 , \delta) \subset T \Big( B_X(0 , 1) \Big) \]
+				
+				\vspace*{2.5em}
+				
+				\item \underline{\textbf{$T$ 为满射}}：即证$TX = Y$：\\
+				Since $B_Y(0 , \delta) \subset T \Big( B_X(0 , 1) \Big)$, then
+				\[ Y = \bigcup_{n \geq 1} B_Y(0 , n \delta) 
+				\subset \bigcup_{n \geq 1} T \Big( B_X(0 , n) \Big) 
+				= TX \subset Y \]
+				Therefore, $TX = Y$. $T \in L(X , Y)$ is surjective.
+			\end{enumerate}
+		\end{proof}
+	\end{thm}
 
 
 	%  ############################

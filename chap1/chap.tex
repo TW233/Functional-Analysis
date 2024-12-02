@@ -1405,10 +1405,10 @@
 \newpage
 
 \section{Arzel\`{a}-Ascoli定理}
-	接下来我们将介绍\textbf{Arezel\`{a}-Ascoli定理}, 它给出了\textbf{紧致度量空间$X$ 上连续函数全体$(C(X) , d)$ 的(列)紧子集的等价刻画}.
+	接下来我们将介绍\textbf{Arzel\`{a}-Ascoli定理}, 它给出了\textbf{紧致度量空间$X$ 上连续函数全体$(C(X) , d)$ 的(列)紧子集的等价刻画}.
 	
 	\begin{thm}\label{thm 1.8.1}
-		\textbf{[Arezel\`{a}-Ascoli]}. \\
+		\textbf{[Arzel\`{a}-Ascoli]}. \\
 		设$(X , \rho)$ 为紧致度量空间, $A \subset C(X)$, 则：
 		\begin{center}
 			$A$ 列紧 $\,\, \Leftrightarrow \,\, A$ 一致有界且等度连续
@@ -1464,12 +1464,15 @@
 				
 				\vspace{8em}
 				
-				\item[$\Leftarrow$]: Since $A$ 等度连续, then for $\forall \epsilon > 0$, $\exists \delta > 0$, $\st$
+				\item[$\Leftarrow$]: Since $(C(X) , d)$ complete, then by \textbf{完备度量空间列紧与完全有界等价 (Thm \ref{thm 1.4.1})}, \\
+				即证$A$ 完全有界：$\forall \epsilon > 0$, 下面证明$A$ 存在有穷$\epsilon$-网：\\
+				Since $A$ 等度连续, then $\exists \delta > 0$, $\st$
 				\[ \left| \varphi(x) - \varphi(y) \right| < \frac{\epsilon}{3} , \,\, \forall \rho(x , y) < \delta , \,\, \forall \varphi \in A \]
 				Since $X$ is compact, then $X$ 存在有穷$\delta$-网, i.e. $\exists \{ x_{1}^\delta , \cdots , x_{n}^\delta \} \subset X$, $\st$
 				\[ X \subset \bigcup_{i = 1}^{n} B(x_{i}^n , \delta) \]
 				Let
 				\[ \widetilde{A} = \left\{ \left( \varphi(x_{1}^\delta) , \cdots , \varphi(x_{n}^\delta) \right) \in \mathbb{K}^n \mid \varphi \in A \right\} \]
+				\newpage
 				and denote
 				\begin{align}
 					\widetilde{\varphi} : X^n &\longrightarrow \mathbb{K}^n \\
@@ -1482,7 +1485,7 @@
 					$\Rightarrow \,\, \widetilde{A} \subset \mathbb{K}^n$ is bounded in $\mathbb{K}^n$
 				\end{center}
 				Since both in $\R^n$ and $\C^n$, 有界$\,\, \Leftrightarrow \,\,$ 列紧 $\,\, \Leftrightarrow \,\,$ 完全有界, then $\widetilde{A}$ 完全有界. \\
-				Thus $\widetilde{A}$ 存在有穷$\delta$-网, i.e. $\exists \{ \widetilde{\varphi_1}(x^\delta) , \cdots , \widetilde{\varphi_m}(x^\delta) \} \subset \widetilde{A}$, $\st$
+				Thus $\widetilde{A}$ 存在有穷$\dfrac{\epsilon}{3}$-网, i.e. $\exists \{ \widetilde{\varphi_1}(x^\delta) , \cdots , \widetilde{\varphi_m}(x^\delta) \} \subset \widetilde{A}$, $\st$
 				\[ \widetilde{A} \subset \bigcup_{i = 1}^{m} B( \widetilde{\varphi_i}(x^\delta) , \frac{\epsilon}{3}) \]
 				下面证明：$\{ \varphi_1 , \cdots , \varphi_m \}$ 即为$A$ 的有穷$\epsilon$-网：\\
 				$\forall \varphi \in A$, $\exists 1 \leq i_0 \leq m$, $\st$

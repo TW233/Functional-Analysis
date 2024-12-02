@@ -252,7 +252,7 @@
 					&= \frac{1}{8} \Big[ 2 \Big( \Vert x + z \Vert^2 + \Vert y + z \Vert^2 \Big) - 2 \Big( \Vert x - z \Vert^2 + \Vert y - z \Vert^2 \Big) \Big] \\
 					&= \frac{1}{8} \Big( \Vert x + y + 2z \Vert^2 + \Vert x - y \Vert^2 - \Vert x + y - 2z \Vert^2 - \Vert x - y \Vert^2 \Big) \\ 
 					&= \frac{1}{8} \Big( \Vert x + y + 2z \Vert^2 - \Vert x + y - 2z \Vert^2 \Big) \\
-					&= \frac{1}{2} (x + y , 2z) 
+					&= \frac{1}{2} \Big( \left\Vert \frac{x + y}{2} + z \right\Vert^2 - \left\Vert \frac{x + y}{2} - z \right\Vert^2 \Big) 
 					= 2 \left( \frac{x + y}{2} , z \right) , \,\, \forall x , y , z \in X
 				\end{align}
 				Let $y = 0$, we get
@@ -632,9 +632,8 @@
 				
 				\vspace{5em}
 				
-				\item[(\rmnum{4})] Since $M \subset \overline{M}$, then 
-				\[ X = M \oplus M^{\perp} \subset \overline{M} \oplus M^{\perp} \]
-				Thus $X = \overline{M} \oplus M^{\perp}$. Since $M^{\perp} = \{ 0 \}$, then $X = \overline{M}$.
+				\item[(\rmnum{4})] Since $M^{\perp} = \overline{M}^{\perp} = \{ 0 \}$, and $\overline{M} \subset X$ 为闭子空间, then by (\rmnum{1}), 
+				\[ X = \overline{M} \oplus \overline{M}^{\perp} = \overline{M} \]
 			\end{enumerate}
 		\end{proof}
 	\end{proposition}
@@ -673,8 +672,8 @@
 					\Leftrightarrow \,\, t^2 \Vert y - z \Vert^2 + 2t \, Re(x - y , y - z) 
 					&\geq 0 , \,\, \forall t \in [0 , 1]
 				\end{align}
-				Calculate 该二次函数判别式, we get
-				\[ \Delta = 4 Re(x - y , y - z)^2 \leq 0 \,\, \Rightarrow \,\, Re(x - y , y - z) = 0 , \,\, \forall z \in M \]
+				Therefore, 
+				\[ Re(x - y , y - z) \geq 0 , \,\, \forall z \in M \]
 				
 				\vspace{4em}
 				

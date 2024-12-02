@@ -69,5 +69,9 @@
 \contentsline {subsection}{\numberline {3.4.3}可分Hilbert空间的分类}{87}{subsection.3.4.3}%
 \contentsline {chapter}{\numberline {第四章\hspace {.3em}}线性算子与线性泛函}{89}{chapter.4}%
 \contentsline {section}{\numberline {4.1}线性算子$\&$ 线性泛函}{89}{section.4.1}%
-\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}$Supplementary \,\, Content$}{95}{appendix.A}%
-\contentsline {section}{\numberline {A.1}度量空间稠密子集的等价刻画}{95}{section.A.1}%
+\contentsline {section}{\numberline {4.2}算子范数}{95}{section.4.2}%
+\contentsline {section}{\numberline {4.3}强收敛与一致收敛}{98}{section.4.3}%
+\contentsline {section}{\numberline {4.4}关于谱的不等式}{101}{section.4.4}%
+\contentsline {section}{\numberline {4.5}开映射定理}{103}{section.4.5}%
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}$Supplementary \,\, Content$}{106}{appendix.A}%
+\contentsline {section}{\numberline {A.1}度量空间稠密子集的等价刻画}{106}{section.A.1}%
