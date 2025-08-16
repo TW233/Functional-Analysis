@@ -1,0 +1,7 @@
+# LaTeX 辅助文件
+*.aux
+*.log
+*.toc
+*.out
+*.bbl
+*.blg

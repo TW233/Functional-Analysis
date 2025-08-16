@@ -170,20 +170,25 @@
 			要证：$\{ f_n \}_{n = 1}^{\infty}$ 收敛. \\
 			只需证：$\{ f_{n_k} \}_{k = 1}^{\infty} \subset \{ f_n \}_{n = 1}^{\infty}$ 收敛. Let
 			\[ g_{m}(x) = \sum_{k = 1}^{m} \left| f_{n_{k + 1}} - f_{n_k} \right| (x) , \,\, \forall m \in \N , x \in [a , b] \]
-			Then $g_m \in L^p$, $g_m \geq 0$ and $g_{m} \leq g_{m + 1}$ 单调递增, and
-			\[ g_{m}(x) \leq \sum_{k = 1}^{m} \frac{1}{2^k} \leq 1 , \,\, \forall m \in \N \]
+			Then $g_m \in L^p$, $g_m \geq 0$ and $g_{m} \leq g_{m + 1}$ 单调递增, and by \textbf{Minkowski Inequality (Thm \ref{thm 1.1.4})}, 
+			\[ \big\Vert g_{m} \big\Vert_p 
+			= \left\Vert \sum_{k = 1}^m \left| f_{n_{k + 1}} - f_{n_k} \right| \right\Vert_p 
+			\leq \sum_{k = 1}^m \left\Vert f_{n_{k + 1}} - f_{n_k} \right\Vert_p
+			\leq \sum_{k = 1}^{m} \frac{1}{2^k} 
+			\leq 1 , \,\, \forall m \in \N \]
 			记
-			\[ g(x) = \lim_{m \to \infty} g_{m}(x) = \sum_{k = 1}^{\infty} \left| f_{n_{k + 1}} - f_{n_k} \right| (x) \leq 1 \]
+			\[ g(x) = \lim_{m \to \infty} g_{m}(x) = \sum_{k = 1}^{\infty} \left| f_{n_{k + 1}} - f_{n_k} \right| (x) \]
 			Then $g_{m}^p \in L^1$, $g_{m}^p \geq 0$, $g_{m}^p \leq g_{m + 1}^p$. By \textbf{MCT (单调收敛定理)\footnote{\textbf{Monotone Convergence Theorem}, 详见$Real \,\, Analysis$ 笔记 \textbf{定理 3.1.2 $\&$ 定理 3.1.4}.}}, 
 			\[ \lim_{m \to \infty} \int_{[a , b]} g_{m}^p(x) \, d\mu = \int_{[a , b]} \lim_{m \to \infty} g_{m}^p(x) \, d\mu \]
 			Thus
 			\begin{align}
 				\left( \int_{[a , b]} \left| g(x) \right|^p \, d\mu \right)^{\tfrac{1}{p}} 
 				&= \lim_{m \to \infty} \left( \int_{[a , b]} \left| g_{m}(x) \right|^p \, d\mu \right)^{\tfrac{1}{p}} \\
-				&\leq \lim_{m \to \infty} \left( \int_{[a , b]} 1 \, d\mu \right)^{\tfrac{1}{p}} \\
-				&= (b - a)^{\tfrac{1}{p}} < \infty
+				&= \lim_{m \to \infty} \big\Vert g_m \big\Vert_p \\
+				&\leq \lim_{m \to \infty} 1 
+				= 1 < \infty
 			\end{align}
-			i.e. $\Vert g \Vert_{p} \leq (b - a)^{\tfrac{1}{p}} < \infty$, then $g \in L^p$. 故$g_m \overset{a.e.}{\to} g \in L^p$. \\
+			i.e. $\Vert g \Vert_{p} \leq 1 < \infty$, then $g \in L^p$. 故$g_m \overset{a.e.}{\to} g \in L^p$. \\
 			由于$\overset{m}{\underset{k = 1}{\sum}} \left| f_{n_{k + 1}} - f_{n_k} \right|(x)$ 与$f_{n_k}(x)$ 有相同的收敛性, 因此$\exists f \in L^p$, $\st$
 			\[ f_{n_k} \overset{a.e.}{\to} f \,\, as \,\, k \to \infty \]
 			下面来证明$f_{n_k}$ 在$p$-范数$\Vert \cdot \Vert_p$ 意义下收敛于$f$：\\
